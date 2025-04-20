@@ -1,0 +1,41 @@
+{
+  "name": "material-next",
+  "version": "5.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
+  },
+  "dependencies": {
+    "@emotion/cache": "latest",
+    "@emotion/react": "latest",
+    "@emotion/server": "latest",
+    "@emotion/styled": "latest",
+    "@hapi/iron": "6.0.0",
+    "@mapbox/togeojson": "^0.16.2",
+    "@mui/icons-material": "latest",
+    "@mui/material": "latest",
+    "@xmldom/xmldom": "^0.8.10",
+    "chart.js": "^4.3.0",
+    "cookie": "0.4.1",
+    "mapbox-gl": "^2.15.0",
+    "next": "latest",
+    "next-connect": "0.8.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "prop-types": "latest",
+    "react": "latest",
+    "react-chartjs-2": "^5.2.0",
+    "react-countup": "^6.4.2",
+    "react-dom": "latest",
+    "swr": "^2.0.0",
+    "uuid": "8.3.1"
+  },
+  "devDependencies": {
+    "eslint": "latest",
+    "eslint-config-next": "latest"
+  }
+}

@@ -1,0 +1,999 @@
+import React, { useState, useEffect } from 'react'
+
+import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+
+import mapcss from './map.module.css'
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiZGVlcGltaGVyZSIsImEiOiJjbGtpaXBlcjIwYnU4M2RtanhwM3FyOWlrIn0.fOtppmYa8OXrwOPjIDXz7Q';
+
+export default function DMap({ mapData }) {
+  console.log("mapData",mapData)
+  const [Map, setMap] = useState();
+  const [pageIsMounted, setPageIsMounted] = useState(false);
+  const stores = mapData
+  // const stores = {
+  //   "type": "FeatureCollection",
+  //   "features": [
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.3409967,
+  //           28.0734783
+  //         ]
+  //       },
+  //       "village": "Bamni Khera",
+  //       "properties": {
+  //         "name": "Deep Chand, Plot 1",
+  //         "phoneFormatted": "(+91)9991-751-030",
+  //         "phone": 9991751030,
+  //         "aadhaar": "829579062911",
+  //         "address": "Bamni Khera",
+  //         "paddyVariety": 1121,
+  //         "UDPAcreage": 1,
+  //         "date": "17/07/2023",
+  //         "dateTime": "17-Jul'23 07:15pm"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.3416267,
+  //           28.0741217
+  //         ]
+  //       },
+  //       "village": "Bamni Khera",
+  //       "properties": {
+  //         "name": "Jitender, Plot 1",
+  //         "phoneFormatted": "(+91)9728-704-084",
+  //         "phone": 9728704084,
+  //         "aadhaar": "788000813467",
+  //         "address": "Bamni Khera",
+  //         "paddyVariety": 1692,
+  //         "UDPAcreage": 1,
+  //         "date": "18/07/2023",
+  //         "dateTime": "18-Jul'23 05:55pm"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.3417819,
+  //           28.0744346
+  //         ]
+  //       },
+  //       "village": "Bamni Khera",
+  //       "properties": {
+  //         "name": "Rahul, Plot 1",
+  //         "phoneFormatted": "(+91)8930-373-426",
+  //         "phone": 8930373426,
+  //         "aadhaar": "465128098903",
+  //         "address": "Bamni Khera",
+  //         "paddyVariety": 1692,
+  //         "UDPAcreage": 1,
+  //         "date": "18/07/2023",
+  //         "dateTime": "18-Jul'23 07:04pm"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.3493083,
+  //           28.0700567
+  //         ]
+  //       },
+  //       "village": "Bamni Khera",
+  //       "properties": {
+  //         "name": "Devendra Sharma, Plot 1",
+  //         "phoneFormatted": "(+91)7404-617-836",
+  //         "phone": 7404617836,
+  //         "aadhaar": "NA",
+  //         "address": "Bamni Khera",
+  //         "paddyVariety": 1718,
+  //         "UDPAcreage": 0.5,
+  //         "date": "17/07/2023",
+  //         "dateTime": "17-Jul'23 06:21pm"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.4099936,
+  //           27.9877178
+  //         ]
+  //       },
+  //       "village": "Bhupgarh",
+  //       "properties": {
+  //         "name": "Sanjeev Kumar, Plot 1",
+  //         "phoneFormatted": "(+91)8053-369-774",
+  //         "phone": 8053369774,
+  //         "aadhaar": "319145145656",
+  //         "address": "Bhupgarh (Pingaud)",
+  //         "paddyVariety": 1509,
+  //         "UDPAcreage": 2,
+  //         "date": "19/07/2023",
+  //         "dateTime": "19-Jul'23 08:49am"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.39073944091797,
+  //           28.012252807617188
+  //         ]
+  //       },
+  //       "village": "Pingore",
+  //       "properties": {
+  //         "name": "Satpal, Plot 1",
+  //         "phoneFormatted": "(+91)9368-338-556",
+  //         "phone": 9368338556,
+  //         "aadhaar": "449090037618",
+  //         "address": "Pingore",
+  //         "paddyVariety": "PR14",
+  //         "UDPAcreage": 3,
+  //         "date": "20/07/2023",
+  //         "dateTime": "20-Jul'23 02:14pm"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.4660732,
+  //           27.9895887
+  //         ]
+  //       },
+  //       "village": "Maachhipura",
+  //       "properties": {
+  //         "name": "Mohan Shyam, Plot 1",
+  //         "phoneFormatted": "(+91)8930-312-953",
+  //         "phone": 8930312953,
+  //         "aadhaar": "306254791382",
+  //         "address": "Maachhipura",
+  //         "paddyVariety": 1601,
+  //         "UDPAcreage": 1,
+  //         "date": "20/07/2023",
+  //         "dateTime": "20-Jul'23 04:27pm"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.4666733,
+  //           27.9901847
+  //         ]
+  //       },
+  //       "village": "Maachhipura",
+  //       "properties": {
+  //         "name": "Brij Lal, Plot 1",
+  //         "phoneFormatted": "(+91)8053-872-682",
+  //         "phone": 8053872682,
+  //         "aadhaar": "658267898007",
+  //         "address": "Maachhipura",
+  //         "paddyVariety": 1509,
+  //         "UDPAcreage": 1,
+  //         "date": "20/07/2023",
+  //         "dateTime": "20-Jul'23 04:35pm"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.34481811523438,
+  //           28.08233642578125
+  //         ]
+  //       },
+  //       "village": "Atohan",
+  //       "properties": {
+  //         "name": "Jile Singh, Plot 1",
+  //         "phoneFormatted": "(+91)9812-151-246",
+  //         "phone": 9812151246,
+  //         "aadhaar": "489457866017",
+  //         "address": "Atohan",
+  //         "paddyVariety": 1509,
+  //         "UDPAcreage": 0.5,
+  //         "date": "21/07/2023",
+  //         "dateTime": "21-Jul'23 11:19am"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.3459243774414,
+  //           28.085987091064453
+  //         ]
+  //       },
+  //       "village": "Atohan",
+  //       "properties": {
+  //         "name": "Jile Singh, Plot 2",
+  //         "phoneFormatted": "(+91)9812-151-246",
+  //         "phone": 9812151246,
+  //         "aadhaar": "489457866017",
+  //         "address": "Atohan",
+  //         "paddyVariety": 1509,
+  //         "UDPAcreage": 0.5,
+  //         "date": "21/07/2023",
+  //         "dateTime": "21-Jul'23 11:19am"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.34591674804688,
+  //           28.085981369018555
+  //         ]
+  //       },
+  //       "village": "Atohan",
+  //       "properties": {
+  //         "name": "Jile Singh, Plot 3",
+  //         "phoneFormatted": "(+91)9812-151-246",
+  //         "phone": 9812151246,
+  //         "aadhaar": "489457866017",
+  //         "address": "Atohan",
+  //         "paddyVariety": 1509,
+  //         "UDPAcreage": 1,
+  //         "date": "21/07/2023",
+  //         "dateTime": "21-Jul'23 11:19am"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.3509750366211,
+  //           28.087743759155273
+  //         ]
+  //       },
+  //       "village": "Atohan",
+  //       "properties": {
+  //         "name": "Jile Singh, Plot 4",
+  //         "phoneFormatted": "(+91)9812-151-246",
+  //         "phone": 9812151246,
+  //         "aadhaar": "489457866017",
+  //         "address": "Atohan",
+  //         "paddyVariety": 1509,
+  //         "UDPAcreage": 1.5,
+  //         "date": "21/07/2023",
+  //         "dateTime": "21-Jul'23 11:19am"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.34109497070312,
+  //           28.089859008789062
+  //         ]
+  //       },
+  //       "village": "Atohan",
+  //       "properties": {
+  //         "name": "Phool Singh, Plot 1",
+  //         "phoneFormatted": "(+91)9050-408-834",
+  //         "phone": 9050408834,
+  //         "aadhaar": "587289617733",
+  //         "address": "Atohan",
+  //         "paddyVariety": 1121,
+  //         "UDPAcreage": 1,
+  //         "date": "21/07/2023",
+  //         "dateTime": "21-Jul'23 07:19pm"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.3851851,
+  //           28.0970825
+  //         ]
+  //       },
+  //       "village": "Hosangabad",
+  //       "properties": {
+  //         "name": "Mahesh, Plot 1",
+  //         "phoneFormatted": "(+91)7015-144-953",
+  //         "phone": 7015144953,
+  //         "aadhaar": "615309223164",
+  //         "address": "Hosangabad",
+  //         "paddyVariety": 1131,
+  //         "UDPAcreage": 1,
+  //         "date": "21/07/2023",
+  //         "dateTime": "21-Jul'23 06:16pm"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.3901881,
+  //           28.1000533
+  //         ]
+  //       },
+  //       "village": "Hosangabad",
+  //       "properties": {
+  //         "name": "Ramesh Chand, Plot 1",
+  //         "phoneFormatted": "(+91)9466-666-910",
+  //         "phone": 9466666910,
+  //         "aadhaar": "649442809004",
+  //         "address": "Hosangabad",
+  //         "paddyVariety": 1121,
+  //         "UDPAcreage": 1,
+  //         "date": "22/07/2023",
+  //         "dateTime": "22-Jul'23 11:16am"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.34515380859375,
+  //           28.08014678955078
+  //         ]
+  //       },
+  //       "village": "Atohan",
+  //       "properties": {
+  //         "name": "Jile Singh, Plot 5",
+  //         "phoneFormatted": "(+91)9812-151-246",
+  //         "phone": 9812151246,
+  //         "aadhaar": "489457866017",
+  //         "address": "Atohan",
+  //         "paddyVariety": 1509,
+  //         "UDPAcreage": 1,
+  //         "date": "22/07/2023",
+  //         "dateTime": "22-Jul'23 02:50pm"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.34503936767578,
+  //           28.080110549926758
+  //         ]
+  //       },
+  //       "village": "Atohan",
+  //       "properties": {
+  //         "name": "Jile Singh, Plot 6",
+  //         "phoneFormatted": "(+91)9812-151-246",
+  //         "phone": 9812151246,
+  //         "aadhaar": "489457866017",
+  //         "address": "Atohan",
+  //         "paddyVariety": 1509,
+  //         "UDPAcreage": 1,
+  //         "date": "22/07/2023",
+  //         "dateTime": "22-Jul'23 02:50pm"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.4629057,
+  //           28.0156858
+  //         ]
+  //       },
+  //       "village": "Mohammadpur",
+  //       "properties": {
+  //         "name": "Bhoop Ram Pathak, Plot 1",
+  //         "phoneFormatted": "(+91)9416-633-350",
+  //         "phone": 9416633350,
+  //         "aadhaar": "923575847392",
+  //         "address": "Mohammadpur",
+  //         "paddyVariety": 1509,
+  //         "UDPAcreage": 1,
+  //         "date": "22/07/2023",
+  //         "dateTime": "22-Jul'23 03:40pm"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.4636055,
+  //           28.0147798
+  //         ]
+  //       },
+  //       "village": "Mohammadpur",
+  //       "properties": {
+  //         "name": "Sis Ram, Plot 1",
+  //         "phoneFormatted": "(+91)9416-633-350",
+  //         "phone": 9416633350,
+  //         "aadhaar": "736803492650",
+  //         "address": "Mohammadpur",
+  //         "paddyVariety": 1509,
+  //         "UDPAcreage": 1,
+  //         "date": "22/07/2023",
+  //         "dateTime": "22-Jul'23 03:40pm"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.4636055,
+  //           28.0147798
+  //         ]
+  //       },
+  //       "village": "Maachhipura",
+  //       "properties": {
+  //         "name": "Mohan Shyam, Plot 2",
+  //         "phoneFormatted": "(+91)8930-312-953",
+  //         "phone": 8930312953,
+  //         "aadhaar": "306254791382",
+  //         "address": "Maachhipura",
+  //         "paddyVariety": 1601,
+  //         "UDPAcreage": 1,
+  //         "date": "23/07/2023",
+  //         "dateTime": "23-Jul'23 06:30am"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.4656248,
+  //           27.9865348
+  //         ]
+  //       },
+  //       "village": "Maachhipura",
+  //       "properties": {
+  //         "name": "Brij Lal, Plot 2",
+  //         "phoneFormatted": "(+91)8053-872-682",
+  //         "phone": 8053872682,
+  //         "aadhaar": "658267898007",
+  //         "address": "Maachhipura",
+  //         "paddyVariety": 1509,
+  //         "UDPAcreage": 0.5,
+  //         "date": "23/07/2023",
+  //         "dateTime": "23-Jul'23 02:43pm"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.441803,
+  //           27.954054
+  //         ]
+  //       },
+  //       "village": "Likhi",
+  //       "properties": {
+  //         "name": "Surendra Singh, Plot 1",
+  //         "phoneFormatted": "(+91)9050-904-752",
+  //         "phone": 9050904752,
+  //         "aadhaar": "NA",
+  //         "address": "Likhi",
+  //         "paddyVariety": 1509,
+  //         "UDPAcreage": 1,
+  //         "date": "23/07/2023",
+  //         "dateTime": "23-Jul'23 10:37pm"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.441803,
+  //           27.954054
+  //         ]
+  //       },
+  //       "village": "Likhi",
+  //       "properties": {
+  //         "name": "Gajendra, Plot 1",
+  //         "phoneFormatted": "(+91)9050-904-752",
+  //         "phone": 9050904752,
+  //         "aadhaar": "387838084581",
+  //         "address": "Likhi",
+  //         "paddyVariety": 1509,
+  //         "UDPAcreage": 1,
+  //         "date": "23/07/2023",
+  //         "dateTime": "23-Jul'23 11:29pm"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.3907631,
+  //           28.0139378
+  //         ]
+  //       },
+  //       "village": "Pingore",
+  //       "properties": {
+  //         "name": "Chatar Singh, Plot 1",
+  //         "phoneFormatted": "(+91)9899-108-455",
+  //         "phone": 9899108455,
+  //         "aadhaar": "628071276819",
+  //         "address": "Pingore",
+  //         "paddyVariety": 1509,
+  //         "UDPAcreage": 2,
+  //         "date": "24/07/2023",
+  //         "dateTime": "24-Jul'23 09:33am"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.3893284,
+  //           28.0132308
+  //         ]
+  //       },
+  //       "village": "Pingore",
+  //       "properties": {
+  //         "name": "Dinesh Kumar, Plot 1",
+  //         "phoneFormatted": "",
+  //         "phone": "",
+  //         "aadhaar": "608626992546",
+  //         "address": "Pingore",
+  //         "paddyVariety": 1509,
+  //         "UDPAcreage": 2,
+  //         "date": "24/07/2023",
+  //         "dateTime": "24-Jul'23 03:30pm"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.4668718,
+  //           27.9903539
+  //         ]
+  //       },
+  //       "village": "Maachhipura",
+  //       "properties": {
+  //         "name": "Mohit Kumar, Plot 1",
+  //         "phoneFormatted": "(+91)7082-189-282",
+  //         "phone": 7082189282,
+  //         "aadhaar": "275952163663",
+  //         "address": "Maachhipura",
+  //         "paddyVariety": 1509,
+  //         "UDPAcreage": 1,
+  //         "date": "24/07/2023",
+  //         "dateTime": "24-Jul'23 05:46pm"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.4428486,
+  //           27.9534079
+  //         ]
+  //       },
+  //       "village": "Likhi",
+  //       "properties": {
+  //         "name": "Dinesh Singh, Plot 1",
+  //         "phoneFormatted": "(+91)8059-198-484",
+  //         "phone": 8059198484,
+  //         "aadhaar": "243428878269",
+  //         "address": "Likhi",
+  //         "paddyVariety": 1509,
+  //         "UDPAcreage": 1,
+  //         "date": "25/07/2023",
+  //         "dateTime": "25-Jul'23 08:44am"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.442783,
+  //           27.954388
+  //         ]
+  //       },
+  //       "village": "Likhi",
+  //       "properties": {
+  //         "name": "Rahul Singh, Plot 1",
+  //         "phoneFormatted": "(+91)9050-904-752",
+  //         "phone": 9050904752,
+  //         "aadhaar": "668902282688",
+  //         "address": "Likhi",
+  //         "paddyVariety": 1509,
+  //         "UDPAcreage": 1,
+  //         "date": "25/07/2023",
+  //         "dateTime": "25-Jul'23 09:43am"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.4588065,
+  //           27.9597033
+  //         ]
+  //       },
+  //       "village": "Likhi",
+  //       "properties": {
+  //         "name": "Gajender Singh, Plot 2",
+  //         "phoneFormatted": "(+91)9050-904-752",
+  //         "phone": 9050904752,
+  //         "aadhaar": "387838084581",
+  //         "address": "Likhi",
+  //         "paddyVariety": 1509,
+  //         "UDPAcreage": 1,
+  //         "date": "25/07/2023",
+  //         "dateTime": "25-Jul'23 01:41pm"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.39233,
+  //           28.013532
+  //         ]
+  //       },
+  //       "village": "Siya",
+  //       "properties": {
+  //         "name": "Baljeet Singh, Plot 1",
+  //         "phoneFormatted": "(+91)9899-108-455",
+  //         "phone": 9899108455,
+  //         "aadhaar": "824180017006",
+  //         "address": "Siya",
+  //         "paddyVariety": "",
+  //         "UDPAcreage": 2,
+  //         "date": "25/07/2023",
+  //         "dateTime": "25-Jul'23 01:10pm"
+  //       }
+  //     },
+  //     {
+  //       "type": "Feature",
+  //       "geometry": {
+  //         "type": "Point",
+  //         "coordinates": [
+  //           77.394178,
+  //           28.016018
+  //         ]
+  //       },
+  //       "village": "Siya",
+  //       "properties": {
+  //         "name": "Baljeet Singh, Plot 2",
+  //         "phoneFormatted": "(+91)9899-108-455",
+  //         "phone": 9899108455,
+  //         "aadhaar": "824180017006",
+  //         "address": "Siya",
+  //         "paddyVariety": "",
+  //         "UDPAcreage": 1,
+  //         "date": "25/07/2023",
+  //         "dateTime": "25-Jul'23 06:02pm"
+  //       }
+  //     }
+  //   ]
+  // }
+
+  /**
+  * Assign a unique id to each store. You'll use this `id`
+  * later to associate each point on the map with a listing
+  * in the sidebar.
+  */
+  stores.features.forEach((store, i) => {
+    store.properties.id = i;
+  });
+
+
+
+  useEffect(() => {
+    setPageIsMounted(true)
+    const map = new mapboxgl.Map({
+      container: 'map',
+      // style: 'mapbox://styles/mapbox/light-v10',
+      style: 'mapbox://styles/mapbox/outdoors-v12',
+      center: [77.3493083, 28.0700567],
+      zoom: 12.5,
+      scrollZoom: true
+    });
+
+    //  Deepak added this
+
+    // map.on('load', () => {
+    //   /* Add the data to your map as a layer */
+    //   map.addLayer({
+    //     id: 'locations',
+    //     type: 'circle',
+    //     paint: {
+    //       'circle-color': "#888",
+    //       'circle-radius':7
+    //     },
+
+    //     /* Add a GeoJSON source containing place coordinates and information. */
+    //     source: {
+    //       type: 'geojson',
+    //       data: stores
+    //     },
+    //     // layout: {
+    //     //   // Set the label content to the
+    //     //   // feature's `name` property
+    //     //   'text-field': ['get', 'city']
+    //     //   }
+    //   });
+    // });
+
+
+
+    //  for (const marker of stores.features) {
+    //    createPopUp(marker+"_new");
+    //  }
+
+    // Add zoom and rotation controls to the map.
+    map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+    setMap(map);
+
+
+  }, []);
+
+  useEffect(() => {
+    if (pageIsMounted && stores) {
+      Map.on('load', () => {
+        Map.addSource('places', {
+          'type': 'geojson',
+          'data': stores
+        });
+        buildLocationList(stores);
+        addMarkers();
+      });
+    }
+
+  });
+
+  /**
+   * Add a marker to the map for every store listing.
+   **/
+  function addMarkers() {
+    /* For each feature in the GeoJSON object above: */
+    for (const marker of stores.features) {
+      /* Create a div element for the marker. */
+      const el = document.createElement('div');
+      /* Assign a unique `id` to the marker. */
+      el.id = `marker-${marker.properties.id}`;
+      el.style.cssText = `
+      border: "none";
+    cursor: pointer;
+    height: 36px;
+    width: 36px;
+    background-image: url('tractor.gif');
+    background-repeat: no-repeat;
+    background-size: 36px 36px;`
+      // el.style.border = 'none';
+      // el.style.cursor = 'pointer';
+      // el.style.height = '56px';
+      // el.style.width = '56px';
+      // // el.style.backgroundImage = "url('marker.png')";
+      // el.style.backgroundImage = "url('tractor.gif')";
+      /* Assign the `marker` class to each marker for styling. */
+      el.className = 'marker';
+
+      /**
+       * Create a marker using the div element
+       * defined above and add it to the map.
+       **/
+      new mapboxgl.Marker(el, { offset: [8, 18] })
+        .setLngLat(marker.geometry.coordinates)
+        .addTo(Map);
+
+      /**
+       * Listen to the element and when it is clicked, do three things:
+       * 1. Fly to the point
+       * 2. Close all other popups and display popup for clicked store
+       * 3. Highlight listing in sidebar (and remove highlight for all other listings)
+       **/
+      el.addEventListener('click', (e) => {
+        /* Fly to the point */
+        flyToStore(marker);
+        /* Close all other popups and display popup for clicked store */
+        createPopUp(marker);
+        /* Highlight listing in sidebar */
+        const activeItem = document.getElementsByClassName('active');
+        e.stopPropagation();
+        if (activeItem[0]) {
+          activeItem[0].classList.remove('active');
+        }
+        const listing = document.getElementById(
+          `listing-${marker.properties.id}`
+        );
+        listing.classList.add('active');
+      });
+    }
+  }
+
+  /**
+   * Add a listing for each store to the sidebar.
+   **/
+  function buildLocationList(stores) {
+    for (const store of stores.features) {
+      /* Add a new listing section to the sidebar. */
+      const listings = document.getElementById('listings');
+      const listing = listings.appendChild(document.createElement('div'));
+      /* Assign a unique `id` to the listing. */
+      listing.id = `listing-${store.properties.id}`;
+      /* Assign the `item` class to each listing for styling. */
+      listing.className = 'item';
+      listing.style.cssText = ` display: block;
+      border-bottom: 1px solid #eee;
+      padding: 10px;
+      text-decoration: none;
+      background-color: #eee;
+    border: 1px solid #ccc;`;
+
+      /* Add the link to the individual listing created above. */
+      // const fName = listing.appendChild(document.createElement('div'));
+      // fName.innerHTML = `${store.properties.name}`;
+      // fName.style.cssText = `font-weight: bold;`;
+      const link = listing.appendChild(document.createElement('a'));
+      link.href = '#map';
+      link.className = 'title';
+      link.style.cssText = `display: block;
+      color: #00853e;
+      font-weight: 700;`;
+      link.id = `link-${store.properties.id}`;
+      link.innerHTML = `${store.properties.name} (view on map)`;
+
+      /* Add details to the individual listing. */
+      const details = listing.appendChild(document.createElement('div'));
+      details.innerHTML = `
+      
+      ${store.properties.address}`;
+      if (store.properties.phone) {
+        details.innerHTML += ` &middot; ${store.properties.phoneFormatted}`;
+      }
+      details.innerHTML += ` <br>AADHAAR : ${store.properties.aadhaar}`;
+      details.innerHTML += ` <br>${store.properties.UDPAcreage} acre(s) UDP done on ${store.properties.date}`;
+
+      /**
+       * Listen to the element and when it is clicked, do four things:
+       * 1. Update the `currentFeature` to the store associated with the clicked link
+       * 2. Fly to the point
+       * 3. Close all other popups and display popup for clicked store
+       * 4. Highlight listing in sidebar (and remove highlight for all other listings)
+       **/
+      link.addEventListener('click', function () {
+        for (const feature of stores.features) {
+          if (this.id === `link-${feature.properties.id}`) {
+            var element_to_scroll_to = document.getElementById('map')
+            element_to_scroll_to.scrollIntoView(true);
+            console.log("Flying to Store")
+            console.log(window.location.href)
+            flyToStore(feature);
+            createPopUp(feature);
+          }
+        }
+        const activeItem = document.getElementsByClassName('active');
+        if (activeItem[0]) {
+          activeItem[0].classList.remove('active');
+        }
+        this.parentNode.classList.add('active');
+      });
+    }
+  }
+
+  /**
+   * Use Mapbox GL JS's `flyTo` to move the camera smoothly
+   * a given center point.
+   **/
+  function flyToStore(currentFeature) {
+    // window.location.href = "#map";
+
+    Map.flyTo({
+      center: currentFeature.geometry.coordinates,
+      zoom: 15
+    });
+  }
+
+  /**
+   * Create a Mapbox GL JS `Popup`.
+   **/
+  function createPopUp(currentFeature) {
+    const popUps = document.getElementsByClassName('mapboxgl-popup');
+    // popUps.style.cssText = `transform: translate(-55%, -125%) translate(276px, 250px)`;
+    if (popUps[0]) popUps[0].remove();
+    const popup = new mapboxgl.Popup({ closeOnClick: false })
+      .setLngLat(currentFeature.geometry.coordinates)
+      .setHTML(
+        // `<h3>Sweetgreen</h3><h4>${currentFeature.properties.address}</h4>`
+        `
+        <style>
+      //   .mapboxgl-popup {
+      //     padding-bottom: 50px;
+      // }
+      
+      // .mapboxgl-popup-close-button {
+      //     display: none;
+      // }
+      
+      .mapboxgl-popup-content {
+          font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', sans-serif;
+          padding: 0;
+          width: 180px;
+      }
+      
+      .mapboxgl-popup-content h3 {
+          background: #91c949;
+          color: #fff;
+          margin: 0;
+          padding: 10px;
+          border-radius: 3px 3px 0 0;
+          font-weight: 700;
+          // margin-top: -15px;
+      }
+      
+      .mapboxgl-popup-content h4 {
+          margin: 0;
+          padding: 10px;
+          font-weight: 400;
+      }
+      
+      .mapboxgl-popup-content div {
+          padding: 10px;
+      }
+      
+      .mapboxgl-popup-anchor-top>.mapboxgl-popup-content {
+          // margin-top: 15px;
+      }
+      
+      .mapboxgl-popup-anchor-top>.mapboxgl-popup-tip {
+          border-bottom-color: #91c949;
+      }
+        </style>
+        
+        <h3 >${currentFeature.properties.name}</h3 > 
+        <h4>
+        Aadhaar: ${currentFeature.properties.aadhaar}<br>
+        Village: ${currentFeature.properties.address}<br>
+        ☎: ${currentFeature.properties.phoneFormatted}<br>
+        Paddy Variety: ${currentFeature.properties.paddyVariety}<br>
+        UDP Acreage: ${currentFeature.properties.UDPAcreage}<br>
+        Date: ${currentFeature.properties.date}
+        </h4>`
+      )
+      .addTo(Map);
+  }
+
+  return (
+    <>
+      {/* <div id="map" className="map"></div> */}
+      <div id="wrapper" className='wrapper'>
+        <div id="map" className={mapcss.map}></div>
+        {/* <div id='listings' className='listings'></div> */}
+        <div id='listings' className={mapcss.listings}></div>
+      </div>
+    </>
+
+  )
+}

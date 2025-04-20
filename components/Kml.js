@@ -1,0 +1,95 @@
+import React, { useState, useEffect } from 'react';
+import mapboxgl from 'mapbox-gl';
+const { DOMParser } = require('@xmldom/xmldom');
+const toGeoJSON = require('@mapbox/togeojson');
+mapboxgl.accessToken = 'pk.eyJ1IjoiZGVlcGltaGVyZSIsImEiOiJjbGtpaXBlcjIwYnU4M2RtanhwM3FyOWlrIn0.fOtppmYa8OXrwOPjIDXz7Q';
+const Map = ({ kmlData }) => {
+
+    const [Map, setMap] = useState();
+    const [pageIsMounted, setPageIsMounted] = useState(false);
+    //     kmlData = JSON.parse(kmlData)
+    //     // console.log("kmlData Before DOMParser", kmlData)
+    //     kmlData = new DOMParser().parseFromString(kmlData);
+    // console.log("kmlData after DOMParser", kmlData)
+    //     // Convert KML to GeoJSON
+    //     kmlData = toGeoJSON.kml(kmlData);
+    //     console.log("Inside Kml component", kmlData)
+
+
+
+    useEffect(() => {
+        setPageIsMounted(true)
+        const map = new mapboxgl.Map({
+            container: 'map',
+            // style: 'mapbox://styles/mapbox/light-v10',
+            style: 'mapbox://styles/mapbox/satellite-v9',
+            // center: [77.35160468146205, 28.04594100815025],
+            center: [77.33123548328876, 28.06279635607756], // Jitewnder combined
+            zoom: 16,
+            scrollZoom: true
+        });
+        // Add zoom and rotation controls to the map.
+        map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+        setMap(map); 
+
+
+
+    }, []);
+
+
+    useEffect(() => {
+        
+        if (pageIsMounted) {
+            console.log("Map",Map)
+            
+            // mapboxgl.accessToken = 'pk.eyJ1IjoiZGVlcGltaGVyZSIsImEiOiJjbGtpaXBlcjIwYnU4M2RtanhwM3FyOWlrIn0.fOtppmYa8OXrwOPjIDXz7Q';
+            // const map = new mapboxgl.Map({
+            //     container: 'map', // Replace with your map container ID
+            //     //   style: 'mapbox://styles/mapbox/streets-v11', // Replace with your desired style
+            //     style: 'mapbox://styles/mapbox/satellite-v9', // Replace with your desired style
+            //     //   center: [longitude, latitude], // Set your initial map center
+            //     // center: [77.33123548328876, 28.06279635607756], // Set your initial map center
+            //     center: [77.33123548328876, 28.06279635607756], // Jitewnder combined
+            //     // https://www.google.com/maps?q=28.06279635607756,77.33123548328876&z=17&t=k&hl=en
+            //     //   https://www.google.com/maps?q=28.04594100815025,77.35160468146205&z=17&t=k&hl=en
+            //     zoom: 16, // Set your initial zoom level
+            // });
+
+            // Add the GeoJSON data as a source
+
+            Map.on('load', () => {
+                if (!Map.getLayer('kml-data')) {
+                    Map.addSource('kml-data', {
+                        type: 'geojson',
+                        data: kmlData,
+                    });
+                }
+
+                // Create a layer (e.g., polygons)
+                Map.addLayer({
+                    id: 'kml-layer',
+                    type: 'fill',
+                    source: 'kml-data',
+                    paint: {
+                        'fill-color': '#00FF20', // Customize the fill color
+                        'fill-opacity': 0.3, // Customize the opacity
+                    },
+                });
+                // map.addLayer({
+                //     id: 'my-layer',
+                //     type: 'circle',
+                //     source: 'my-geojson-data',
+                //     paint: {
+                //       'circle-radius': 4,
+                //       'circle-color': 'red',
+                //     },
+                //   });
+            });
+        }
+
+    });
+
+    return <div id="map" style={{ width: '100%', height: '400px' }} />;
+};
+
+export default Map;
