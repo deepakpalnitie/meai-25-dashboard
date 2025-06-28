@@ -211,12 +211,12 @@ export default function DMap({ mapData }) {
 
       /* Add details to the individual listing. */
       const details = listing.appendChild(document.createElement('div'));
-      details.innerHTML = `
+      details.innerHTML = `Village : 
       
       ${store.properties.address}`;
-      if (store.properties.phone) {
-        details.innerHTML += ` &middot; ${store.properties.phoneFormatted}`;
-      }
+      // if (store.properties.phone) {
+      //   details.innerHTML += ` &middot; ${store.properties.phoneFormatted}`;
+      // }
       details.innerHTML += ` <br>AADHAAR : ${store.properties.aadhaar}`;
       details.innerHTML += ` <br>${store.properties.UDPAcreage} acre(s) UDP done on ${store.properties.date}`;
 
@@ -322,7 +322,7 @@ export default function DMap({ mapData }) {
         <h4>
         Aadhaar: ${currentFeature.properties.aadhaar}<br>
         Village: ${currentFeature.properties.address}<br>
-        ☎: ${currentFeature.properties.phoneFormatted}<br>
+        <!-- ☎: ${currentFeature.properties.phoneFormatted}<br> -->
         Paddy Variety: ${currentFeature.properties.paddyVariety}<br>
         UDP Acreage: ${currentFeature.properties.UDPAcreage} acre(s)<br>
         Date: ${currentFeature.properties.date}
