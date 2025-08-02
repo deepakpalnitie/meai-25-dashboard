@@ -37,7 +37,8 @@ export default function DMap({ mapData }) {
       // style: 'mapbox://styles/mapbox/satellite-v9',
       style: 'mapbox://styles/mapbox/satellite-streets-v11',
       // center: [77.3493083, 28.0700567], 
-      center: [80.4163902439177,28.17324532936334],
+      // center: [80.4163902439177,28.17324532936334],
+      center: [77.4772971868515,27.960439809294627],
       // center: [77.33123548328876, 28.06279635607756],
       // https://www.google.com/maps?q=28.06279635607756,77.33123548328876&z=17&t=k&hl=en
       zoom: 16,
