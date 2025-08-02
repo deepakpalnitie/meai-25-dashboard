@@ -183,7 +183,7 @@ export async function getStaticProps() {
   
 
   // const res2 = await fetch('https://drive.google.com/uc?export=download&id=1U6I9WkhTrIXQ_Yo6gCCfvg2K4RmPvKgZ')
-  const resKml = await fetch('1glLFP_YF4c30odgdMjYBc___D_9KA_Zv')
+  const resKml = await fetch('https://drive.google.com/uc?export=download&id=1glLFP_YF4c30odgdMjYBc___D_9KA_Zv')
   // https://drive.google.com/file/d/1glLFP_YF4c30odgdMjYBc___D_9KA_Zv/view?usp=drive_link // MEAI-25
   // https://drive.google.com/file/d/1K1vM4yc6TcTSJQ1NGU5jwTpFiIfzO88-/view?usp=drive_link
   // const resKml = await fetch('https://drive.google.com/uc?export=download&id=1pDedPqAUQtHu70f0fZzRFVV_vDFQ2emd')
