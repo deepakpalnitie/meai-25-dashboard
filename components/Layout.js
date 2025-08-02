@@ -11,7 +11,7 @@ export default function Layout (props)  {
     return (
         <>
             <Head>
-                <title>{title + " - AAI CSR Project"}</title>
+                <title>{title + " - MEAI CSR Project-2025"}</title>
             </Head>
             <AppBar title={title} />
             <Container maxWidth="sm" disableGutters>
