@@ -100,7 +100,7 @@ export default function Index({ data }) {
           Dashboard
         </Typography> */}
             <Typography variant="h4" component="h1" gutterBottom align='center' color={'#606060'}>
-              AAI CSR Project, 2025
+              MEAI CSR Project, 2025
             </Typography>
             <Typography variant="subtitle1" display="block" gutterBottom align='center' color={'grey'}>
               Lakhimpur Kheri, Uttar Pradesh
@@ -177,12 +177,14 @@ export default function Index({ data }) {
 export async function getStaticProps() {
   let data = {}
   // data["mapData"]=[]
-  const res = await fetch('https://script.google.com/macros/s/AKfycbyT8ywuMljvrjTtIDfGg4jTLsaxS_wjMwCmada2lxUVen-O5ya5QX8F9pEnoQ5AoXAe/exec') // this is currently working for AAI Lakhimpur Project
+  const res = await fetch('https://script.google.com/macros/s/AKfycbyflnRO_gASdkIOIVr9lAlIXi2OoleIewbqeFzTbxF6e1Wmu8rsSZHT9h1bC8IsMwC9/exec') // this is currently working for MEAI-25, Palwal Project
+  // const res = await fetch('https://script.google.com/macros/s/AKfycbyT8ywuMljvrjTtIDfGg4jTLsaxS_wjMwCmada2lxUVen-O5ya5QX8F9pEnoQ5AoXAe/exec') // this is currently working for AAI Lakhimpur Project
   // const res = await fetch('https://script.google.com/macros/s/AKfycbwf6ZeWZ7D5BAkDtlu45BxynrWkYjKqP_ysrHfIwCxT0WUQw22rmaBXgP911AiM8-Gl/exec') // this was for MEAI Palwal, Haryana Project
   
 
   // const res2 = await fetch('https://drive.google.com/uc?export=download&id=1U6I9WkhTrIXQ_Yo6gCCfvg2K4RmPvKgZ')
   const resKml = await fetch('https://drive.google.com/uc?export=download&id=1K1vM4yc6TcTSJQ1NGU5jwTpFiIfzO88-')
+  // https://drive.google.com/file/d/1glLFP_YF4c30odgdMjYBc___D_9KA_Zv/view?usp=drive_link // MEAI-25
   // https://drive.google.com/file/d/1K1vM4yc6TcTSJQ1NGU5jwTpFiIfzO88-/view?usp=drive_link
   // const resKml = await fetch('https://drive.google.com/uc?export=download&id=1pDedPqAUQtHu70f0fZzRFVV_vDFQ2emd')
   // https://drive.google.com/file/d/1pDedPqAUQtHu70f0fZzRFVV_vDFQ2emd/view?usp=drive_link
