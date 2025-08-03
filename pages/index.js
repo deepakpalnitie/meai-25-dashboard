@@ -117,7 +117,7 @@ export default function Index({ data }) {
                 flexWrap: 'wrap',
                 '& > :not(style)': {
                   m: 1,
-                  width: "30%",
+                  width: { xs: '45%', md: '30%' },
                   margin: "0.5em auto",
                   // height: 128,
                 },
