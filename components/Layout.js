@@ -14,7 +14,7 @@ export default function Layout (props)  {
                 <title>{title + " - MEAI CSR Project-2025"}</title>
             </Head>
             <AppBar title={title} />
-            <Container maxWidth="sm" disableGutters>
+            <Container maxWidth="lg" disableGutters>
                 <Box mx={1} my={1}>{props.children}</Box>
             </Container>
         </>
