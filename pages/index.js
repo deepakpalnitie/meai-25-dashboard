@@ -76,6 +76,11 @@ export default function Index({ data }) {
   // const classes = useStyles();
   // const user = useUser();
   const user = useUser({ redirectTo: '/login' })
+  const totalAcreage = data["impactData"]["acreage"]["total"];
+  const waterSaved = totalAcreage * 3004;
+  const emissionReduced = totalAcreage * 246;
+  const fertilizerSaved = totalAcreage * 90;
+  const ureaSubsidySaved = totalAcreage * 4600;
   // console.log("User2.")
   // console.log(user)
   // useEffect(() => {
@@ -112,42 +117,65 @@ export default function Index({ data }) {
                 flexWrap: 'wrap',
                 '& > :not(style)': {
                   m: 1,
-                  width: "45%",
+                  width: "30%",
                   margin: "0.5em auto",
                   // height: 128,
                 },
               }}
             >
               <Paper2 elevation={3} sx={{ background: "rgb(23, 109, 10)" }}>
-                <Typography color="#999"
+                <Typography color="#ddd" variant="subtitle2"
                 >Total UDP acreage</Typography>
-                <Typography color="#eee" variant='h4' component="p">
-                  <CountUp end={data["impactData"]["acreage"]["total"]} suffix=" Acres" duration={5} />
+                <Typography color="#fff" variant='h4' component="p">
+                  <CountUp end={totalAcreage} duration={5} />
                 </Typography>
+                <Typography color="#ddd" variant="subtitle2">Acres</Typography>
               </Paper2>
 
               <Paper2 elevation={3} sx={{ background: "#f8b400" }}>
-                <Typography color="#999"
+                <Typography color="#ddd" variant="subtitle2"
                 >Villages impacted</Typography>
-                <Typography color="#eee" variant='h4' component="p">
+                <Typography color="#fff" variant='h4' component="p">
                   <CountUp end={data["impactData"]["vill_count"]["total"]} duration={5} />
                 </Typography>
+                <Typography color="#ddd" variant="subtitle2">&nbsp;</Typography>
               </Paper2>
 
               <Paper2 elevation={3} sx={{ background: "#005792" }}>
-                <Typography color="#999">Farmers served</Typography>
-                <Typography color="#eee" variant='h4' component="p">
-                  <CountUp end={data["impactData"]["frmr_count"]["total"]} duration={5} />
+                <Typography color="#ddd" variant="subtitle2">Fertilizer Saved (projected)</Typography>
+                <Typography color="#fff" variant='h4' component="p">
+                  <CountUp end={fertilizerSaved} duration={5} />
                 </Typography>
+                <Typography color="#ddd" variant="subtitle2">kg</Typography>
+              </Paper2>
+
+              <Paper2 elevation={3} sx={{ background: "#4e9bbf" }}>
+                <Typography color="#ddd" variant="subtitle2">Water Saved (projected)</Typography>
+                <Typography color="#fff" variant='h4' component="p">
+                  <CountUp end={waterSaved} duration={5} />
+                </Typography>
+                <Typography color="#ddd" variant="subtitle2">m³</Typography>
               </Paper2>
 
               <Paper2 elevation={3} sx={{ background: "#dc2f2f" }}>
-                <Typography color="#999">Plots covered</Typography>
-                <Typography color="#eee" variant='h4' component="p">
-                  <CountUp end={data["impactData"]["plot_count"]["total"]} duration={5} />
+                <Typography color="#ddd" variant="subtitle2">Emission Reduced (projected)</Typography>
+                <Typography color="#fff" variant='h4' component="p">
+                  <CountUp end={emissionReduced} duration={5} />
                 </Typography>
+                <Typography color="#ddd" variant="subtitle2">kg CO₂eq</Typography>
+              </Paper2>
+
+              <Paper2 elevation={3} sx={{ background: "#8e44ad" }}>
+                <Typography color="#ddd" variant="subtitle2">Urea Subsidy Saved (projected)</Typography>
+                <Typography color="#fff" variant='h4' component="p">
+                  <CountUp end={ureaSubsidySaved} duration={5} />
+                </Typography>
+                 <Typography color="#ddd" variant="subtitle2">in ₹</Typography>
               </Paper2>
             </Box>
+            <Typography variant="caption" display="block" gutterBottom align='center' color={'grey'}>
+              *Projected numbers are based on past project data.
+            </Typography>
 
             {/* <Link href="/about" color="secondary">
           Go to the about page
