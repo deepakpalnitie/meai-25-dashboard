@@ -108,7 +108,7 @@ export default function Index({ data }) {
               MEAI CSR Project, 2025
             </Typography>
             <Typography variant="subtitle1" display="block" gutterBottom align='center' color={'grey'}>
-              Lakhimpur Kheri, Uttar Pradesh
+              Palwal, Haryana, India
             </Typography>
 
             <Box
