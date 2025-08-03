@@ -102,12 +102,23 @@ export default function DMap({ mapData }) {
 
         // Create a layer (e.g., polygons)
         Map.addLayer({
-          id: 'kml-layer',
+          id: 'kml-layer-fill',
           type: 'fill',
           source: 'kml-data',
           paint: {
             'fill-color': '#00FF20', // Customize the fill color
             'fill-opacity': 0.3, // Customize the opacity
+          },
+        });
+
+        // Add a layer for the polygon outlines
+        Map.addLayer({
+          id: 'kml-layer-outline',
+          type: 'line',
+          source: 'kml-data',
+          paint: {
+            'line-color': '#006400', // A darker green for the outline
+            'line-width': 1.5,
           },
         });
 
