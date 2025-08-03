@@ -13,7 +13,7 @@ export default function DMap({ mapData }) {
   const [Map, setMap] = useState();
   const [pageIsMounted, setPageIsMounted] = useState(false);
   const stores = mapData.mapData;
-  const [isAnimating, setIsAnimating] = useState(true); // Animate on load
+  const [isAnimating, setIsAnimating] = useState(false); // Animation disabled on load
   const animationTimeoutIds = useRef([]);
 
   const [listingsReady, setListingsReady] = useState(false);
@@ -91,7 +91,15 @@ export default function DMap({ mapData }) {
     stopAnimation(); // Clear any existing timeouts
     stores.features.forEach((feature, index) => {
       const timeoutId = setTimeout(() => {
-        flyToStore(feature);
+        const mapContainer = document.getElementById('map');
+        if (mapContainer) {
+          const rect = mapContainer.getBoundingClientRect();
+          const mapIsInViewport = rect.top < window.innerHeight && rect.bottom >= 0;
+          flyToStore(feature, mapIsInViewport);
+        } else {
+          flyToStore(feature, false);
+        }
+
         createPopUp(feature);
         highlightListing(feature.properties.id);
       }, index * 3000); // 3-second delay
@@ -105,8 +113,18 @@ export default function DMap({ mapData }) {
       activeItem[0].classList.remove(mapcss.active);
     }
     const listing = document.getElementById(`listing-${id}`);
-    listing.classList.add(mapcss.active);
-    listing.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    if (listing) {
+      listing.classList.add(mapcss.active);
+
+      const listingsContainer = document.getElementById('listings');
+      if (listingsContainer) {
+        const rect = listingsContainer.getBoundingClientRect();
+        const isInViewport = rect.top >= 0 && rect.bottom <= window.innerHeight;
+        if (isInViewport) {
+          listing.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }
+    }
   };
 
   const stopAnimation = () => {
@@ -138,7 +156,7 @@ export default function DMap({ mapData }) {
         .addTo(Map);
 
       el.addEventListener('click', (e) => {
-        flyToStore(marker);
+        flyToStore(marker, true); // Always fly on click
         createPopUp(marker);
         const activeItem = document.getElementsByClassName(mapcss.active);
         e.stopPropagation();
@@ -173,7 +191,7 @@ export default function DMap({ mapData }) {
         for (const feature of stores.features) {
           if (this.id === `link-${feature.properties.id}`) {
             document.getElementById('map').scrollIntoView(true);
-            flyToStore(feature);
+            flyToStore(feature, true); // Always fly on click
             createPopUp(feature);
           }
         }
@@ -186,11 +204,15 @@ export default function DMap({ mapData }) {
     }
   }
 
-  function flyToStore(currentFeature) {
-    Map.flyTo({
-      center: currentFeature.geometry.coordinates,
-      zoom: 16,
-    });
+  function flyToStore(currentFeature, animate) {
+    if (animate) {
+      Map.flyTo({
+        center: currentFeature.geometry.coordinates,
+        zoom: 16,
+      });
+    } else {
+      Map.setCenter(currentFeature.geometry.coordinates);
+    }
   }
 
   function createPopUp(currentFeature) {
