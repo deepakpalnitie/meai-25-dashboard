@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/kml/2.2 https://developers.google.com/kml/schema/kml22gx.xsd"><Placemark id="1QaiWxy2NJKRI-Ov_nLkNYAMcI_rF5heQ-0"><name>Bhagat singh</name><description>Ramgarh</description><styleUrl>https://data.distincthorizon.net/kml?folderId=10yqo6iozhHjgParR1ZV7CsVtlay-sIsE#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.47728310624855,27.961749994696717,0 77.47726847169545,27.961093345436353,0 77.47879339212824,27.96111144212304,0 77.47847435887071,27.961344113538757,0 77.47773385048396,27.961607807203592,0 77.47728310624855,27.961749994696717,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark></kml>
+</Document>
+</kml>

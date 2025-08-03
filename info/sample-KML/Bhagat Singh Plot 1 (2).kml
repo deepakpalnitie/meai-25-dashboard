@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Placemark xmlns="http://www.opengis.net/kml/2.2" id="local-1754192709468-0"><name>Bhagat singh</name><description>Ramgarh</description><styleUrl>https://data.distincthorizon.net/kml?folderId=10yqo6iozhHjgParR1ZV7CsVtlay-sIsE#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.47733037918806,27.961755552809905,0 77.47731361538172,27.961136922414724,0 77.47878648340703,27.961127446000035,0 77.47851189225912,27.96136465225453,0 77.47808676213027,27.961541742227,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+</Document>
+</kml>

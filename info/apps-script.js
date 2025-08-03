@@ -1,0 +1,981 @@
+// Deployment ID
+// AKfycbyT8ywuMljvrjTtIDfGg4jTLsaxS_wjMwCmada2lxUVen-O5ya5QX8F9pEnoQ5AoXAe
+// Web App URL
+// https://script.google.com/macros/s/AKfycbyT8ywuMljvrjTtIDfGg4jTLsaxS_wjMwCmada2lxUVen-O5ya5QX8F9pEnoQ5AoXAe/exec
+const ss = SpreadsheetApp.getActiveSpreadsheet();
+const shNameGrndData = "Ground Data"
+const shGrndData = ss.getSheetByName(shNameGrndData)
+const shNameDshbrd = "Dashboard"
+const shDshbrd = ss.getSheetByName(shNameDshbrd)
+const shNameParams = "params"
+const shParams = ss.getSheetByName(shNameParams)
+// const shNameDshbrdData = "dashboard_data"
+// const shDshbrdData = ss.getSheetByName(shNameDshbrdData)
+
+//  shNameGrndData: F_NM_FRMTD,V_NM_FRMTD, EDT_ACTN, MMEDIA_LINK, FRMR_NAME, ADHR_PDF, PLOT_NO, KML_FILE,GPS_LOC,GPS_CRDNTS, FRMR_CNTCT,VLG_NM,ADHR_NO,PDY_VRTY,UDP_ACRG,DT_FRMTD,STRT_DTTM, KML_CMBND, AREA_CLCLTD
+//  shNameDshbrd: ROWIDS: TTL_ACRG,VL_CVRD,FRMRS_CVRD,PLTS_CVRD
+//  shNameDshbrd: COLIDS: DATA_TTL,DATA_OLD,DATA_NW
+const ID_ROW_GRND_DATA = 2
+const ID_ROW_DSHBRD_DATA = 1
+const ID_COL_DSHBRD = 1
+const ID_ROW_DSHBRD = 1
+const NEAR_DISTANCE = 10
+const WEB_DSHBRD_JSON_FL_ID = "1Ebykn1coBUHWdSalJzloyrFDiqnzqQaL"
+
+// MEAI-25: https://drive.google.com/file/d/1Ebykn1coBUHWdSalJzloyrFDiqnzqQaL/view?usp=drive_link
+// https://drive.google.com/file/d/195R6E23ob_y5_B16NdVabfaXz_01_TJB/view?usp=drive_link
+
+const COMBINED_KML_FL_ID = "1glLFP_YF4c30odgdMjYBc___D_9KA_Zv"
+// MEAI-25: https://drive.google.com/file/d/1glLFP_YF4c30odgdMjYBc___D_9KA_Zv/view?usp=drive_link
+//AAI - https://drive.google.com/file/d/1K1vM4yc6TcTSJQ1NGU5jwTpFiIfzO88-/view?usp=drive_link
+// MEAI-24 - https://drive.google.com/file/d/1pDedPqAUQtHu70f0fZzRFVV_vDFQ2emd/view?usp=drive_link
+const MEDIA_FOLDER_ID = "1NrCmuxUKyPZIWg0lHoBjkGKc4ox6LUaD"
+// https://drive.google.com/drive/folders/1NrCmuxUKyPZIWg0lHoBjkGKc4ox6LUaD?usp=drive_link
+// https://drive.google.com/drive/folders/1cDsaZ5RhJJGw7L7Jc2FNZfJpHhez8Jr0?usp=drive_link
+
+function atEdit(e) {
+  // return 1
+  const sh = ss.getActiveSheet()
+  if (sh.getSheetName() == shNameGrndData) {
+    processAction(e)
+    return
+  }
+  if (sh.getSheetName() == shNameParams) {
+    processParamsAction(e)
+    return
+  }
+}
+
+function processParamsAction(e, rng = false) {
+  let sh = shParams
+  let curCel = rng ? e : e.range;
+  let curCelAddress = curCel.getA1Notation()
+  if (curCelAddress == "F2") {
+    console.log("Going for doCombineKml()")
+    doCombineKml(sh, curCel)
+  }
+  if (curCelAddress == "F5") {
+    createWebJsonFile()
+    sh.getRange(curCelAddress).setValue(false)
+  }
+
+
+
+
+}
+function doCombineKml(sh, curCelAddress) {
+  if (curCelAddress.getA1Notation() != "F2") {
+    console.log("Incorrect check for doCombineKml()")
+    return
+  }
+  let resetKMLRng = sh.getRange("F3");
+  let resetKML = resetKMLRng.getValue() == "resetKML" ? true : false;
+  combineKml(resetKML)
+  curCelAddress.setValue(false)
+  resetKMLRng.setValue("")
+
+}
+
+function readSpecificNode(fileId) {
+  var data = DriveApp.getFileById(fileId).getBlob().getDataAsString();
+  var xmlDocument = XmlService.parse(data);
+  var root = xmlDocument.getRootElement();
+  var mynamespace = root.getNamespace();
+
+  // Try to find Placemark under Document, else directly under root
+  var docElement = root.getChild("Document", mynamespace);
+  var placemark;
+  if (docElement) {
+    placemark = docElement.getChild("Placemark", mynamespace);
+  } else {
+    placemark = root.getChild("Placemark", mynamespace);
+  }
+  if (!placemark) throw new Error("Placemark element not found.");
+
+  var polygon = placemark.getChild("Polygon", mynamespace);
+  if (!polygon) throw new Error("Polygon element not found in Placemark.");
+
+  var outerBoundaryIs = polygon.getChild("outerBoundaryIs", mynamespace);
+  if (!outerBoundaryIs) throw new Error("outerBoundaryIs not found.");
+
+  var linearRing = outerBoundaryIs.getChild("LinearRing", mynamespace);
+  if (!linearRing) throw new Error("LinearRing not found.");
+
+  var coordinatesNode = linearRing.getChild("coordinates", mynamespace);
+  if (!coordinatesNode) throw new Error("coordinates not found.");
+
+  var val = coordinatesNode.getText().trim();
+  // Split by any whitespace (space, tab, newline)
+  var arr = val.split(/\s+/).filter(a => !!a.trim()).map(s => {
+    let parts = s.trim().split(",");
+    return [parseFloat(parts[0]), parseFloat(parts[1])];
+  });
+
+  let cntr = center(arr); // center() should take an array of pairs and return [lon, lat]
+  var url = "https://www.google.com/maps?q=" + cntr[0] + "," + cntr[1] + "&z=17&t=k&hl=en";
+  return url;
+}
+
+function readSpecificNodeOld(fileId) {
+
+  var data = DriveApp.getFileById(fileId).getBlob().getDataAsString();
+  var xmlDocument = XmlService.parse(data);
+  var root = xmlDocument.getRootElement();
+  console.log("xml", root.toString())
+  var mynamespace = root.getNamespace();
+  console.log("mynamespace", mynamespace)
+  var val = root.getChild("Document", root.getNamespace())
+    .getChild("Placemark", root.getNamespace())
+    .getChild("Polygon", root.getNamespace())
+    .getChild("outerBoundaryIs", root.getNamespace())
+    .getChild("LinearRing", root.getNamespace())
+    .getChild("coordinates", root.getNamespace()).getText();
+  // var titleTag=root.getChild("Placemark",root.getNamespace()).getText();
+  arr = val.split("\n").filter(a => !!a).map(s => [x, y] = s.split(","))
+  let cntr = center(arr)
+  console.log(cntr)
+  var url = "https://www.google.com/maps?q=" + cntr[0] + "," + cntr[1] + "&z=17&t=k&hl=en"
+  console.log(url)
+  return url
+
+}
+
+var center = function (arr) {
+  var y = arr.map(xy => xy[0]);
+  var x = arr.map(xy => xy[1]);
+  console.log(x)
+  var cx = (Math.min(...x) + Math.max(...x)) / 2;
+  var cy = (Math.min(...y) + Math.max(...y)) / 2;
+  return [cx, cy];
+}
+
+const bulkGPSSet = () => {
+  let sh = shGrndData
+  const idRow = getIdRow(sh)
+  let edtActnCol = getColumn(idRow, "EDT_ACTN")
+  let strt = 250
+  let stride = 300
+  // for (let i = strt; i < strt + stride; i++) {
+  for (let i = strt; i < stride; i++) {
+    // let cl_Add = `AL${i}`
+    // console.log("cl_Add", cl_Add)
+    let curCel = sh.getRange(i, edtActnCol);
+    console.log("bulkGPSSet, row,col", i, edtActnCol)
+    processAction(curCel, true)
+  }
+
+  // processAction(e)
+}
+function getIdFromUrl(url) {
+  return url.match(/[-\w]{25,}(?!.*[-\w]{25,})/);
+}
+const createWebJsonFile = () => {
+  // https://drive.google.com/file/d/1dCGd1kodHy6m8oPKYFf_zNWPX-Q_Kgbq/view?usp=drive_link web_dashboard.json
+  var webDshbrdFile = DriveApp.getFileById(WEB_DSHBRD_JSON_FL_ID);
+  var doc = SpreadsheetApp.getActiveSpreadsheet()
+  let sh = shGrndData
+  var values = sh.getDataRange().getValues()
+  var valuesD = sh.getDataRange().getDisplayValues()
+
+
+  var opUDP = []
+  opUDP = getUDPData(values, valuesD)
+  const impactData = getImpactNumbers()
+
+
+  // var shchrt = doc.getSheetByName('for Chart')
+  // var valChrt = shchrt.getDataRange().getValues()
+  // var valChrtD = shchrt.getDataRange().getDisplayValues()
+  // opChrt = []
+
+  // opChrt = getChartData(valChrt, valChrtD)
+  opChrt = getChartData(values, valuesD)
+  // console.log("opChrt",opChrt)
+
+
+
+  // var valChrt = shchrt.getRange(1, 1, 1, 5).getValues()
+
+  // console.log(op)
+  fop = {
+    "impactData": impactData,
+    'mapData': {
+      'type': 'FeatureCollection',
+      'features': opUDP
+    },
+    "chartData": opChrt
+  }
+
+  console.log(JSON.stringify(fop, null, 2))
+  webDshbrdFile.setContent(JSON.stringify(fop, null, 2))
+
+
+}
+const getChartData = (values, valuesD) => {
+
+  let sh = shGrndData
+  let idRow = getIdRow(sh)
+  const cols = getCols(idRow, ["F_NM_FRMTD", "VLG_NM", "GPS_CRDNTS", "FRMR_CNTCT", "PLOT_NO", "FRMR_CNTCT", "ADHR_NO", "PDY_VRTY", "UDP_ACRG", "DT_FRMTD", "STRT_DTTM"])
+  console.log("cols", cols)
+
+
+  var op = []
+  let pltCnt = 0
+  let acrg = {}
+  let frmrCnt = 0
+  for (var i = 2; i < values.length; i++) {
+    const villNm = values[i][cols["VLG_NM"]]
+    if (villNm.trim() == "") {
+      continue
+    }
+    const frmrNmFrmtd = values[i][cols["F_NM_FRMTD"]].toString().trim()
+    if (!(villNm in op)) {
+      op[villNm] = {}
+      op[villNm]["acreage"] = 0
+      op[villNm]["plotCount"] = 0
+      op[villNm]["farmerCount"] = 0
+      op[villNm]["farmerName"] = []
+    }
+    op[villNm]["acreage"] += parseFloat(values[i][cols["UDP_ACRG"]])
+    op[villNm]["plotCount"] += 1
+    if (!op[villNm]["farmerName"].includes(frmrNmFrmtd)) {
+      op[villNm]["farmerName"].push(frmrNmFrmtd)
+      op[villNm]["farmerCount"] += 1
+    }
+
+
+  }
+  // console.log("op", op)
+  const labelsVillage = Object.keys(op).sort()
+  const acreage = labelsVillage.map(v => op[v]["acreage"])
+  const farmerCount = labelsVillage.map(v => op[v]["farmerCount"])
+  const plotCount = labelsVillage.map(v => op[v]["plotCount"])
+  // console.log("labelsVillage", labelsVillage)
+  // console.log("acreage", acreage)
+  // console.log("farmerCount", farmerCount)
+  // console.log("plotCount", plotCount)
+  return { labelsVillage, acreage, farmerCount, plotCount }
+
+}
+
+
+
+
+
+
+const combineKml = (reset = false) => { // The reset parameter is less important now but we keep it for the UI trigger.
+  console.log("Starting KML combination process...");
+  const sh = shGrndData;
+  const data_strt_rw = 3;
+
+  const idRow = getIdRow(sh);
+  const edtKmlCmbndCol = getColumn(idRow, "KML_CMBND");
+  const colFrmr_nm = getColumn(idRow, "FRMR_NAME");
+  const colKmlFile = getColumn(idRow, "KML_FILE");
+  const lRow = sh.getRange(1, colFrmr_nm).getNextDataCell(SpreadsheetApp.Direction.DOWN).getRow();
+
+  const kmlFileRange = sh.getRange(data_strt_rw, colKmlFile, lRow - data_strt_rw + 1, 1);
+  const kmlFileRichTextValues = kmlFileRange.getRichTextValues();
+
+  let allPlacemarks = [];
+  const placemarkRegex = /<Placemark\b[^>]*>[\s\S]*?<\/Placemark>/g;
+
+  // Loop through all rows and collect all placemarks
+  for (let i = 0; i < kmlFileRichTextValues.length; i++) {
+    const currentRow = data_strt_rw + i;
+    const kmlUrl = kmlFileRichTextValues[i][0].getLinkUrl();
+    
+    if (kmlUrl) {
+      try {
+        const fileId = getIdFromUrl(kmlUrl);
+        if (fileId && fileId[0]) {
+          console.log(`Processing, Row ${currentRow}/${lRow}, FileID: ${fileId[0]}`);
+          const kmlContent = DriveApp.getFileById(fileId[0]).getBlob().getDataAsString();
+          const placemarks = kmlContent.match(placemarkRegex);
+          if (placemarks) {
+            allPlacemarks = allPlacemarks.concat(placemarks);
+            // Mark as combined in the sheet
+            sh.getRange(currentRow, edtKmlCmbndCol).setValue(true);
+          } else {
+             console.log(`No placemark found in KML for row ${currentRow}`);
+             sh.getRange(currentRow, edtKmlCmbndCol).setValue(false); // Mark as not combined
+          }
+        }
+      } catch (e) {
+        console.error(`Error processing KML for row ${currentRow}: ${e.toString()}`);
+        sh.getRange(currentRow, edtKmlCmbndCol).setValue(false); // Mark as not combined due to error
+      }
+    }
+  }
+  
+  // Construct the final KML file content
+  const kmlHeader = `<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Style id='BMPoly'>
+<LineStyle>
+<color>ffff0000</color>
+<width>1.2</width>
+</LineStyle>
+<PolyStyle>
+<color>ff00ff00</color>
+<fill>1</fill>
+</PolyStyle>
+</Style>`;
+
+  const kmlFooter = `</Document>
+</kml>`;
+
+  // Join all found placemarks
+  const finalKmlContent = kmlHeader + '\n' + allPlacemarks.join('\n') + '\n' + kmlFooter;
+
+  // Write the new content to the combined file
+  try {
+    const combinedFile = DriveApp.getFileById(COMBINED_KML_FL_ID);
+    combinedFile.setContent(finalKmlContent);
+    console.log("combineKml() completed successfully. Total placemarks combined: " + allPlacemarks.length);
+  } catch (e) {
+    console.error("Failed to write to combined KML file: " + e.toString());
+  }
+};
+
+function processAction(e, rng = false) {
+
+  let sh = shGrndData
+  let curCel = rng ? e : e.range;
+  let skipChkVal = rng ? true : false;
+
+  // let curCel = sh.getRange("AP107");
+  curRow = curCel.getRow()
+  if (curRow <= 2)
+    return
+
+
+
+  let idRow = getIdRow(sh)
+  let edtActnCol = getColumn(idRow, "EDT_ACTN")
+  let edtActnCell = sh.getRange(curRow, edtActnCol)
+  let curCol = curCel.getColumn()
+  if (edtActnCol != curCol) {
+    console.log("Incorrect column, return")
+    return
+  }
+
+  // edtActnCell.setValue(true);
+
+
+  if (edtActnCell.getValue() == true || skipChkVal) {
+    edtActnCell.setValue("");
+    let curRow = curCel.getRow()
+    console.log("edtActnCell", edtActnCell.getA1Notation(), "curCol", curCol, "curRow", curRow)
+
+
+    const colFrmr_nm = getColumn(idRow, "F_NM_FRMTD")
+    const colVlg_nm = getColumn(idRow, "V_NM_FRMTD")
+    const frmr_nm_frmtd = sh.getRange(curRow, colFrmr_nm).getValue()
+    let fldrNm = `${extractVillage(sh.getRange(curRow, colVlg_nm).getValue())} - ${frmr_nm_frmtd}`
+    let folderDetails = getFolderDetails(fldrNm)
+    console.log("Folder Name", fldrNm, "folderDetails", folderDetails)
+    if (folderDetails["status"]) {
+      const files = getFiles(folderDetails["folderId"])
+      console.log("got files", files)
+      let fileDetails = []
+      while (files.hasNext()) {
+        var file = files.next();
+        const fileName = file.getName().toLowerCase()
+        fileDetails.push({
+          "fileId": file.getId(),
+          "fileUrl": file.getUrl(),
+          "fileName": file.getName(),
+          "mimeType": file.getMimeType()
+        })
+        // console.log("got filename",fileName)
+      }
+      console.log("fileDetails", fileDetails)
+
+      const colMulMedia = getColumn(idRow, "MMEDIA_LINK")
+      if (sh.getRange(curRow, colMulMedia).getValue() == "") {
+        // put a link
+        // sh.getRange(curRow, colMulMedia).setValue(folderDetails["folderUrl"])
+        sh.getRange(curRow, colMulMedia).setValue(`=HYPERLINK("${folderDetails["folderUrl"]}","${fldrNm}")`)
+      }
+
+
+      // Put aadhaar link
+      const colAdhrPdf = getColumn(idRow, "ADHR_PDF")
+      if (sh.getRange(curRow, colAdhrPdf).getValue() == "") {
+        console.log("Trying to put aadhaar link")
+        // put a link
+        const aadhaarDetails = getAadhaardetails(fldrNm, fileDetails)
+        // sh.getRange(curRow, colAdhrPdf).setValue(aadhaarDetails["fileUrl"])
+        if (aadhaarDetails["status"])
+          sh.getRange(curRow, colAdhrPdf).setValue(`=HYPERLINK("${aadhaarDetails["fileUrl"]}","${aadhaarDetails["fileName"]}")`)
+      }
+
+      // Put kml link
+      const colKmlFile = getColumn(idRow, "KML_FILE")
+      console.log("Trying to put kml link")
+      // put a link
+      const colPlotNo = getColumn(idRow, "PLOT_NO")
+      const plotStr = sh.getRange(curRow, colPlotNo).getValue()
+      console.log(`"plotStr"--${plotStr}--`)
+      const kmlDetails = getKmlDetails(plotStr, fileDetails)
+      console.log("kmlDetails", kmlDetails);
+      const kmlFileId = kmlDetails["fileId"]
+      console.log("kmlFileId", kmlFileId);
+
+      if (sh.getRange(curRow, colKmlFile).getValue() == "" && kmlDetails["status"]) {
+        // sh.getRange(curRow, colKmlFile).setValue(kmlDetails["fileUrl"])
+        sh.getRange(curRow, colKmlFile).setValue(`=HYPERLINK("${kmlDetails["fileUrl"]}","${frmr_nm_frmtd}, ${plotStr}")`)
+      }
+
+      // Put GPS_LOC link
+      const colGpsLoc = getColumn(idRow, "GPS_LOC")
+      if (sh.getRange(curRow, colGpsLoc).getValue() == "" && typeof kmlFileId !== "undefined") {
+        console.log("Trying to put GPS_LOC link")
+        // put a link
+        const gps_loc_url = readSpecificNode(kmlFileId)
+        console.log("gps_loc_url", gps_loc_url)
+        sh.getRange(curRow, colGpsLoc).setValue(gps_loc_url)
+      }
+
+      // Calculate area based on the KML file
+      if (kmlDetails["status"]) {
+        const strt = "<coordinates>"
+        const end = "</coordinates>"
+        var kmlData = DriveApp.getFileById(kmlDetails["fileId"]).getBlob().getDataAsString();
+
+        // const crdnts = kmlData.substring(kmlData.indexOf(strt) + strt.length, kmlData.lastIndexOf(end)).split("\n").filter(e => !!e)
+        const coordinateString = kmlData.substring(
+          kmlData.indexOf(strt) + strt.length,
+          kmlData.lastIndexOf(end)
+        ).trim();
+
+        const crdnts = coordinateString.split(/\s+/).filter(e => !!e);
+
+
+        const latLonPoints = crdnts.map(c => {
+          [a, b, c] = c.split(",")
+          return [parseFloat(a), parseFloat(b)]
+        })
+        console.log("crdnts", crdnts)
+        console.log("latLonPoints", latLonPoints)
+        const polygonArea = calculatePolygonArea(latLonPoints);
+        console.log(`Area of the polygon: ${polygonArea} square units`);
+        const polygonAreaInSquareMeters = polygonArea;
+        const polygonAreaInAcres = squareMetersToAcres(polygonAreaInSquareMeters);
+        console.log(`Area of the polygon: ${polygonAreaInAcres.toFixed(2)} acres`);
+        const colAreaClcultd = getColumn(idRow, "AREA_CLCLTD")
+        sh.getRange(curRow, colAreaClcultd).setValue(polygonAreaInAcres)
+      }
+
+
+
+
+
+    }
+  }
+
+}
+
+const calculateArea = () => {
+  // const latLonPoints = [
+  //   [77.40613751113415, 27.98817004150594],
+  //   [77.40612108260393, 27.988547818178883],
+  //   [77.40698542445898, 27.988560844937094],
+  //   [77.40697000175714, 27.988366035525004],
+  //   [77.40696463733912, 27.98817329820704]
+  // ];
+  // const latLonPoints = [
+  //   [77.38169319927692, 27.994566308891887],
+  //   [77.38169252872467, 27.995501218658465],
+  //   [77.3800691217184, 27.995446154533454],
+  //   [77.38007348030806, 27.994547657981247]
+  // ];
+  const latLonPoints = [
+    [77.34436992555857, 28.082717921176993],
+    [77.34519604593515, 28.082743360292053],
+    [77.34520677477121, 28.083179078152853],
+    [77.34436456114054, 28.08316931667228]
+
+  ];
+
+  const polygonArea = calculatePolygonArea(latLonPoints);
+  console.log(`Area of the polygon: ${polygonArea} square units`);
+  const polygonAreaInSquareMeters = polygonArea;
+  const polygonAreaInAcres = squareMetersToAcres(polygonAreaInSquareMeters);
+  console.log(`Area of the polygon: ${polygonAreaInAcres.toFixed(6)} acres`);
+  return
+
+}
+
+function doGet(req) {
+  var webDshbrdFile = DriveApp.getFileById(WEB_DSHBRD_JSON_FL_ID);
+  const fop = webDshbrdFile.getBlob().getDataAsString()
+  // fop = {
+  //   "impactData": impactData,
+  //   'mapData': {
+  //     'type': 'FeatureCollection',
+  //     'features': opUDP
+  //   }
+  // }
+  // var fnl = ContentService.createTextOutput(JSON.stringify(fop, null, 2)).setMimeType(ContentService.MimeType.JSON)
+  var fnl = ContentService.createTextOutput(fop).setMimeType(ContentService.MimeType.JSON)
+  // console.log(JSON.stringify(fop, null, 2))
+  return (fnl)
+
+}
+
+const getImpactNumbers = () => {
+  let op = {}
+  let sh = shDshbrd
+  console.log("from getImpactNumbers, sh", sh)
+  let idCol = getIdCol(sh, ID_COL_DSHBRD)
+  let idRow = getIdRow(sh, ID_ROW_DSHBRD)
+  const cols = getCols(idRow, ["DATA_TTL", "DATA_OLD", "DATA_NW"])
+  console.log("DashBoard cols", cols)
+  // console.log("idCol", idCol.getValues()[2][0])
+
+  // let rw_num = getRow(idCol, "TTL_ACRG")
+  // console.log("rw_num",rw_num)
+  // return
+  const rows = getRows(idCol, ["TTL_ACRG", "VL_CVRD", "FRMRS_CVRD", "PLTS_CVRD"])
+  op["acreage"] = {}
+  op["acreage"]['total'] = parseInt(sh.getRange(rows["TTL_ACRG"], cols["DATA_TTL"] + 1).getValue())
+  op["acreage"]['old_vill'] = parseInt(sh.getRange(rows["TTL_ACRG"], cols["DATA_OLD"] + 1).getValue())
+  op["acreage"]['new_vill'] = parseInt(sh.getRange(rows["TTL_ACRG"], cols["DATA_NW"] + 1).getValue())
+
+  op["vill_count"] = {}
+  op["vill_count"]['total'] = parseInt(sh.getRange(rows["VL_CVRD"], cols["DATA_TTL"] + 1).getValue())
+  op["vill_count"]['old_vill'] = parseInt(sh.getRange(rows["VL_CVRD"], cols["DATA_OLD"] + 1).getValue())
+  op["vill_count"]['new_vill'] = parseInt(sh.getRange(rows["VL_CVRD"], cols["DATA_NW"] + 1).getValue())
+
+  op["frmr_count"] = {}
+  op["frmr_count"]['total'] = parseInt(sh.getRange(rows["FRMRS_CVRD"], cols["DATA_TTL"] + 1).getValue())
+  op["frmr_count"]['old_vill'] = parseInt(sh.getRange(rows["FRMRS_CVRD"], cols["DATA_OLD"] + 1).getValue())
+  op["frmr_count"]['new_vill'] = parseInt(sh.getRange(rows["FRMRS_CVRD"], cols["DATA_NW"] + 1).getValue())
+
+  op["plot_count"] = {}
+  op["plot_count"]['total'] = parseInt(sh.getRange(rows["PLTS_CVRD"], cols["DATA_TTL"] + 1).getValue())
+
+
+  // console.log("rows", rows)
+  // console.log("op", op)
+  return op
+}
+const getCols = (idRow, Idntfrs) => {
+  let op = {}
+  for (idnfr of Idntfrs) {
+    // console.log("idnfr",idnfr)
+    op[idnfr] = getColumn(idRow, idnfr) - 1
+  }
+  return op
+}
+const getRows = (idCol, Idntfrs) => {
+  let op = {}
+  for (idnfr of Idntfrs) {
+    // console.log("idnfr",idnfr)
+    op[idnfr] = getRow(idCol, idnfr)
+  }
+  return op
+}
+function getUDPData(values, valuesD) {
+
+  let sh = shGrndData
+  let idRow = getIdRow(sh)
+  const cols = getCols(idRow, ["F_NM_FRMTD", "VLG_NM", "GPS_CRDNTS", "FRMR_CNTCT", "PLOT_NO", "FRMR_CNTCT", "ADHR_NO", "PDY_VRTY", "UDP_ACRG", "DT_FRMTD", "STRT_DTTM"])
+  console.log("cols", cols)
+
+
+  var op = []
+  for (var i = 2; i < values.length; i++) {
+    var rw = { 'type': 'Feature' }
+    var gmtry = { "type": "Point" }
+    // var crdnts = values[i][10].toString()?.split("=")[1]?.split("&")[0]
+    var crdnts = values[i][cols["GPS_CRDNTS"]].toString()
+    console.log("crdnts", `--${crdnts}--`)
+    if (typeof crdnts == 'undefined' || crdnts == null || crdnts == "") {
+      console.log("Co-ordinates not found, skipping")
+      continue
+    } else {
+      [lat, long] = crdnts.split(",")
+      crdnts = [parseFloat(long), parseFloat(lat)]
+    }
+
+    gmtry["coordinates"] = crdnts
+    rw["geometry"] = gmtry
+    rw['village'] = values[i][cols["VLG_NM"]]
+
+
+    var ppts = {}
+    ppts["name"] = values[i][cols["F_NM_FRMTD"]].toString().trim() + ", " + values[i][cols["PLOT_NO"]].toString().trim()
+    ppts['phoneFormatted'] = valuesD[i][cols["FRMR_CNTCT"]]
+    ppts['phone'] = values[i][cols["FRMR_CNTCT"]]
+
+    const adhr = values[i][cols["ADHR_NO"]]?.toString()
+    if (adhr == undefined || adhr == "")
+      ppts['aadhaar'] = "NA"
+    else
+      ppts['aadhaar'] = adhr
+
+
+    ppts['address'] = values[i][cols["VLG_NM"]]
+    ppts['paddyVariety'] = values[i][cols["PDY_VRTY"]]
+
+    ppts['UDPAcreage'] = values[i][cols["UDP_ACRG"]]
+    ppts['date'] = valuesD[i][cols["DT_FRMTD"]]
+    ppts['dateTime'] = valuesD[i][cols["STRT_DTTM"]]
+    rw["properties"] = ppts
+    // console.log("rw",rw,"ppts",ppts)
+    // return
+    op.push(rw)
+  }
+  return op
+}
+
+const getFolderDetails = (folderName) => {
+  let ifFolderExists = folderExists(folderName, MEDIA_FOLDER_ID)
+  if (ifFolderExists["status"]) {
+    return ifFolderExists
+  } else {
+    return createFolder(folderName, MEDIA_FOLDER_ID)
+  }
+
+}
+
+
+function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
+  var R = 6371; // Radius of the earth in km
+  var dLat = deg2rad(lat2 - lat1);  // deg2rad below
+  var dLon = deg2rad(lon2 - lon1);
+  var a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+    Math.sin(dLon / 2) * Math.sin(dLon / 2)
+    ;
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  var d = R * c; // Distance in km
+  return d;
+}
+
+function deg2rad(deg) {
+  return deg * (Math.PI / 180)
+}
+const findKMLDuplicates = () => {
+  let sh = shGrndData
+  let idRow = getIdRow(sh)
+  const cols = getCols(idRow, ["F_NM_FRMTD", "PLOT_NO", "KML_FILE", "GPS_CRDNTS"])
+  console.log("cols", cols)
+
+  const lRow = sh.getRange(1, cols["F_NM_FRMTD"]).getNextDataCell(SpreadsheetApp.Direction.DOWN).getRow()
+
+  const crdnt_rng = sh.getRange(ID_ROW_GRND_DATA + 1, cols["GPS_CRDNTS"] + 1, lRow - ID_ROW_GRND_DATA, 1)
+  const crdnts = crdnt_rng.getValues()
+  // console.log("crdnts", crdnts)
+
+
+  let cmpr_cnt = 0
+  for (t of crdnts) {
+    // console.log("t",t)
+    const [lon1, lat1] = t[0].split(",")
+    //  console.log("lat1", lat1, "lon1", lon1)
+    let cmpr_cnt2 = 0
+    for (i = cmpr_cnt + 1; i < crdnts.length; i++) {
+      const [lon2, lat2] = crdnts[i][0].split(",")
+      // console.log("Comparing", t, "with", crdnts[i][0])
+      // const d = getDistanceFromLatLonInKm(77.34495028853416, 28.090477754102835, 77.3445476219058, 28.090245713305144) * 1000
+      const d = getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) * 1000
+      // console.log("Distance in meters", d)
+
+      if (d <= NEAR_DISTANCE) {
+        const rw1 = cmpr_cnt + ID_ROW_GRND_DATA + 1
+        const rw2 = (cmpr_cnt + ID_ROW_GRND_DATA + 1) + (cmpr_cnt2 + 1)
+
+
+        const nm1 = sh.getRange(rw1, cols["F_NM_FRMTD"] + 1).getValue()
+        const plotStr1 = sh.getRange(rw1, cols["PLOT_NO"] + 1).getValue()
+        const nm2 = sh.getRange(rw2, cols["F_NM_FRMTD"] + 1).getValue()
+        const plotStr2 = sh.getRange(rw2, cols["PLOT_NO"] + 1).getValue()
+        const note = `Possible duplicate: \n(Row: ${rw1}) ${nm1}, ${plotStr1}\n(Row: ${rw2}) ${nm2}, ${plotStr2}`
+
+        const kmlCl1 = sh.getRange(rw1, cols["KML_FILE"] + 1)
+        const kmlCl2 = sh.getRange(rw2, cols["KML_FILE"] + 1)
+        kmlCl1.setBackground("red")
+        kmlCl1.setNote(note)
+        kmlCl2.setBackground("red")
+        kmlCl2.setNote(note)
+
+        console.log("Distance in meters", d, "Row 1", rw1, "Row 2", rw2)
+        console.log(note, lat1, lon1, lat2, lon2)
+      }
+      cmpr_cnt2++
+    }
+    cmpr_cnt++
+  }
+  return
+}
+
+
+
+
+
+
+function calculatePolygonArea(points) {
+  const n = points.length;
+  let area = 0;
+
+  for (let i = 0; i < n; i++) {
+    const currentPoint = points[i];
+    const nextPoint = points[(i + 1) % n]; // Wrap around to the first point for the last iteration
+
+    const x1 = currentPoint[0];
+    const y1 = currentPoint[1];
+    const x2 = nextPoint[0];
+    const y2 = nextPoint[1];
+
+    // Convert lat-lon to radians
+    const lat1 = deg2rad(y1);
+    const lon1 = deg2rad(x1);
+    const lat2 = deg2rad(y2);
+    const lon2 = deg2rad(x2);
+
+    // Calculate area contribution
+    area += (lon2 - lon1) * (Math.sin(lat1) + Math.sin(lat2));
+  }
+
+  // Take the absolute value and divide by 2
+  area = Math.abs(area) * 6378137 * 6378137 / 2; // Earth's radius squared
+
+  return area;
+}
+function squareMetersToAcres(areaInSquareMeters) {
+  const squareMetersPerAcre = 4046.86;
+  return areaInSquareMeters / squareMetersPerAcre;
+}
+
+const testFunc = () => {
+  combineKml(true)
+  return
+  // https://drive.google.com/file/d/1wX-yNjqjQIlFSBDs8bQj1o4s-jfEPM0k/view?usp=drive_link
+
+  const folderId = 'your_folder_id'; // Replace with the actual folder ID containing your KML files
+  fileId = "1wX-yNjqjQIlFSBDs8bQj1o4s-jfEPM0k"
+  var file = DriveApp.getFileById(fileId)
+  const mimeType = file.getMimeType();
+  console.log("mimeType", mimeType)
+  // file.setMimeType('application/vnd.google-earth.kml+xml');
+  // Drive.Files.update({ mimeType: 'application/vnd.google-earth.kml+xml' }, fileId);
+  DriveApp.getFileById(fileId).setMimeType('application/vnd.google-earth.kml+xml');
+  Logger.log(`Updated MIME type for file "${file.getName()}"`);
+  // const mimeTypeUpdated = file.getMimeType();
+  // console.log("mimeType", mimeTypeUpdated)
+  return
+
+  const files = DriveApp.getFolderById(folderId).getFiles();
+  while (files.hasNext()) {
+    const file = files.next();
+    const mimeType = file.getMimeType();
+
+
+    if (mimeType === 'text/xml') {
+      // Change the MIME type to "application/vnd.google-earth.kml+xml"
+      file.setMimeType('application/vnd.google-earth.kml+xml');
+      Logger.log(`Updated MIME type for file "${file.getName()}"`);
+    }
+  }
+
+
+
+}
+const getKmlDetails = (plotStr, files) => {
+  console.log("plotStr", plotStr)
+  const plotNo = plotStr.split(" ")[1].trim()
+  // console.log(`"plotNo"--${plotNo}--`)
+  console.log("inside getKmlDetails")
+  for (file of files) {
+
+    const fileName = file.fileName.toLowerCase();
+    const mimeType = file.mimeType
+    console.log("file", file, mimeType)
+    console.log("fileName", fileName.replace(/\s/g, ''), fileName.replace(/\s/g, '').includes(`plot${plotNo}`), `plot${plotNo}`)
+    if ((mimeType == "text/xml" || mimeType == "application/vnd.google-earth.kml+xml") && (fileName.replace(/\s/g, '').includes(`plot${plotNo}`))) {
+      console.log("KML found")
+      return {
+        "status": true,
+        "fileId": file.fileId,
+        "fileUrl": file.fileUrl,
+        "fileName": file.fileName
+      }
+    } else {
+      console.log("KML for", fileName, "not found.")
+    }
+  }
+  console.log("After .kml for of")
+  // while (files.hasNext()) {
+  //   console.log("Inside while")
+  //   var file = files.next();
+  //   const fileName = file.getName().toLowerCase()
+  //   const mimeType = file.getMimeType()
+  //   console.log(fileName, mimeType)
+  //   if ((mimeType == "text/xml" || mimeType == "application/vnd.google-earth.kml+xml") && (fileName.includes(`plot ${plotNo}`) || fileName.includes(`plot${plotNo}`))) {
+  //     console.log(".kml file found")
+  //     return {
+  //       "status": true,
+  //       "fileId": file.getId(),
+  //       "fileUrl": file.getUrl(),
+  //       "fileName": file.getName()
+  //     }
+  //   }
+  // }
+  console.log("After .kml while")
+  return {
+    "status": false
+  }
+}
+function getAadhaardetails(fldrNm, files) {
+  const frmrName = extractFarmerName(fldrNm).toLowerCase()
+  // console.log("fldrNm", fldrNm, "frmrName", frmrName)
+  for (file of files) {
+
+    const fileName = file.fileName.toLowerCase();
+    const mimeType = file.mimeType
+    console.log("file", file, mimeType)
+    if (mimeType == "application/pdf" && fileName.includes(frmrName)) {
+      console.log("AADHAAR found")
+      return {
+        "status": true,
+        "fileId": file.fileId,
+        "fileUrl": file.fileUrl,
+        "fileName": file.fileName
+      }
+    }
+  }
+  console.log("After aadhaar for of loop")
+  return {
+    "status": false
+  }
+
+
+}
+
+function getFiles(folderId) {
+  var folder = DriveApp.getFolderById(folderId);
+  return files = folder.getFiles();
+
+}
+function extractFarmerName(string) {
+
+  var regex = /-\s?(.+)/;
+  var match = regex.exec(string);
+  // console.log("match",match)
+  if (match != null) {
+    return match[1];
+  }
+  return string;
+}
+function extractVillage(string) {
+  // var regex = /\(([^()]*)\)/;
+  var regex = /\(?([^()]*)\)?/;
+  var match = regex.exec(string);
+  // console.log("match",match)
+  if (match != null) {
+    return match[1];
+  }
+  return string;
+}
+const getEmptyMMediaCell = () => {
+  const sh = shGrndData
+  const idRow = getIdRow(sh)
+  // const lRow = sh.getDataRange().getLastRow()
+
+
+
+  const colMulMedia = getColumn(idRow, "MMEDIA_LINK")
+  const colFrmr_nm_Frmtd = getColumn(idRow, "F_NM_FRMTD")
+  const colFrmr_nm = getColumn(idRow, "FRMR_NAME")
+  const colVlg_nm = getColumn(idRow, "V_NM_FRMTD")
+  const lRow = sh.getRange(1, colFrmr_nm).getNextDataCell(SpreadsheetApp.Direction.DOWN).getRow()
+  console.log("lRow", lRow, sh.getRange(1, colFrmr_nm).getValue())
+  // return
+  const strt_frm_rw = 3
+  const mm_vals = sh.getRange(strt_frm_rw, colMulMedia, lRow - strt_frm_rw + 1).getValues()
+  const vllgsFrmtd = sh.getRange(strt_frm_rw, colVlg_nm, lRow - strt_frm_rw + 1).getValues()
+  let frmrsFrmtd = sh.getRange(strt_frm_rw, colFrmr_nm_Frmtd, lRow - strt_frm_rw + 1).getValues()
+  for (let i = 0; i < lRow - strt_frm_rw + 1; i++) {
+    const fldrNm = `${extractVillage(vllgsFrmtd[i][0])} - ${frmrsFrmtd[i][0]}`
+    console.log("fldrNm", fldrNm)
+  }
+
+  // const mm_vals = sh.getRange()
+  console.log("mm_vals", mm_vals[10][0])
+
+
+}
+const getIdRow = (sh, id_rw = ID_ROW_GRND_DATA) => {
+  // const sh = ss.getActiveSheet()
+  // const sh = ss.getSheetByName(sheetName)
+  lColumn = sh.getLastColumn()
+  idRow = sh.getRange(id_rw, 1, 1, lColumn)
+  return idRow
+}
+const getIdCol = (sh, id_col = ID_COL_DSHBRD) => {
+  // const sh = ss.getActiveSheet()
+  // const sh = ss.getSheetByName(sheetName)
+  // lColumn = sh.getLastColumn()
+  console.log("sh", sh)
+
+  const lRow = sh.getLastRow()
+  // console.log("lRow",lRow)
+  const idCol = sh.getRange(1, id_col, lRow, 1)
+  // console.log("idCol Values",idCol.getValues())
+  return idCol
+}
+const getColumn = (idRow, colId) => {
+
+  idArr = idRow.getValues()[0];
+  for (var i = 0; i < idArr.length; i++) {
+    // console.log(idArr[i],colId)
+    if (idArr[i] == colId)
+      return i + 1
+  }
+
+  console.log(idArr)
+}
+const getRow = (idCol, rowId) => {
+
+  idArr = idCol.getValues();
+  for (var i = 0; i < idArr.length; i++) {
+    // console.log("ID Val", idArr[i][0], "rowId", rowId)
+    if (idArr[i][0] == rowId)
+      return i + 1
+  }
+
+  // console.log(idArr)
+}
+
+function folderExists(folderName, folderId) {
+  let folder = DriveApp.getFolderById(folderId);
+  let folders = folder.getFoldersByName(folderName);
+  if (folders.hasNext()) {
+    let folder = folders.next()
+    return {
+      "status": true,
+      "folderId": folder.getId(),
+      "folderUrl": folder.getUrl()
+    }
+  }
+  return {
+    "status": false
+  }
+}
+function createFolder(folderName, rootFolderId) {
+  var folder = DriveApp.getFolderById(rootFolderId);
+  var newFolder = folder.createFolder(folderName);
+  // Logger.log('Folder ID: ' + newFolder.getId());
+  return {
+    "status": true,
+    "folderId": newFolder.getId(),
+    "folderUrl": newFolder.getUrl()
+  }
+
+}

@@ -263,15 +263,24 @@ export async function getStaticProps() {
   // const parser = new DOMParser();
   //   const xmlDoc = parser.parseFromString(kmlData, 'text/xml');
   //   // Now you can work with the parsed XML document (e.g., extract data)
-  console.log("kmldata res", kmlData)
+  console.log("kmldata res", kmlData.substring(0, 500)); // Log first 500 chars to check if it's valid KML
 
   const parser = new DOMParser();
   const kmlDoc = parser.parseFromString(kmlData, 'text/xml');
+  
+  let geojsonData;
+  try {
+    // Convert KML to GeoJSON
+    geojsonData = toGeoJSON.kml(kmlDoc);
+    console.log("Successfully converted KML to GeoJSON. Features found:", geojsonData.features.length);
+    // You can uncomment the next line for more detailed debugging if needed
+    // console.log("geojsonData from index.js", JSON.stringify(geojsonData, null, 2));
+  } catch (error) {
+    console.error("Error converting KML to GeoJSON:", error);
+    // If conversion fails, pass an empty GeoJSON object to prevent crashes
+    geojsonData = { type: 'FeatureCollection', features: [] };
+  }
 
-  // Convert KML to GeoJSON
-  const geojsonData = toGeoJSON.kml(kmlDoc);
-
-  // console.log("geojsonData from index.js", JSON.stringify(geojsonData, null, 2)); // Check if the GeoJSON data is correctly generated
   data["kmlData"] = geojsonData;
   return {
     props: {

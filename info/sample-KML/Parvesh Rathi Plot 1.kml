@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Style id='BMPoly'>
+<LineStyle>
+<color>ffff0000</color>
+<width>1.2</width>
+</LineStyle>
+<PolyStyle>
+<color>ff00ff00</color>
+<fill>1</fill>
+</PolyStyle>
+</Style>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Parvesh Rathi Plot 01</name>
+<description>Palri </description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.39475589245558,27.984107970446082,0
+77.39475723356009,27.98362447905654,0
+77.39552903920412,27.983618853608153,0
+77.39551663398743,27.984104713622155,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+</Document>
+</kml>

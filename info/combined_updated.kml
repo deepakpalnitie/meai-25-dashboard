@@ -1,0 +1,861 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Style id='BMPoly'>
+<LineStyle>
+<color>ffff0000</color>
+<width>1.2</width>
+</LineStyle>
+<PolyStyle>
+<color>ff00ff00</color>
+<fill>1</fill>
+</PolyStyle>
+</Style>
+<Placemark id="1Px3BzR6nGtyXTqlV2_vIWAvubfa0z69v-0"><name>Satyadev</name><description>Ramgarh</description><styleUrl>https://data.distincthorizon.net/kml?folderId=148RiH-x6AEZE45aBIXbn5S55HRT63Ua9#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.4764510919826,27.962921216285977,0 77.47611586507882,27.962916730080252,0 77.47613618186087,27.96249053968353,0 77.47592285564937,27.962495025907003,0 77.47592389583588,27.962205678968388,0 77.47563334150522,27.962257255806293,0 77.47564857909174,27.961113260263062,0 77.47644601278712,27.96109980141982,0 77.4764510919826,27.962921216285977,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="1QaiWxy2NJKRI-Ov_nLkNYAMcI_rF5heQ-0"><name>Bhagat singh</name><description>Ramgarh</description><styleUrl>https://data.distincthorizon.net/kml?folderId=10yqo6iozhHjgParR1ZV7CsVtlay-sIsE#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.47728310624855,27.961749994696717,0 77.47726847169545,27.961093345436353,0 77.47879339212824,27.96111144212304,0 77.47847435887071,27.961344113538757,0 77.47773385048396,27.961607807203592,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754142541181-0"><name>Bhagat singh Plot 2 nd</name><description>Ramgarh</description><styleUrl>https://data.distincthorizon.net/kml?folderId=10yqo6iozhHjgParR1ZV7CsVtlay-sIsE#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.47592793692544,27.96291160680957,0 77.47501954666882,27.96292765354596,0 77.47503468650642,27.963376961195806,0 77.47593399286048,27.963384984529668,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Parvesh Rathi Plot 01</name>
+<description>Palri </description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.39475589245558,27.984107970446082,0
+77.39475723356009,27.98362447905654,0
+77.39552903920412,27.983618853608153,0
+77.39551663398743,27.984104713622155,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Rohit Plot 1</name>
+<description>Darana</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.45928380638361,27.956196636156672,0
+77.45847847312689,27.956212924487886,0
+77.45844025164843,27.95527352798788,0
+77.45927274227142,27.955285374148467,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark id="146jpB2gV5_bpJykaUNu8Uq_3yYOe18J7-0"><name>Rohit Plot 2</name><description>Darana</description><styleUrl><![CDATA[https://data.distincthorizon.net/kml?fileId=146jpB2gV5_bpJykaUNu8Uq_3yYOe18J7&mode=team#BMPoly]]></styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.45268874524884,27.950716445431837,0 77.45268250986214,27.95164295167008,0 77.45391245707341,27.95164408567456,0 77.45390172823735,27.95073900473777,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="16UoDuyWCKaIx-OzbFwJF6wktz-k6NEyB-0"><name>Sunder Plot 1</name><description>Bahrola</description><styleUrl>http://localhost:3000/kml?folderId=1UbMhLREQ7GIMILG40X5mGZLbYqSLFy_k#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.34271449949777,28.082756660160825,0 77.34323563335988,28.082760556601727,0 77.3427290841937,28.081364314921146,0 77.3426740989089,28.08138442982434,0 77.34271164983512,28.081850029618224,0 77.34271449949777,28.082756660160825,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="16bBbpewG-Vz3qlEZtw0nX-RNvkK2nGNy-0"><name>Sunder Plot 2</name><description>Bahrola</description><styleUrl>http://localhost:3000/kml?folderId=1UbMhLREQ7GIMILG40X5mGZLbYqSLFy_k#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.3427159319012,28.082758904040745,0 77.3419184858888,28.082787096995503,0 77.34130584354173,28.0827336394607,0 77.3415931686759,28.082229252355077,0 77.34189458191395,28.0822801308107,0 77.34271433204411,28.082301428761724,0 77.3427159319012,28.082758904040745,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Subhash Plot 1</name>
+<description>Pingore</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.38622512668371,28.014063330155214,0
+77.38623719662428,28.01269257967555,0
+77.38744184374809,28.012703827537138,0
+77.38746766000986,28.014060074236497,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Vishvender Plot 1</name>
+<description>Hasanpur</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.47890383005142,27.958765423695652,0
+77.47810285538435,27.958762462251112,0
+77.47810151427984,27.959324246829812,0
+77.4772834405303,27.95931506639892,0
+77.47727405279875,27.957686267918884,0
+77.47869729995728,27.957662576123315,0
+77.47893266379833,27.957910451277325,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Vishvender Plot 2</name>
+<description>Hasanpur </description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.4799321219325,27.959289894245774,0
+77.47993044555187,27.959700051539464,0
+77.47973900288343,27.95969442484346,0
+77.47975207865238,27.960222148424787,0
+77.47811827808619,27.96021178350836,0
+77.47810788452625,27.95975927990075,0
+77.47728478163481,27.95977023714404,0
+77.47727002948523,27.95931506639892,0
+77.4785977229476,27.95931151268355,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark id="16kiJfLFP38m804l6z7E72n2UVCkv58e6-0"><name>Vishvender Plot 3</name><description>Hasanpur</description><styleUrl>http://localhost:3000/kml?folderId=1pHPlVD7xVIMXGb6lQto60fezTmD_qv7K#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.47726265341043,27.9570258571691,0 77.47647743672132,27.957036814689815,0 77.4764683842659,27.957520425240546,0 77.47566673904657,27.95750828317732,0 77.47567746788262,27.95680907571932,0 77.47566170990467,27.956144809631937,0 77.47666988521813,27.956093871537618,0 77.47728679329157,27.956107198366936,0 77.47726265341043,27.9570258571691,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="16nCdS0Bv2ietyUz4s2YdWAViReoP-C_5-0"><name>Bhupender Plot 1</name><description>Ramgarh</description><styleUrl>https://data.distincthorizon.net/kml?folderId=1orI7BuppYWikGBgzuyOc5M3HIdsiTzgI#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.47709577013762,27.955652733154395,0 77.47866880148649,27.95567392749564,0 77.47867181897163,27.95614214426712,0 77.47972255322212,27.95614702204827,0 77.47975993943662,27.957622771069055,0 77.47898546213025,27.957608950058656,0 77.47709577013762,27.955652733154395,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="16r6Pf4ZsYqzD7W2qliiYHD1CI53S1GOT-0"><name>Bhupender Plot 2</name><description>Ramgarh</description><styleUrl>https://data.distincthorizon.net/kml?folderId=1orI7BuppYWikGBgzuyOc5M3HIdsiTzgI#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.47975405298642,27.957011841221913,0 77.48056651366623,27.95703041255068,0 77.48054477662018,27.955633374534358,0 77.47972180367111,27.955647966496628,0 77.47975405298642,27.957011841221913,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Manoj Plot 1</name>
+<description>Ramgarh </description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.477050088346,27.95568991975277,0
+77.4748034030199,27.955677185177795,0
+77.47482351958752,27.9542979922016,0
+77.47576832771301,27.95427696507332,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Sunil Plot 1</name>
+<description>Ramgarh</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.4748332425952,27.95618567855065,0
+77.47318435460329,27.956168501760622,0
+77.47316088527441,27.954614583257438,0
+77.47402556240559,27.954619321750776,0
+77.47482117265463,27.9546128063224,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark><name>Rakesh Sharma Plot 1</name><description>Sahnoli</description><styleUrl>https://data.distincthorizon.net/kml?folderId=1Gy48ErfcDrST3ny4f8PeF36JgK9S3stZ#BMPoly</styleUrl><Style><LineStyle><color>ffff0000</color><width>1.2</width></LineStyle><PolyStyle><color>ff00ff00</color></PolyStyle></Style><Polygon><outerBoundaryIs><LinearRing><coordinates>77.4855624139309,27.965167580725335,0 77.48309723451734,27.964739786094327,0 77.48384982347488,27.964265574461407,0 77.48385183513165,27.963367706504016,0 77.48396717011929,27.96330759172686,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>DhaniRam Plot 1</name>
+<description>Bhupgarh</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.40212224423885,27.988152869807518,0
+77.40211050957441,27.988582753572363,0
+77.4029279127717,27.988578904758384,0
+77.40292992442846,27.988143099702043,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Dhani Ram Plot 2</name>
+<description>Bhupgarh </description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.40537710487843,27.98812000672192,0
+77.40701660513878,27.98813362565952,0
+77.40703638643026,27.9867483340429,0
+77.4053817987442,27.98673737953942,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Dhani Ram Plot 3</name>
+<description>Bhupgarh</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.40782964974642,27.98812059884968,0
+77.40782428532839,27.987191842464615,0
+77.41023223847151,27.987169637480193,0
+77.4102184921503,27.988100170440184,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Dhani Ram Plot 4</name>
+<description>Bhupgarh</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.40700386464596,27.988140731191496,0
+77.40782998502254,27.98812444768002,0
+77.4078544601798,27.98946235199443,0
+77.40701828151941,27.98947212198034,0
+77.40697503089905,27.988992503444095,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Dhani Ram Plot 5</name>
+<description>Bhupgarh </description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.40538649260998,27.988141323319127,0
+77.40538816899061,27.988576240194785,0
+77.40457344800234,27.98858778663659,0
+77.40458283573389,27.98814102725531,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Dhani Ram Plot 6</name>
+<description>Bhupgarh </description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.4053781107068,27.988552555182068,0
+77.4054029211402,27.989927757613373,0
+77.40622166544199,27.989933086673734,0
+77.40614220499992,27.9885753520069,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Mohan Shyam Plot 3</name>
+<description>Ramgarh</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.48412676155567,27.94968791848043,0
+77.48416230082512,27.949307932533213,0
+77.4837301298976,27.94931237508904,0
+77.48374186456203,27.948954008332166,0
+77.48462531715631,27.948952231303952,0
+77.48462866991758,27.94930230529557,0
+77.48461458832026,27.949689399327173,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Ram Prashad Plot 1</name>
+<description>Ramgarh </description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.4862390011549,27.949241590344528,0
+77.48709227889776,27.949241294173948,0
+77.48708724975586,27.94880769957881,0
+77.48793214559555,27.948790521614978,0
+77.48789291828871,27.94746099816126,0
+77.48620882630348,27.947462479038563,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Shivhari Plot 1</name>
+<description>Ramgarh </description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.49359495937824,27.94793191611514,0
+77.49197524040937,27.94792688115416,0
+77.49198362231255,27.947006664050722,0
+77.49359395354986,27.947018807294988,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Shivhari Plot 2</name>
+<description>Ramgarh </description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.4936006590724,27.947465736968507,0
+77.49422695487738,27.947450632019684,0
+77.49423298984766,27.946553216562723,0
+77.49196350574493,27.946562101900835,0
+77.49198697507381,27.94699896345612,0
+77.49360300600529,27.947013772291434,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Bhagat Plot 1</name>
+<description>Ramgarh</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.47646939009428,27.95976224131796,0
+77.47646000236273,27.961120338688506,0
+77.47811257839203,27.96111589661854,0
+77.47813437134027,27.960688568634083,0
+77.4773283675313,27.960669319585968,0
+77.47727941721678,27.95975927990075,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Bhagat Plot 2</name>
+<description>Ramgarh</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.47758585959673,27.959772013994193,0
+77.47730020433664,27.9597758638361,0
+77.4773320555687,27.960218002458326,0
+77.47759860008955,27.960222740705696,0
+77.47767873108387,27.96067435395272,0
+77.47810754925013,27.960676426927197,0
+77.47810151427984,27.95976697958533,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Rohtash Plot 1</name>
+<description>Ramgarh</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.47812733054161,27.961118857998528,0
+77.47882805764675,27.961128926689895,0
+77.47921831905842,27.960942655747683,0
+77.4797410145402,27.96068560724229,0
+77.47975710779428,27.960218002458326,0
+77.47810520231724,27.960214448772675,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Rohtash Plot 2</name>
+<description>Ramgarh</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.47564259916544,27.959748026514617,0
+77.47726634144783,27.9597533570661,0
+77.47725930064917,27.95858122168945,0
+77.47726634144783,27.957881132740408,0
+77.47564494609833,27.957911339717718,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Karan Plot 1</name>
+<description>Ramgarh</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.47459016740322,27.960206749120005,0
+77.47406277805567,27.96022244456524,0
+77.47407451272011,27.96158024000863,0
+77.47324034571648,27.961585274332915,0
+77.47319977730513,27.958876181663843,0
+77.47458312660456,27.958865224329795,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Vivek Plot 1 </name>
+<description>Mandkola</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.1898639574647,28.14362554280396,0
+77.1881728246808,28.144126644231893,0
+77.18733966350555,28.1441298962099,0
+77.18735978007317,28.142912171358127,0
+77.18757603317499,28.142910101894042,0
+77.18757301568985,28.14247226152552,0
+77.18736782670021,28.14246575746875,0
+77.18736246228218,28.14225230593173,0
+77.18835722655058,28.14224934953626,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Radhe Lal Plot 1</name>
+<description>Mandkola</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.18924604356289,28.14293463982257,0
+77.19223536550999,28.1428811293929,0
+77.19221692532301,28.141967900314267,0
+77.18856945633888,28.142006924830365,0
+77.18857079744339,28.142194064926016,0
+77.18863550573587,28.142306703593746,0
+77.18875855207443,28.142458366494658,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Jitender Plot 1</name>
+<description>Mandkola</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.18978349119425,28.132477425444584,0
+77.18831665813923,28.132478608110638,0
+77.18691889196634,28.132465007450165,0
+77.18688435852528,28.131582143491208,0
+77.18816813081503,28.13155848996965,0
+77.18818388879299,28.13112622094314,0
+77.1897878497839,28.131104045672455,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Munish Kumar Plot 1 </name>
+<description>Mandkola</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.19142634421587,28.1301907162045,0
+77.18895502388477,28.130212300318615,0
+77.18896441161633,28.13111882918676,0
+77.18978449702263,28.131098427936504,0
+77.18977980315685,28.131821635103215,0
+77.19139751046896,28.131785267892894,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Bhupender Plot 1</name>
+<description>Mandkola</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.16524094343185,28.13278107452735,0
+77.1652577072382,28.134764972869455,0
+77.1643977239728,28.134749302877434,0
+77.16439638286829,28.132816258737407,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Nitesh Plot 1</name>
+<description>Mandkola</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.16606136411428,28.132639450573414,0
+77.16645665466785,28.132639450573414,0
+77.16685798019171,28.132617866948138,0
+77.16766633093357,28.132564351365332,0
+77.16767203062773,28.13158036947727,0
+77.16601207852364,28.13159840528428,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Sikander Plot 1</name>
+<description>Mandkola</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.16278538107872,28.13429960269596,0
+77.16439872980118,28.13430078534191,0
+77.16438766568899,28.132816554402993,0
+77.16410804539919,28.13283488566745,0
+77.16382909566164,28.13285913023823,0
+77.16286852955818,28.13289697541091,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Sukhram Plot 1</name>
+<description>Mandkola</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.1705436706543,28.139721305907322,0
+77.16933466494083,28.139737862111595,0
+77.1689222753048,28.13978073084292,0
+77.16852430254221,28.139453449818244,0
+77.16850250959396,28.138429027139928,0
+77.16933466494083,28.138437009692176,0
+77.16931354254484,28.137922872983058,0
+77.17100568115711,28.137925829497917,0
+77.17099327594042,28.138816623712223,0
+77.17106435447931,28.138845301663746,0
+77.17107944190502,28.139270739651394,0
+77.1705225482583,28.139302965253634,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Manoj Plot 1</name>
+<description>Mandkola</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.16848909854889,28.137016106022962,0
+77.16605231165886,28.13702556695033,0
+77.16604895889759,28.137330977063097,0
+77.16851860284805,28.139446649930882,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Kuldeep Plot 1 </name>
+<description>Mandkola</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.1668154001236,28.136113766235752,0
+77.1664958819747,28.13635088247296,0
+77.16605734080076,28.136409126655444,0
+77.16606840491295,28.137023497372535,0
+77.16848943382502,28.137014036444988,0
+77.1685179322958,28.136130322997538,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Vipin Plot 1 </name>
+<description>Mandkola</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.16932225972414,28.13792080342259,0
+77.16932728886604,28.136117314113484,0
+77.170963101089,28.13609809644098,0
+77.1710029989481,28.137931742527403,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Sunil Plot 1</name>
+<description>Mandkola</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.16848574578762,28.13842074893696,0
+77.16932628303766,28.138433461891236,0
+77.16932024806738,28.136123818555713,0
+77.16851960867643,28.13613150562326,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Ravi Plot 1 </name>
+<description>Mandkola</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.17094700783491,28.134327690533755,0
+77.1709369495511,28.134583733010412,0
+77.1709356084466,28.134836818275215,0
+77.1709456667304,28.136099279067086,0
+77.17251509428024,28.136113766235752,0
+77.17247720807791,28.134290141527913,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Lokesh Plot 1</name>
+<description>Mandkola</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.1622596681118,28.124774444521094,0
+77.16229487210512,28.125477292041136,0
+77.16274112462997,28.125478179098625,0
+77.16275688260794,28.125669487657763,0
+77.16522820293903,28.12571886709131,0
+77.16522350907326,28.124771783331145,0
+77.16400511562824,28.124788046157565,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Vikash Dagar Plot 1</name>
+<description>Mandkola</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.16031540185213,28.13839620997444,0
+77.1603086963296,28.139779548257472,0
+77.16277364641428,28.13975441831332,0
+77.16277968138456,28.138432279290907,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Deshpal Plot 1 </name>
+<description>Mandkola</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.1644289046526,28.139757966070494,0
+77.1660603582859,28.139768313694933,0
+77.16604895889759,28.14067890073096,0
+77.16608684509993,28.141593914647142,0
+77.16443125158548,28.14157440231561,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Vinit Plot 1 </name>
+<description>Mandkola</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.16361049562693,28.13883791043987,0
+77.16522954404354,28.13884707555741,0
+77.16523222625256,28.137035027876863,0
+77.16442823410034,28.137009897288912,0
+77.16444097459316,28.136600711357158,0
+77.16357160359621,28.136596276529975,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark>
+<styleUrl>#BMPoly</styleUrl>
+<name>Kuldeep Plot 1 </name>
+<description>Mandkola</description>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+77.1668154001236,28.136113766235752,0
+77.1664958819747,28.13635088247296,0
+77.16605734080076,28.136409126655444,0
+77.16606840491295,28.137023497372535,0
+77.16848943382502,28.137014036444988,0
+77.1685179322958,28.136130322997538,0
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+</Placemark>
+<Placemark id="local-1753981773613-0"><name>Karamveer plot 1 Manduri</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1rQxPEppDQfkUbB6Rln_SxvRufqbTsZPw#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.19961412250996,28.139253887727122,0 77.19961747527122,28.13790779475596,0 77.19795348869252,28.137907596347034,0 77.19799406826498,28.139249748657576,0 77.19961412250996,28.139253887727122,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753981597469-0"><name>Anil plot 1 Manduri</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1j7qPjNnWQ3o7EpSrDP5NAl8U50VacSgY#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.19716358929873,28.137003392900496,0 77.19717970773642,28.13565878398292,0 77.19591602683069,28.135647514947138,0 77.1959163621068,28.136093957249543,0 77.19553112983704,28.13610371391485,0 77.1955381706357,28.137003392900496,0 77.196493037045,28.137011079904966,0 77.19716358929873,28.137003392900496,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753981488486-0"><name>Sedakram plot 1 Manduri</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1_19PiBy-EuMTDzas5f-xjqBkVBayB37R#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.21106514334679,28.141918232727733,0 77.21105441451073,28.14108481901603,0 77.20949973911047,28.141090731871145,0 77.20948901027441,28.14191616324446,0 77.21106514334679,28.141918232727733,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753981260894-0"><name>Raj wait plot 1 manduri</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1hKqSEkK3AGI3WNdQKABjZQMEmRRlKKwF#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.21603852120967,28.146521718840816,0 77.21610712486377,28.145130620140975,0 77.2144018113613,28.145165498367007,0 77.21437565982342,28.146070422570702,0 77.21438632172222,28.146965253835987,0 77.21458641524222,28.146965253835987,0 77.2145604277808,28.146520495939427,0 77.21603852120967,28.146521718840816,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="1KqdkM5eUem2A0_wlIm2jTFqMUpuzzjbt-0"><name>Beerpal plot 1</name><description>Siya</description><styleUrl>https://data.distincthorizon.net/kml?folderId=1y2mwGLuQ--N-Y5jNP_Pconm4yebzHL36#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.37677561648188,27.98050473915906,0 77.37753745168447,27.98050290224903,0 77.37753007560967,27.98095028544529,0 77.37744323909281,27.980949397194564,0 77.37743720412254,27.981839124647664,0 77.37671514662092,27.98183208518803,0 77.37677561648188,27.98050473915906,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754054223795-0"><name>Adesh Kumar plot 01</name><description>Siya</description><styleUrl>https://data.distincthorizon.net/kml?folderId=1D2oD3qwYycLckk2sdOdI3Lifm9nJ9lEM#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.39322703331709,28.014957520104232,0 77.39323843270539,28.015869757876146,0 77.39406254142523,28.015875677628827,0 77.39403337240219,28.014957816094395,0 77.39322703331709,28.014957520104232,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754050035978-0"><name>Baljeet plot 1</name><description>Siya</description><styleUrl>https://data.distincthorizon.net/kml?folderId=1l0C-K4x6eH5CSdixvE_t4csNcggyaV3Z#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.39076107740402,28.014491630603757,0 77.39158619195224,28.01449725444074,0 77.39157143980265,28.015869757876146,0 77.39077314734459,28.015863838123167,0 77.39076107740402,28.014491630603757,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754050348600-0"><name>Babu plot 1</name><description>Siya</description><styleUrl>https://data.distincthorizon.net/kml?folderId=1VZu171jrdRABfCoLm0eLK2arGyY1Caul#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.39235380199928,28.016758226694407,0 77.39238711317142,28.015411357339858,0 77.39318658130307,28.015393712651345,0 77.3931732568342,28.01587011822575,0 77.39405751228333,28.01588633318272,0 77.3940236493945,28.016786427697156,0 77.39235380199928,28.016758226694407,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="1cszTZO07ik7-omwkc746prPbfN_H8V7u-0"><name>Niraj Singh plot 1</name><description>Siya</description><styleUrl>http://localhost:3000/kml?folderId=1x3qmuVud68VKFw8-Q0_si_b4VkXeJJiq#BMPoly</styleUrl><Style><PolyStyle><color>7fffffff</color><outline>0</outline></PolyStyle></Style><Polygon><outerBoundaryIs><LinearRing><coordinates>77.38410448594824,27.992608566324904,0 77.38412556495729,27.99407656512551,0 77.38328732757363,27.994085571158237,0 77.38329172304024,27.993654759352168,0 77.38249632078835,27.993651333837718,0 77.38250493451072,27.992719387250844,0 77.38330577623704,27.9927310446557,0 77.38330930490683,27.99261847525274,0 77.38410448594824,27.992608566324904,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754050370511-0"><name>Babu plot 2</name><description>Siya</description><styleUrl>https://data.distincthorizon.net/kml?folderId=1VZu171jrdRABfCoLm0eLK2arGyY1Caul#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.39048122677953,28.013562214100133,0 77.39076397117228,28.01359477284133,0 77.39071889597922,28.01540719390981,0 77.38919453490524,28.015399958756618,0 77.39048122677953,28.013562214100133,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="17vwDlQ5UCfk0GCMRBl7H3y9tbHN91h0U-0"><name>Baljeet Plot 02</name><description>Siya</description><styleUrl>https://data.distincthorizon.net/kml?folderId=1l0C-K4x6eH5CSdixvE_t4csNcggyaV3Z#BMPoly</styleUrl><Style><PolyStyle><color>7fffffff</color><outline>0</outline></PolyStyle></Style><Polygon><outerBoundaryIs><LinearRing><coordinates>77.39157009869814,28.013593588865717,0 77.39074800163507,28.013591812902362,0 77.39075805991887,28.014495478492265,0 77.39158116281033,28.01449399853516,0 77.39157009869814,28.013593588865717,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754050617046-0"><name>Yogesh Kumar plot 1</name><description>Siya</description><styleUrl>https://data.distincthorizon.net/kml?folderId=1OxjCcTBNi5KQS9jSppFOzfG_c9QLUMaO#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.39076878875494,28.01586058225888,0 77.38995842635632,28.01587005386378,0 77.3899557441473,28.015363617821407,0 77.39076878875494,28.01541216001172,0 77.39076878875494,28.01586058225888,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754049742411-0"><name>Beerpal plot 2</name><description>Siya</description><styleUrl>https://data.distincthorizon.net/kml?folderId=1y2mwGLuQ--N-Y5jNP_Pconm4yebzHL36#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.37839640530319,27.995029813513625,0 77.37839640530319,27.99457373336439,0 77.38004245104919,27.9945687214839,0 77.380048127069,27.99501978979481,0 77.37839640530319,27.995029813513625,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754049572998-0"><name>Beerpal plot 3</name><description>Siya</description><styleUrl>https://data.distincthorizon.net/kml?folderId=1y2mwGLuQ--N-Y5jNP_Pconm4yebzHL36#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.38004367434962,27.994555066686473,0 77.38003861159086,27.994105364011446,0 77.37923763692379,27.994111877054948,0 77.37924266606568,27.993207744431814,0 77.37843062728643,27.99320211948347,0 77.37840833996965,27.99456784533622,0 77.38004367434962,27.994555066686473,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754049601833-0"><name>Beerpal Plot 4</name><description>Siya</description><styleUrl>https://data.distincthorizon.net/kml?folderId=1y2mwGLuQ--N-Y5jNP_Pconm4yebzHL36#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.37678586444046,27.995012708686914,0 77.37839408338205,27.995025238439908,0 77.37839881343776,27.994565813210173,0 77.37760685384274,27.994568085168936,0 77.37760081887245,27.993641456672606,0 77.37676221416191,27.993655310150487,0 77.37678586444046,27.995012708686914,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754050104642-0"><name>Baljeet plot 3</name><description>Siya</description><styleUrl>https://data.distincthorizon.net/kml?folderId=1l0C-K4x6eH5CSdixvE_t4csNcggyaV3Z#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.39485010504724,28.014954856192887,0 77.39403504878281,28.014964919857704,0 77.39406958222389,28.015986080956026,0 77.3947548866272,28.01594405074829,0 77.39484138786791,28.01589876466099,0 77.39488396793604,28.01586709398734,0 77.39485010504724,28.014954856192887,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754053942506-0"><name>Sarveshbar Singh plot 01</name><description>Siya</description><styleUrl>https://data.distincthorizon.net/kml?folderId=1xxAA8Qb1buWxvdst1xQ9IlnN2hMwAKV5#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.39237811416388,28.013141901232345,0 77.39155996230058,28.013141895767262,0 77.39152169332182,28.01408100911884,0 77.39235545637683,28.014042521642025,0 77.39237811416388,28.013141901232345,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="1S-X113Hymc8eXrOhasrLCOLto2-qpI4o-0"><name>Saveshbar Singh plot 02</name><description>Siya</description><styleUrl>https://data.distincthorizon.net/kml?folderId=1xxAA8Qb1buWxvdst1xQ9IlnN2hMwAKV5#BMPoly</styleUrl><Style><PolyStyle><color>7fffffff</color><outline>0</outline></PolyStyle></Style><Polygon><outerBoundaryIs><LinearRing><coordinates>77.39049110853993,28.01356567046392,0 77.39153255053108,28.01360541488974,0 77.39157512784004,28.01250935776487,0 77.39126902073622,28.012377639074288,0 77.39049110853993,28.01356567046392,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754054026778-0"><name>Sarveshbar Singh plot 03</name><description>Siya</description><styleUrl>https://data.distincthorizon.net/kml?folderId=1xxAA8Qb1buWxvdst1xQ9IlnN2hMwAKV5#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.39241063594818,28.01675416531414,0 77.39237643778324,28.01699065723689,0 77.39240024238825,28.017220341010116,0 77.3940397426486,28.017222708881505,0 77.39403638988732,28.016789683533432,0 77.39241063594818,28.01675416531414,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="1X3u839oGbKU2omsEH45BHHphtbSWUKdn-0"><name>Sarveshbar Singh plot 04</name><description>Siya</description><styleUrl>https://data.distincthorizon.net/kml?folderId=1xxAA8Qb1buWxvdst1xQ9IlnN2hMwAKV5#BMPoly</styleUrl><Style><PolyStyle><color>7fffffff</color><outline>0</outline></PolyStyle></Style><Polygon><outerBoundaryIs><LinearRing><coordinates>77.39157278090715,28.012505509805408,0 77.39155749403491,28.013147728138975,0 77.39238012582064,28.013138941280943,0 77.39236235618591,28.012823705988936,0 77.39157278090715,28.012505509805408,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754049653013-0"><name>Beerpal plot 5</name><description>Siya</description><styleUrl>https://data.distincthorizon.net/kml?folderId=1y2mwGLuQ--N-Y5jNP_Pconm4yebzHL36#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.38168146461247,27.993657147253373,0 77.38168213516474,27.994107140296066,0 77.38004348128166,27.994100504171058,0 77.3800268890659,27.993635338396032,0 77.38168146461247,27.993657147253373,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754049675178-0"><name>Beerpal plot 6</name><description>Siya</description><styleUrl>https://data.distincthorizon.net/kml?folderId=1y2mwGLuQ--N-Y5jNP_Pconm4yebzHL36#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.38168314099313,27.994114245434332,0 77.38004431290302,27.994096908802547,0 77.38004431290302,27.99455697735911,0 77.38168951123953,27.994559499829634,0 77.38168314099313,27.994114245434332,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754050633880-0"><name>Yogesh Kumar plot 2</name><description>Siya</description><styleUrl>https://data.distincthorizon.net/kml?folderId=1OxjCcTBNi5KQS9jSppFOzfG_c9QLUMaO#BMPoly</styleUrl><Style><PolyStyle><color>7fffffff</color><outline>0</outline></PolyStyle></Style><Polygon><outerBoundaryIs><LinearRing><coordinates>77.39483736455442,28.014462623439883,0 77.39489268511534,28.01583660725531,0 77.39569600671528,28.01578244148679,0 77.39567421376705,28.014449303821195,0 77.39483736455442,28.014462623439883,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="1_SOsff0HgJfqCd76sdESqxuJCwQKjAV3-0"><name>Yogesh Kumar plot 03</name><description>Siya</description><styleUrl>https://data.distincthorizon.net/kml?folderId=1OxjCcTBNi5KQS9jSppFOzfG_c9QLUMaO#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.39172212773003,28.01148084083904,0 77.3911186996847,28.01228662056282,0 77.39162481700727,28.012540050850646,0 77.39228219736367,28.012808238420206,0 77.3924419643762,28.012706530950226,0 77.39357142727826,28.012666878899452,0 77.39172212773003,28.01148084083904,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754049893061-0"><name>Indresh Plot 1</name><description>Siya</description><styleUrl>https://data.distincthorizon.net/kml?folderId=11UAlZxhKrpTnnNgTmIeGn1AWNEY_sb--#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.38169286400078,27.9945636444763,0 77.38166487582207,27.995511567588707,0 77.38001387825936,27.995447185012566,0 77.38006677478552,27.99455417099803,0 77.38169286400078,27.9945636444763,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754054238879-0"><name>Adesh Kumar plot 2</name><description>Siya</description><styleUrl>https://data.distincthorizon.net/kml?folderId=1D2oD3qwYycLckk2sdOdI3Lifm9nJ9lEM#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.39567790180445,28.01397690027973,0 77.39567220211029,28.01444663989726,0 77.39483501762152,28.014460255507785,0 77.39485077559948,28.014948640399453,0 77.39403035491705,28.014955152183006,0 77.39402197301388,28.012957496103482,0 77.39567790180445,28.01397690027973,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754021823857-0"><name>Uday Singh plot 1 Jatoli</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1SD3OHG1GBMZqvmo5VwJptIwrjUM0eWEy#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.47819928199323,27.984704930046234,0 77.47820679098368,27.98564843712738,0 77.47843015996823,27.98565243711448,0 77.47843904605648,27.986068457108445,0 77.47986640781164,27.986076258391535,0 77.47983447290463,27.984696460880173,0 77.47819928199323,27.984704930046234,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754021872601-0"><name>Uday Singh plot 2 Jatoli</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1SD3OHG1GBMZqvmo5VwJptIwrjUM0eWEy#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.47840661555527,27.977918347111085,0 77.47838884592056,27.977034213104673,0 77.4790134653449,27.977024145897417,0 77.47902989387512,27.977916274467844,0 77.47840661555527,27.977918347111085,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754021888086-0"><name>Uday Singh plot 3 Jatoli</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1SD3OHG1GBMZqvmo5VwJptIwrjUM0eWEy#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.4797997385491,27.977429088898035,0 77.47980866346951,27.976617251486203,0 77.48062532027448,27.97663154202688,0 77.48064290732145,27.977386564766178,0 77.4797997385491,27.977429088898035,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754022006882-0"><name>Lakhmichand plot 2 Jatoli</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=13GAmA2QALwvfSR1dZklsT4HhDpuY73CB#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.47982818633318,27.98200078482114,0 77.4798134341836,27.9802763971435,0 77.47980598436115,27.98016436520001,0 77.47897993076772,27.980168924551464,0 77.47902788221835,27.982008186837916,0 77.47982818633318,27.98200078482114,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754049289616-0"><name>Lovekush plot 3 Ramghar</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1pWKMNr_67oRv8SXFJzi3_PBBv0SMFm8F#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.47436633987942,27.952917818339316,0 77.47355169023038,27.95296169680489,0 77.47355665760628,27.952777407129602,0 77.47317913703723,27.952992411720203,0 77.47317416966132,27.953404868307757,0 77.47438620938306,27.95337854133861,0 77.47436633987942,27.952917818339316,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754049248896-0"><name>Krishn Kumar plot 1 Ramghar</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1dUOGIBHX3GmyCiWer5TvdXWkSJ99K56N#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.47363218532233,27.951844036217366,0 77.47422824184835,27.95186852559513,0 77.47418665650935,27.951113433892573,0 77.47537414896819,27.951097107527147,0 77.47494905439147,27.95163179471065,0 77.47522182762623,27.95162247935869,0 77.47522166939176,27.9524766766949,0 77.4742883095603,27.952513410544242,0 77.47363218532233,27.951844036217366,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754049077424-0"><name>Naveen plot 1 Ramghar</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1kekxaUaJ4N5g6Nu1T8AD5OFgsXjNiq9b#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.4747985310893,27.95336118189344,0 77.47401586336773,27.95337581371149,0 77.47401586336773,27.953851346717855,0 77.47479438999027,27.953840372902846,0 77.4747985310893,27.95336118189344,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754049111166-0"><name>Naveen plot 2 Ramghar</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1kekxaUaJ4N5g6Nu1T8AD5OFgsXjNiq9b#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.47402212647614,27.95341431684041,0 77.47316217276537,27.953409951196264,0 77.47317205729078,27.953850880363007,0 77.47401718421344,27.953855245989303,0 77.47402212647614,27.95341431684041,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754022239548-0"><name>Naveen plot 3 Ramghar</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1kekxaUaJ4N5g6Nu1T8AD5OFgsXjNiq9b#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.49117743266878,27.958785637573015,0 77.49279651817992,27.95880185469416,0 77.49280381290473,27.957900344382608,0 77.4911953299921,27.957899930854637,0 77.49117743266878,27.958785637573015,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754048981193-0"><name>Dulichand plot 1 Ramghar</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1cbIL8dPPH3pnLhgx4_zAZtdMUh0zVP7Y#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.4747972071171,27.95792620628579,0 77.4747972071171,27.959741736463528,0 77.47563015371564,27.959734415838653,0 77.47564258575443,27.957900583665577,0 77.4747972071171,27.95792620628579,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754048914821-0"><name>Dulichand plot 2 Ramghar</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1cbIL8dPPH3pnLhgx4_zAZtdMUh0zVP7Y#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.47479732691203,27.95794487351057,0 77.47358116979066,27.957967022411225,0 77.47357699055657,27.958856666163584,0 77.47479314767793,27.958856666163584,0 77.47479732691203,27.95794487351057,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754048812314-0"><name>Lakhmichnd plot 1 Ramghar</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1LZA0uOcZa5lZsnEmJ5V3FsbLlAU-ZNf5#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.47359129134486,27.95793914844711,0 77.47082672780003,27.957969357723456,0 77.47135683998492,27.958885701755108,0 77.47355139042772,27.958870597246204,0 77.47359129134486,27.95793914844711,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754048738785-0"><name>Maansingh plot 1 Ramghar</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1ZbZTANBX-IdS76PrnbKYNFGHhSNyUloC#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.47316920447936,27.957036084794908,0 77.47154351323843,27.957051918297637,0 77.4715001449484,27.956112505124437,0 77.4697336694915,27.956135451298934,0 77.47081823346689,27.95793671077712,0 77.47317899018526,27.957965238420954,0 77.47316920447936,27.957036084794908,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754048659318-0"><name>Naresh plot 1 Ramghar</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1w05g7x4r4hNFs7Cz7MaTk_t4r1rm9tHs#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.4756651360299,27.960194891145974,0 77.47401619724037,27.96020408019288,0 77.47403700403898,27.961127575415944,0 77.47564953093095,27.96112298093189,0 77.4756651360299,27.960194891145974,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754048552497-0"><name>Jitendra plot 1 Ramghar</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=10ZwZPDAzIfHLRhcqN-sHpWi174W4CW7K#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.47587118564576,27.953402714501962,0 77.47601442039011,27.953964519234248,0 77.47611667960882,27.953951192140465,0 77.47620854526758,27.95431516928926,0 77.47723964517873,27.954293405669844,0 77.47723964517873,27.9533475762358,0 77.47587118564576,27.953402714501962,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754048583223-0"><name>Jitendra plot 2 Ramghar</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=10ZwZPDAzIfHLRhcqN-sHpWi174W4CW7K#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.47665748000145,27.95321405321198,0 77.47665379196405,27.95294040132042,0 77.4764610081911,27.95294810149133,0 77.47643776155931,27.95247681377566,0 77.47860814304403,27.952446991009083,0 77.47871708124876,27.952937439716052,0 77.47803647071123,27.95292677793975,0 77.4772308021784,27.95293447811163,0 77.47724119573832,27.95317792172493,0 77.47665748000145,27.95321405321198,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754043409914-0"><name>Anup plot 1 Ramghar</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1WiCuxqMcBjB80dExTe8JSyYV6NqgeudO#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.4846494333875,27.956287210131052,0 77.4845052883029,27.956298216073023,0 77.48503883257942,27.95698533904607,0 77.48626265861098,27.956989806009986,0 77.48622220155204,27.95556355485847,0 77.48461403346097,27.95556355485847,0 77.4846494333875,27.956287210131052,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="1V6BvGwrp0UgeC3XaCSb9ldsgKJPEEkfy-0"><name>Naval plot 1 Ramghar</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=12r_bZoSCCEte_kWWMZ_98toClUks0O5j#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.48623250218628,27.955594162847134,0 77.48788176599746,27.95561597142526,0 77.48792510479689,27.954969969679084,0 77.48791638761759,27.954273411192105,0 77.4862621296799,27.954307448940654,0 77.48623250218628,27.955594162847134,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="1lEB5eNNhtti7t-WLnZZre8qtSwxX7ufe-0"><name>Bhagat Singh plot 3 Ramghar</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=10yqo6iozhHjgParR1ZV7CsVtlay-sIsE#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.4887115195934,27.957437435529926,0 77.49034915336486,27.957419577312123,0 77.49037442549098,27.95608020255716,0 77.48870646516818,27.956075737946833,0 77.4887115195934,27.957437435529926,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754022359986-0"><name>Rohtash Tewatiya plot 1 Ramghar</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1c1EVKeWhcLxjONfuZBMJDrKQp42GDx_z#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.4838102099357,27.958341746213677,0 77.48299581720259,27.95833751477886,0 77.48302935102102,27.959716953729995,0 77.48377740383148,27.95976046446765,0 77.48379819095135,27.959167290968765,0 77.48381730169058,27.9587840807945,0 77.4838102099357,27.958341746213677,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754022409368-0"><name>Rohtash Tewatiya plot 2 Ramghar</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1c1EVKeWhcLxjONfuZBMJDrKQp42GDx_z#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.4838092065917,27.958353324839834,0 77.48423874378204,27.95836237034422,0 77.48498674482107,27.95839524249611,0 77.4849609285593,27.958199194018647,0 77.48496025800705,27.957950134940887,0 77.48459162734883,27.957413852149998,0 77.48381735680792,27.95742825026059,0 77.4838092065917,27.958353324839834,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754022092274-0"><name>Kuldeep Master plot 1 Ramghar</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1BTK9Y21WsOd7S6XGUpgJD2yBSktV1GKR#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.48792879283428,27.95426659958605,0 77.48911902308464,27.954270449624318,0 77.49031964689493,27.954246164765394,0 77.49034680426121,27.95291996624873,0 77.48965345323084,27.952909600631187,0 77.48896043747663,27.95291404303883,0 77.48851284384727,27.952928554902527,0 77.48793717473747,27.953201910664404,0 77.48792879283428,27.95426659958605,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754022135260-0"><name>Jugun plot 1 Ramghar</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1dC5QZ-7IuxP2roA1QdObjeJ5SQ-olooL#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.48630437999964,27.958333940366956,0 77.48709787249423,27.95879465734599,0 77.48791997222291,27.959153459465625,0 77.48790062869988,27.95742778120251,0 77.4854152277112,27.95742240025193,0 77.48579442501068,27.957832268494514,0 77.48630437999964,27.958333940366956,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753981364488-0"><name>Raj wait plot 2 Manduri</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1hKqSEkK3AGI3WNdQKABjZQMEmRRlKKwF#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.21846502274275,28.147857189364558,0 77.21845664083956,28.14610087235377,0 77.21685972064735,28.14612688769553,0 77.21684832125902,28.14786369309394,0 77.21846502274275,28.147857189364558,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753981511396-0"><name>Sedakram plot 2 Manduri</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1_19PiBy-EuMTDzas5f-xjqBkVBayB37R#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.211890257895,28.141082158231114,0 77.21189327538013,28.140168322524744,0 77.21028126776218,28.14014082750886,0 77.21028260886669,28.14107210637637,0 77.211890257895,28.141082158231114,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753981620490-0"><name>Anil plot 2 Manduri</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1j7qPjNnWQ3o7EpSrDP5NAl8U50VacSgY#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.19551905989648,28.138334419067974,0 77.19552509486675,28.137467568719472,0 77.19470433890821,28.137450420858755,0 77.19469641293543,28.138365084384986,0 77.19551905989648,28.138334419067974,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753981643799-0"><name>Anil plot 3 Manduri</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1j7qPjNnWQ3o7EpSrDP5NAl8U50VacSgY#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.19716023653744,28.13832998431259,0 77.19715856015682,28.137016992984925,0 77.19621442258357,28.137031184375545,0 77.19627276062964,28.138018664023292,0 77.1964916959405,28.13801895967451,0 77.19649974256754,28.138336192970144,0 77.19716023653744,28.13832998431259,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753981822595-0"><name>Karamveer plot 2 Manduri</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1rQxPEppDQfkUbB6Rln_SxvRufqbTsZPw#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.19963189214467,28.13789242087516,0 77.19965502619742,28.137014036444995,0 77.19799172133207,28.1370057581327,0 77.19801317900419,28.137911342574284,0 77.19963189214467,28.13789242087516,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753981835666-0"><name>Karamveer plot 3 manduri</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1rQxPEppDQfkUbB6Rln_SxvRufqbTsZPw#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.19962116330862,28.141269595584617,0 77.1996171399951,28.13979699139172,0 77.19881717115642,28.13980438254943,0 77.19878028982424,28.14116822535773,0 77.19962116330862,28.141269595584617,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754021715688-0"><name>Vijay pal plot 3 Sahroli</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1BLormxUuoe8gGoG0hkBGHiIP2JATSovH#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.19720357114855,28.171138702103804,0 77.19667240977287,28.171434455717332,0 77.1965505311017,28.171097905746507,0 77.19558896819808,28.17108883988719,0 77.19559248536825,28.17013871738554,0 77.19543591141701,28.169726111283197,0 77.1961822360754,28.169158923076992,0 77.19691114502399,28.168871347190745,0 77.19717599451543,28.16861537720655,0 77.19743315130471,28.169192321944706,0 77.19738453626633,28.16967290980749,0 77.19723232090473,28.169679116647686,0 77.197238355875,28.170122461444564,0 77.19709116965532,28.170277927251604,0 77.19714011996984,28.170606887425606,0 77.19721756875516,28.17059624722016,0 77.19720357114855,28.171138702103804,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754021451232-0"><name>Prem Singh Plot 1 Sahroli</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1YoaE1EVtAKa-pblxZb_WsCd8rRfk622S#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.18901419178975,28.171361455324742,0 77.18901273569286,28.16973740949524,0 77.18737750248502,28.169727164829055,0 77.18737598639746,28.171279226519985,0 77.18901419178975,28.171361455324742,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754021491808-0"><name>Prem plot 2 Sahroli</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1YoaE1EVtAKa-pblxZb_WsCd8rRfk622S#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.19642783223885,28.16744528370812,0 77.19483968357744,28.167483379866383,0 77.19507811767596,28.168334851263538,0 77.19561628997326,28.168339317507048,0 77.195612937212,28.16790010328367,0 77.19644878059626,28.167867590719055,0 77.19642783223885,28.16744528370812,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754021585016-0"><name>Bram Singh plot 1 Sahroli</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1iCGXeu3CWXz3cfIWuv-maVzJV1GU1d8Y#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.18905225396156,28.17137150164011,0 77.18737956136465,28.17128490277851,0 77.18735307455063,28.172869384850046,0 77.18820232897997,28.17287559150479,0 77.1890328079462,28.172858153759563,0 77.18905996531248,28.172115421396384,0 77.18905225396156,28.17137150164011,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754021595984-0"><name>Bram Singh plot 2 Sahroli</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1iCGXeu3CWXz3cfIWuv-maVzJV1GU1d8Y#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.182108014822,28.170565804404347,0 77.18069348484278,28.170003645219197,0 77.1810344606638,28.16835616485386,0 77.18176066875458,28.16837537673736,0 77.18248452991246,28.16836828311925,0 77.1824959293008,28.168941091267968,0 77.18248486518861,28.169176656990373,0 77.18249224126339,28.169705126259842,0 77.18217439949512,28.16971044640698,0 77.18214355409145,28.17015260882407,0 77.182108014822,28.170565804404347,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1754021516822-0"><name>Prem plot 3 Sahroli</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1YoaE1EVtAKa-pblxZb_WsCd8rRfk622S#BMPoly</styleUrl><Style><PolyStyle><color>7fffffff</color><outline>0</outline></PolyStyle></Style><Polygon><outerBoundaryIs><LinearRing><coordinates>77.18047689646482,28.171089242293817,0 77.1816510334611,28.171060572978263,0 77.18168288469315,28.172406544723856,0 77.18099858611822,28.172421913649103,0 77.18035619705915,28.17239767803524,0 77.18047689646482,28.171089242293817,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753983291103-0"><name>Khajan Singh plot 1 Sahroli</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1og40OgwKrqj9x1EwSJnea6nyErFB4tSQ#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.20798181802034,28.175140275297295,0 77.20915115386248,28.175140275297295,0 77.20947272121906,28.17471691864732,0 77.21027037531137,28.17335480327543,0 77.20789253293547,28.1733472367506,0 77.20787297934294,28.174400053227473,0 77.2078607082367,28.175062966816682,0 77.20798181802034,28.175140275297295,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753983431964-0"><name>Bahadur plot 1 Sahroli</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1mOR53WmjXerC2A4ErD86B7C9UE7-G6LN#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.20069102942944,28.178719736024632,0 77.1989093720913,28.178708801087282,0 77.19889596104622,28.177355520075423,0 77.20068532973528,28.177372957087528,0 77.20069102942944,28.178719736024632,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753983442414-0"><name>Bahadur plot 2 Sahroli</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1mOR53WmjXerC2A4ErD86B7C9UE7-G6LN#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.18495719134808,28.177745044515177,0 77.18495149165392,28.17654100156372,0 77.18337468802929,28.1765197223323,0 77.18328181654215,28.176949443769814,0 77.18349069356918,28.177421426055304,0 77.18399830162525,28.178309527339053,0 77.18495719134808,28.177745044515177,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753983513376-0"><name>Kailash plot 1 Sahroli</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1shEZqsdCsMMd59gh2XZorH0syUtGumyt#BMPoly</styleUrl><Style><PolyStyle><color>7fffffff</color><outline>0</outline></PolyStyle></Style><Polygon><outerBoundaryIs><LinearRing><coordinates>77.20382919382666,28.17652253343624,0 77.20215541385024,28.176543304718834,0 77.20213629288824,28.17788823329343,0 77.20377107399203,28.177879499740015,0 77.20382919382666,28.17652253343624,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753983329971-0"><name>Khajan Singh plot 2 Sahroli</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1og40OgwKrqj9x1EwSJnea6nyErFB4tSQ#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.18088459223507,28.180037831093173,0 77.1816496923566,28.17959836936319,0 77.18165773898363,28.176973678352425,0 77.18088325113058,28.176953285838167,0 77.180868498981,28.178096442811622,0 77.18088459223507,28.180037831093173,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753983189857-0"><name>Jagveer plot 1 Rajupur</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1CvsPASGWRjizE9TP_g93Cp9R5rgmNB8p#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.18989782216453,28.18562507016371,0 77.18987435102461,28.184242032059018,0 77.19024918973446,28.18421809464705,0 77.19063509255646,28.184213366268793,0 77.19146154820918,28.18421425283971,0 77.19149537996405,28.1856207374788,0 77.18989782216453,28.18562507016371,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753983105849-0"><name>Devender plot 1 Rajupur</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1dSdZdzbY_TiUFFNvnSFYKW_y-34RtvkN#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.2131321206689,28.165611785749277,0 77.21373427659273,28.165043689003923,0 77.21385095268488,28.16487757481758,0 77.21264462918043,28.163762652288767,0 77.21195127815008,28.163775066654466,0 77.21194557845591,28.165600849472042,0 77.2131321206689,28.165611785749277,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753983117486-0"><name>Devender plot 2 Rajupur</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1dSdZdzbY_TiUFFNvnSFYKW_y-34RtvkN#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.21110312894345,28.166992241211204,0 77.21110302954912,28.16559789372127,0 77.20952019095421,28.165595529120523,0 77.20949034971841,28.166757411315857,0 77.21030331905153,28.166748485595207,0 77.21031369046392,28.167005050099775,0 77.21110312894345,28.166992241211204,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753982849530-0"><name>Jitendra plot 1 Rajupur</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1fh6u88ngG1nSz2Zt46yu-KiLU1fY_1jF#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.20621797336204,28.16657268579145,0 77.20624957233666,28.165129997340586,0 77.20461543649435,28.16514034251324,0 77.20458472685216,28.166545208005118,0 77.20621797336204,28.16657268579145,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753982875104-0"><name>Jitendra plot 2 Rajupur</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1fh6u88ngG1nSz2Zt46yu-KiLU1fY_1jF#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.20618242626897,28.163320283810293,0 77.2061975419537,28.162405270194327,0 77.2077998891473,28.162411251297584,0 77.2077814489603,28.16331130044358,0 77.20705088227987,28.16331130044358,0 77.20618242626897,28.163320283810293,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753982984559-0"><name>Madan Singh plot 1 Rajupur</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=176IyKQwD-tbe2Ji2rzQlu-owo_Fd0-Fb#BMPoly</styleUrl><Style><PolyStyle><color>7fffffff</color><outline>0</outline></PolyStyle></Style><Polygon><outerBoundaryIs><LinearRing><coordinates>77.20951868724079,28.171987323925748,0 77.20947392284869,28.17056255322933,0 77.20787968486546,28.170557528685904,0 77.20787432044744,28.171951091533828,0 77.20951868724079,28.171987323925748,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753983013348-0"><name>Madan Singh plot 2 Rajupur</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=176IyKQwD-tbe2Ji2rzQlu-owo_Fd0-Fb#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.21116103231907,28.171813066076524,0 77.2111677378416,28.17059861171036,0 77.20950040966272,28.17057644461282,0 77.20953378440528,28.17199410220745,0 77.21033287731346,28.172007310228437,0 77.21098199486732,28.17196320939206,0 77.21116103231907,28.171813066076524,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753982701670-0"><name>Dharmendra plot 1 Rajupur</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=19XRXbkXYIM7ozbDiPbzmU6AdySXdromj#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.20538657158612,28.163757331845872,0 77.20537818968296,28.162872656747865,0 77.2037859633565,28.162879159565108,0 77.20378026366234,28.16378334289746,0 77.20538657158612,28.163757331845872,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753982729214-0"><name>Dharmendra plot 2 Rajupur</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=19XRXbkXYIM7ozbDiPbzmU6AdySXdromj#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.20377269692608,28.170200965800348,0 77.20376751649708,28.169257210862312,0 77.2021119265256,28.16927899655039,0 77.20211512846724,28.170192268014347,0 77.20377269692608,28.170200965800348,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753982545182-0"><name>Bhramsingh plot 1 Rajupur</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1V0nS7gKpNB_M7N4nK-JVyXAgMjpD8-zk#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.19835616648197,28.17111584268288,0 77.1983752772212,28.17176282121916,0 77.19885874539615,28.17175572782564,0 77.19885796473777,28.17286968402722,0 77.19702612608671,28.172868498185053,0 77.19695873558521,28.172751753896662,0 77.19689771533012,28.172550184977325,0 77.19685781747103,28.172189606197705,0 77.19677098095417,28.171817203887258,0 77.1966180852108,28.171582309364553,0 77.19708211719991,28.171233770994547,0 77.19726048409939,28.171105202528054,0 77.19741571694613,28.171115547123037,0 77.19835616648197,28.17111584268288,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753982583280-0"><name>Bhiram Singh Plot 2 Rajupur</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1V0nS7gKpNB_M7N4nK-JVyXAgMjpD8-zk#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.19969760626554,28.17466575303773,0 77.19968538140212,28.17564088530787,0 77.19886882213747,28.175659224172122,0 77.19889461994171,28.174673141788304,0 77.19969760626554,28.17466575303773,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753982237572-0"><name>Ramveer plot 1 Kishorpur</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1_J4eTDpNWqwh0iRnTlLAWFNuoq_-4GAE#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.21681843284497,28.169691721798813,0 77.21643090248108,28.16859350526488,0 77.21644330769777,28.1678696597007,0 77.21523564308882,28.16784749203775,0 77.21524404109654,28.169696474915995,0 77.21681843284497,28.169691721798813,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753982267872-0"><name>Ramveer plot 2 Kishorpur</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1_J4eTDpNWqwh0iRnTlLAWFNuoq_-4GAE#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.21681388551855,28.17059729718902,0 77.21684161573648,28.169974088923766,0 77.21679399195129,28.169698163914802,0 77.21524586691932,28.16969823390633,0 77.21524911172219,28.170606000152873,0 77.21681388551855,28.17059729718902,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753982332456-0"><name>Ramveer plot 3 Kishorpur</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1_J4eTDpNWqwh0iRnTlLAWFNuoq_-4GAE#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.21502449734814,28.174204812072432,0 77.21502379725281,28.17336518323495,0 77.21382513642311,28.173346113997624,0 77.21381882995014,28.173777140187553,0 77.21363570541145,28.173780281472006,0 77.21362694148783,28.174285476613832,0 77.21502449734814,28.174204812072432,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753981996212-0"><name>Jagbir plot 1 Kishorpur</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1F6LNSnFBejstkc-gM3y8EerVUVaaaXaN#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.21438370645046,28.16967734326481,0 77.21440002869367,28.171074870279966,0 77.21361165574075,28.17109066536497,0 77.21362990120831,28.170630712196356,0 77.21205282740203,28.170632606952665,0 77.2123321518302,28.169664338456144,0 77.21326421946289,28.169716357681295,0 77.21438370645046,28.16967734326481,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753982041605-0"><name>Jagbir plot 2 Kishorpur</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1F6LNSnFBejstkc-gM3y8EerVUVaaaXaN#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.21196447864176,28.176076980952928,0 77.2119787707925,28.174186074257562,0 77.21117243170738,28.174192280835925,0 77.21115588381889,28.176076980952928,0 77.21196447864176,28.176076980952928,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753982084448-0"><name>Jagbir plot 3 Kishorpur</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1F6LNSnFBejstkc-gM3y8EerVUVaaaXaN#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.21417524005207,28.175618739490815,0 77.2127961091282,28.175610355283226,0 77.21277706325054,28.174680826088377,0 77.21322197467089,28.174694421387144,0 77.21386612450017,28.17519533618436,0 77.21417524005207,28.175618739490815,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753981048203-0"><name>Vivek plot 2 Mandkola</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1cdYZ9xcWjmTWHc1T4-z1xU9lOSAO6KW1#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.15782295912504,28.129779434514177,0 77.15784441679715,28.131159336005453,0 77.1594715118408,28.131140413113968,0 77.15945240110159,28.129783573949553,0 77.15782295912504,28.129779434514177,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753981061441-0"><name>Vivek plot 3 Mandkola</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1cdYZ9xcWjmTWHc1T4-z1xU9lOSAO6KW1#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.15537309646606,28.127959250155058,0 77.1553798019886,28.129770268621,0 77.15700019150972,28.129777956144366,0 77.15702198445797,28.127950379785247,0 77.15537309646606,28.127959250155058,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753980944299-0"><name>Radhe lal plot 2 Mandkola</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1e5kRUcDPYW_HzQv0yl2aZDvPzkwHo9Oq#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.17016112059356,28.147016726831126,0 77.17017721384764,28.14885935027789,0 77.17179223895072,28.148850186017043,0 77.17180095613003,28.14703505566584,0 77.17016112059356,28.147016726831126,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753980962120-0"><name>Radhe lal plot 3 Mandkola</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1e5kRUcDPYW_HzQv0yl2aZDvPzkwHo9Oq#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.17094264924526,28.143457030292595,0 77.17096947133541,28.144737718729772,0 77.17180665582418,28.144742744485242,0 77.17182878404856,28.143439587754358,0 77.17094264924526,28.143457030292595,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753980803839-0"><name>Jitender plot 2 Mandkola</name><description></description><styleUrl>https://data.distincthorizon.net/kml?folderId=1P0TenzFABgi66vKZC8QijwkBJFF_RKDj#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.17752914875746,28.148387537635685,0 77.17751674354076,28.149731133957744,0 77.17834521085024,28.14974532366398,0 77.1791659668088,28.149727882149847,0 77.17920083552599,28.148405570613235,0 77.17752914875746,28.148387537635685,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753973356340-0"><name>Munish Kumar Plot 2</name><description>Mandkola</description><styleUrl>https://data.distincthorizon.net/kml?folderId=14u2Ata42Q3AAE0VA0w_h6nMu0tkUwOHC#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.17674762010574,28.15476215379219,0 77.17674554697206,28.15607950676862,0 77.17693839222193,28.156047732253683,0 77.17731222510338,28.15652749234563,0 77.17835205565102,28.156542265213346,0 77.17836398631334,28.154732297682187,0 77.17674762010574,28.15476215379219,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753973207058-0"><name>Munish Kumar Plot 3</name><description>Mandkola</description><styleUrl>https://data.distincthorizon.net/kml?folderId=14u2Ata42Q3AAE0VA0w_h6nMu0tkUwOHC#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.17837002128361,28.15472934163124,0 77.17835597649292,28.156536736702037,0 77.17916024078012,28.15644462227688,0 77.1791508793831,28.154735549338156,0 77.17837002128361,28.15472934163124,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="local-1753972979602-0"><name>Bhupender Plot 2</name><description>Mandkola</description><styleUrl>https://data.distincthorizon.net/kml?folderId=1z_pKVhgEGq6eLaAQOg318Jyh7kV-jVZv#BMPoly</styleUrl><Polygon><outerBoundaryIs><LinearRing><coordinates>77.17996560037135,28.149272332444653,0 77.17996861785652,28.150591085879924,0 77.18201049934136,28.150646727479625,0 77.18155260779957,28.14994967704554,0 77.18111176581777,28.14927857694903,0 77.17996560037135,28.149272332444653,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark id="1EBi1Q-qxP7qBt8eQna-SVnuA7sCnoMAB-0"><name>Nitesh Plot 2</name><description>Mandkola</description><styleUrl>https://data.distincthorizon.net/kml?folderId=1iqy3c6HWJl5YLYjCHlgbQV57KvtXbzWt#BMPoly</styleUrl><Style><PolyStyle><color>7fffffff</color><outline>0</outline></PolyStyle></Style><Polygon><outerBoundaryIs><LinearRing><coordinates>77.17539299380633,28.14924959330071,0 77.17506751176569,28.1497278998485,0 77.17505499322567,28.151081863722908,0 77.17588026076555,28.151088016104097,0 77.17588646219016,28.150651681853617,0 77.17669074912224,28.15065507261029,0 77.17672413189565,28.149275348323087,0 77.17539299380633,28.14924959330071,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+</Document>
+</kml>
