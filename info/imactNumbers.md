@@ -14,11 +14,13 @@ The primary input for these calculations is the **Total UDP Acreage**.
 
 ### 2. Emission Reduced
 
-- **Formula:** `Total UDP Acreage` * `1333`
+- **Formula:** `Total UDP Acreage` * `1366`
 - **Unit:** kilograms of CO₂ equivalent (kg CO₂eq)
-- **Description:** The total projected reduction in carbon emissions is 1333 kg CO₂eq per acre. This projection is based on data from a previous project of 930 acres. The reduction is composed of two parts:
+- **Description:** The total projected reduction in carbon emissions is 1366 kg CO₂eq per acre. This projection is based on data from a previous project of 930 acres. The reduction is composed of four parts:
   - **From Urea Reduction (333 kg CO₂eq per acre):** This is calculated using a Life Cycle Energy Analysis (LCEA) basis. The formula is `3.7 kg CO₂eq per kg of Urea` * `90 kg of Urea saved per acre`.
-  - **From Water Savings (1000 kg CO₂eq per acre):** This is the remaining portion of the total projected savings.
+  - **From Water Savings (1000 kg CO₂eq per acre):** This is a projected saving based on previous project data.
+  - **From Ground CO₂ Reduction (21.5 kg CO₂eq per acre):** Measured by a Testo 435-2 device on the ground, comparing UDP and Non-UDP plots.
+  - **From Ground CH₄ Reduction (11.1 kg CO₂eq per acre):** Measured by a GC-FID instrument on the ground, comparing UDP and Non-UDP plots.
 
 ### 3. Fertilizer Saved
 
