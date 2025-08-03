@@ -78,7 +78,7 @@ export default function Index({ data }) {
   const user = useUser({ redirectTo: '/login' })
   const totalAcreage = data["impactData"]["acreage"]["total"];
   const waterSaved = totalAcreage * 3004;
-  const emissionReduced = totalAcreage * 246;
+  const emissionReduced = totalAcreage * 1333;
   const fertilizerSaved = totalAcreage * 90;
   const ureaSubsidySaved = totalAcreage * 4600;
   // console.log("User2.")
