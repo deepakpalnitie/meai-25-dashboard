@@ -16,6 +16,8 @@ export default function DMap({ mapData }) {
   const [isAnimating, setIsAnimating] = useState(true); // Animate on load
   const animationTimeoutIds = useRef([]);
 
+  const [listingsReady, setListingsReady] = useState(false);
+
   stores.features.forEach((store, i) => {
     store.properties.id = i;
   });
@@ -70,23 +72,20 @@ export default function DMap({ mapData }) {
           },
         });
 
-        // Start animation once the map is loaded
-        if (isAnimating) {
-            startAnimation();
-        }
+        setListingsReady(true);
       });
     }
   }, [pageIsMounted, stores, Map]);
 
   useEffect(() => {
-    if (!Map) return;
+    if (!Map || !listingsReady) return;
 
     if (isAnimating) {
       startAnimation();
     } else {
       stopAnimation();
     }
-  }, [isAnimating, Map]);
+  }, [isAnimating, Map, listingsReady]);
 
   const startAnimation = () => {
     stopAnimation(); // Clear any existing timeouts
@@ -94,9 +93,20 @@ export default function DMap({ mapData }) {
       const timeoutId = setTimeout(() => {
         flyToStore(feature);
         createPopUp(feature);
+        highlightListing(feature.properties.id);
       }, index * 3000); // 3-second delay
       animationTimeoutIds.current.push(timeoutId);
     });
+  };
+
+  const highlightListing = (id) => {
+    const activeItem = document.getElementsByClassName(mapcss.active);
+    if (activeItem[0]) {
+      activeItem[0].classList.remove(mapcss.active);
+    }
+    const listing = document.getElementById(`listing-${id}`);
+    listing.classList.add(mapcss.active);
+    listing.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   };
 
   const stopAnimation = () => {
@@ -121,7 +131,7 @@ export default function DMap({ mapData }) {
         background-repeat: no-repeat;
         background-size: 28px 28px;
         top: -16px;`;
-      el.className = 'marker';
+      el.className = mapcss.marker;
 
       new mapboxgl.Marker(el, { offset: [8, 18] })
         .setLngLat(marker.geometry.coordinates)
@@ -130,13 +140,13 @@ export default function DMap({ mapData }) {
       el.addEventListener('click', (e) => {
         flyToStore(marker);
         createPopUp(marker);
-        const activeItem = document.getElementsByClassName('active');
+        const activeItem = document.getElementsByClassName(mapcss.active);
         e.stopPropagation();
         if (activeItem[0]) {
-          activeItem[0].classList.remove('active');
+          activeItem[0].classList.remove(mapcss.active);
         }
         const listing = document.getElementById(`listing-${marker.properties.id}`);
-        listing.classList.add('active');
+        listing.classList.add(mapcss.active);
       });
     }
   }
@@ -146,22 +156,11 @@ export default function DMap({ mapData }) {
       const listings = document.getElementById('listings');
       const listing = listings.appendChild(document.createElement('div'));
       listing.id = `listing-${store.properties.id}`;
-      listing.className = 'item';
-      listing.style.cssText = `
-        display: block;
-        border-bottom: 1px solid #eee;
-        padding: 10px;
-        text-decoration: none;
-        background-color: #eee;
-        border: 1px solid #ccc;`;
+      listing.className = mapcss.item;
 
       const link = listing.appendChild(document.createElement('a'));
       link.href = '#map';
-      link.className = 'title';
-      link.style.cssText = `
-        display: block;
-        color: #00853e;
-        font-weight: 700;`;
+      link.className = mapcss.title;
       link.id = `link-${store.properties.id}`;
       link.innerHTML = `${store.properties.name} (view on map)`;
 
@@ -178,11 +177,11 @@ export default function DMap({ mapData }) {
             createPopUp(feature);
           }
         }
-        const activeItem = document.getElementsByClassName('active');
+        const activeItem = document.getElementsByClassName(mapcss.active);
         if (activeItem[0]) {
-          activeItem[0].classList.remove('active');
+          activeItem[0].classList.remove(mapcss.active);
         }
-        this.parentNode.classList.add('active');
+        this.parentNode.classList.add(mapcss.active);
       });
     }
   }

@@ -74,8 +74,13 @@ a:hover {
     color: #8cc63f;
 }
 
+.listings .item.active .title {
+    color: #ffffffe8;
+}
+
 .listings .item.active {
-    background-color: #f8f8f8;
+    background-color: #3386c0;
+    color: #ffffff;
 }
 
 /* ::-webkit-scrollbar {
