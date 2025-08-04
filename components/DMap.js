@@ -254,7 +254,7 @@ export default function DMap({ mapData }) {
           }}
           startIcon={isAnimating ? <StopIcon /> : <PlayArrowIcon />}
         >
-          {isAnimating ? 'Stop Animation' : 'Start Animation'}
+          {isAnimating ? 'Stop Tour' : 'Start Tour'}
         </Button>
         <div id="map" className={mapcss.map}></div>
         <div id="listings" className={mapcss.listings}></div>

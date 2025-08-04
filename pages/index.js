@@ -13,7 +13,7 @@ import Link from '../src/Link';
 import CountUp from 'react-countup';
 // import Copyright from '../src/Copyright';
 
-import { useUser } from '../lib/hooks'
+// import { useUser } from '../lib/hooks'
 import Layout from "../components/Layout";
 import DMap from '../components/DMap';
 import Kml from '../components/Kml';
@@ -75,7 +75,8 @@ export default function Index({ data }) {
 
   // const classes = useStyles();
   // const user = useUser();
-  const user = useUser({ redirectTo: '/login' })
+  // const user = useUser({ redirectTo: '/login' })
+  const user = true
   const totalAcreage = data["impactData"]["acreage"]["total"];
   const waterSaved = totalAcreage * 3004;
   const emissionReduced = totalAcreage * 1366;
