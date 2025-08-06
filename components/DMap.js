@@ -27,7 +27,7 @@ export default function DMap({ mapData }) {
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/satellite-streets-v11',
-      center: [77.47647425159812, 27.956807148389082],
+      center: stores.features[0].geometry.coordinates,
       zoom: 16,
       scrollZoom: true,
     });
@@ -73,6 +73,8 @@ export default function DMap({ mapData }) {
         });
 
         setListingsReady(true);
+        createPopUp(stores.features[0]);
+        highlightListing(stores.features[0].properties.id);
       });
     }
   }, [pageIsMounted, stores, Map]);
