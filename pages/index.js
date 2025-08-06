@@ -79,7 +79,7 @@ export default function Index({ data }) {
   const user = true
   const totalAcreage = data["impactData"]["acreage"]["total"];
   const waterSaved = totalAcreage * 3.004;
-  const emissionReduced = totalAcreage * 1.366;
+  const emissionReduced = totalAcreage * 0.9656;
   const fertilizerSaved = totalAcreage * 0.09;
   const ureaSubsidySaved = totalAcreage * 0.046;
   const paddyYieldIncrease = totalAcreage * 0.76;

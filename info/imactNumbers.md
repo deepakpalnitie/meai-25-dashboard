@@ -14,11 +14,11 @@ The primary input for these calculations is the **Total UDP Acreage**.
 
 ### 2. Emission Reduced
 
-- **Formula:** `Total UDP Acreage` * `1.366`
+- **Formula:** `Total UDP Acreage` * `0.9656`
 - **Unit:** metric tonne
-- **Description:** The total projected reduction in carbon emissions is 1.366 metric tonne per acre. This is composed of four parts:
+- **Description:** The total projected reduction in carbon emissions is 0.9656 metric tonne per acre. This is composed of four parts:
   - **From Urea Reduction (0.333 metric tonne per acre):** This is calculated using a Life Cycle Energy Analysis (LCEA) basis. The formula is `3.7 kg CO₂eq per kg of Urea` * `90 kg of Urea saved per acre`.
-  - **From Water Savings (1 metric tonne per acre):** This is a projected saving based on previous project data.
+  - **From Water Savings (0.6 metric tonne per acre):** This is a projected saving based on previous project data.
   - **From Ground CO₂ Reduction (0.0215 metric tonne per acre):** Measured by a Testo 435-2 device on the ground, comparing UDP and Non-UDP plots.
   - **From Ground CH₄ Reduction (0.0111 metric tonne per acre):** Measured by a GC-FID instrument on the ground, comparing UDP and Non-UDP plots.
 
