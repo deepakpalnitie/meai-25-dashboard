@@ -1,25 +1,11 @@
 /**
  * Unified Google Apps Script for Multi-Tenant Dashboard
  * 
- * This script serves pre-generated JSON data for multiple projects. It is
- * designed to be bound to a single "Control Panel" Google Sheet.
- * 
- * How it works:
- * 1. onEdit(e): An installable trigger that runs when the Control Panel sheet 
- *    is edited. If a specific cell (e.g., a checkbox) is changed, it triggers
- *    the data generation for the corresponding project.
- * 
- * 2. doGet(e): Handles GET requests for the deployed Web App. It expects a 
- *    `projectId` in the URL (e.g., .../exec?projectId=meai), finds the 
- *    pre-generated JSON file for that project, and returns its content.
- * 
- * 3. generateProjectData(projectId): The core function that reads a project's
- *    Google Sheet, processes all the data, and saves the output to its 
- *    designated JSON file in Google Drive.
+ * This script serves pre-generated JSON data and combines KML files for multiple projects.
+ * It is designed to be triggered by a central "Control Panel" Google Sheet.
  */
 
 // --- MASTER CONFIGURATION ---
-// Holds all the unique IDs for each project.
 const PROJECT_CONFIG = {
   'meai': {
     sheetId: '1V--Zg14tB9SNCNfbK8uGUOAXypQStyeCKs9MOrWuzAA',
@@ -47,67 +33,24 @@ const PROJECT_CONFIG = {
   }
 };
 
-// --- SCRIPT TRIGGERS ---
-
-/**
- * An installable onEdit trigger to run when the control panel sheet is edited.
- * @param {object} e The event object.
- */
-function onEdit(e) {
-  const range = e.range;
-  const sheet = range.getSheet();
-  const cell = range.getA1Notation();
-  const value = range.getValue();
-
-  // Only proceed if a checkbox was checked (TRUE)
-  if (sheet.getName() !== "Control Panel" || value !== true) {
-    return;
-  }
-
-  // Map of cell locations to project IDs
-  const triggerCells = {
-    'B2': 'meai',
-    'B3': 'aai',
-    'B4': 'irctc',
-    'B5': 'evalueserve'
-  };
-
-  const projectId = triggerCells[cell];
-
-  if (projectId) {
-    console.log(`Trigger detected for projectId: ${projectId}`);
-    // Uncheck the box immediately to allow re-triggering
-    range.setValue(false);
-    generateProjectData(projectId);
-  }
-}
-
 // --- WEB APP ENTRY POINT ---
 
-/**
- * Handles HTTP GET requests for the Web App.
- * @param {object} e The event parameter containing request details.
- * @returns {ContentService.TextOutput} The JSON data for the requested project.
- */
 function doGet(e) {
   const generateProjectId = e.parameter.generate;
   const serveProjectId = e.parameter.projectId;
+  const combineKmlProjectId = e.parameter.combineKml;
 
-  // Handle a request to generate data
+  // Handle a request to generate dashboard data
   if (generateProjectId) {
-    if (PROJECT_CONFIG[generateProjectId]) {
-      try {
-        generateProjectData(generateProjectId);
-        return ContentService.createTextOutput(JSON.stringify({ success: true, message: `Data generation started for ${generateProjectId}.` })).setMimeType(ContentService.MimeType.JSON);
-      } catch (err) {
-        return createErrorResponse(`Error during generation for ${generateProjectId}: ${err.message}`);
-      }
-    } else {
-      return createErrorResponse(`Invalid project ID for generation: ${generateProjectId}`);
-    }
+    return handleGeneration(generateProjectId, generateProjectData);
   }
 
-  // Handle a request to serve data
+  // Handle a request to combine KML files
+  if (combineKmlProjectId) {
+    return handleGeneration(combineKmlProjectId, combineProjectKml);
+  }
+
+  // Handle a request to serve dashboard data
   if (serveProjectId) {
     if (PROJECT_CONFIG[serveProjectId]) {
       const jsonFileId = PROJECT_CONFIG[serveProjectId].jsonFileId;
@@ -124,12 +67,22 @@ function doGet(e) {
     }
   }
 
-  return createErrorResponse("Missing 'projectId' or 'generate' parameter.");
+  return createErrorResponse("Missing 'projectId', 'generate', or 'combineKml' parameter.");
 }
 
-/**
- * Helper to create a standardized JSON error response.
- */
+function handleGeneration(projectId, generationFunction) {
+  if (PROJECT_CONFIG[projectId]) {
+    try {
+      generationFunction(projectId);
+      return ContentService.createTextOutput(JSON.stringify({ success: true, message: `Process started for ${projectId}.` })).setMimeType(ContentService.MimeType.JSON);
+    } catch (err) {
+      return createErrorResponse(`Error during process for ${projectId}: ${err.message}`);
+    }
+  } else {
+    return createErrorResponse(`Invalid project ID for generation: ${projectId}`);
+  }
+}
+
 function createErrorResponse(message) {
   return ContentService.createTextOutput(JSON.stringify({ error: message }))
     .setMimeType(ContentService.MimeType.JSON);
@@ -137,61 +90,96 @@ function createErrorResponse(message) {
 
 // --- CORE DATA PROCESSING LOGIC ---
 
-/**
- * Main function to generate and save the JSON data for a specific project.
- * @param {string} projectId - The ID of the project to process (e.g., 'meai').
- */
 function generateProjectData(projectId) {
-  // If called from the shim, projectId is an array. Extract the first element.
-  if (Array.isArray(projectId)) {
-    projectId = projectId[0];
-  }
-  
+  if (Array.isArray(projectId)) projectId = projectId[0];
   const config = PROJECT_CONFIG[projectId];
-  if (!config) {
-    console.error(`Invalid projectId: ${projectId}. No configuration found.`);
-    return;
-  }
+  if (!config) throw new Error(`Invalid projectId: ${projectId}`);
 
   console.log(`Starting data generation for ${projectId.toUpperCase()}.`);
+  const ss = SpreadsheetApp.openById(config.sheetId);
+  const shGrndData = ss.getSheetByName("Ground Data");
+  const shDshbrd = ss.getSheetByName("Dashboard");
+  if (!shGrndData || !shDshbrd) throw new Error(`Required sheets not found for project ${projectId}.`);
 
-  try {
-    const ss = SpreadsheetApp.openById(config.sheetId);
-    const shGrndData = ss.getSheetByName("Ground Data");
-    const shDshbrd = ss.getSheetByName("Dashboard");
+  const groundDataValues = shGrndData.getDataRange().getValues();
+  const groundDataDisplayValues = shGrndData.getDataRange().getDisplayValues();
+  const impactData = getImpactNumbers(shDshbrd);
+  const mapData = getUDPData(shGrndData, groundDataValues, groundDataDisplayValues);
+  const chartData = getChartData(shGrndData, groundDataValues);
 
-    if (!shGrndData || !shDshbrd) {
-      throw new Error(`Required sheet 'Ground Data' or 'Dashboard' not found in spreadsheet for project ${projectId}.`);
+  const finalJson = {
+    "impactData": impactData,
+    'mapData': { 'type': 'FeatureCollection', 'features': mapData },
+    "chartData": chartData
+  };
+
+  DriveApp.getFileById(config.jsonFileId).setContent(JSON.stringify(finalJson, null, 2));
+  console.log(`Successfully generated and saved data for ${projectId.toUpperCase()}.`);
+}
+
+// --- KML COMBINATION LOGIC ---
+
+function combineProjectKml(projectId) {
+  if (Array.isArray(projectId)) projectId = projectId[0];
+  const config = PROJECT_CONFIG[projectId];
+  if (!config) throw new Error(`Invalid projectId: ${projectId}`);
+
+  console.log(`Starting KML combination for ${projectId.toUpperCase()}.`);
+  const ss = SpreadsheetApp.openById(config.sheetId);
+  const sh = ss.getSheetByName("Ground Data");
+  if (!sh) throw new Error(`'Ground Data' sheet not found for project ${projectId}.`);
+
+  const data_strt_rw = 3;
+  const idRow = getIdRow(sh);
+  const edtKmlCmbndCol = getColumn(idRow, "KML_CMBND");
+  const colKmlFile = getColumn(idRow, "KML_FILE");
+  const lRow = sh.getLastRow();
+
+  const kmlCombinedValues = sh.getRange(data_strt_rw, edtKmlCmbndCol, lRow - data_strt_rw + 1, 1).getValues();
+  const kmlFileRichTextValues = sh.getRange(data_strt_rw, colKmlFile, lRow - data_strt_rw + 1, 1).getRichTextValues();
+  const placemarkRegex = /<Placemark\b[^>]*>[\s\S]*?<\/Placemark>/g;
+
+  const combinedFile = DriveApp.getFileById(config.kmlFileId);
+  let combinedData = combinedFile.getBlob().getDataAsString();
+  let placemarksToAdd = [];
+
+  for (let i = 0; i < kmlCombinedValues.length; i++) {
+    if (kmlCombinedValues[i][0] == false) {
+      const currentRow = data_strt_rw + i;
+      const kmlUrl = kmlFileRichTextValues[i][0].getLinkUrl();
+      if (kmlUrl) {
+        try {
+          const fileId = kmlUrl.match(/[-\w]{25,}/);
+          if (fileId && fileId[0]) {
+            console.log(`Processing KML for row ${currentRow}`);
+            const kmlContent = DriveApp.getFileById(fileId[0]).getBlob().getDataAsString();
+            const placemarks = kmlContent.match(placemarkRegex);
+            if (placemarks) {
+              placemarksToAdd.push(...placemarks);
+              sh.getRange(currentRow, edtKmlCmbndCol).setValue(true); // Mark as combined
+            }
+          }
+        } catch (e) {
+          console.error(`Error on row ${currentRow}: ${e.toString()}`);
+        }
+      }
     }
+  }
 
-    const groundDataValues = shGrndData.getDataRange().getValues();
-    const groundDataDisplayValues = shGrndData.getDataRange().getDisplayValues();
-
-    const impactData = getImpactNumbers(shDshbrd);
-    const mapData = getUDPData(shGrndData, groundDataValues, groundDataDisplayValues);
-    const chartData = getChartData(shGrndData, groundDataValues);
-
-    const finalJson = {
-      "impactData": impactData,
-      'mapData': {
-        'type': 'FeatureCollection',
-        'features': mapData
-      },
-      "chartData": chartData
-    };
-
-    const jsonFile = DriveApp.getFileById(config.jsonFileId);
-    jsonFile.setContent(JSON.stringify(finalJson, null, 2));
-
-    console.log(`Successfully generated and saved data for ${projectId.toUpperCase()}.`);
-
-  } catch (error) {
-    console.error(`An error occurred while generating data for ${projectId}: ${error.stack}`);
+  if (placemarksToAdd.length > 0) {
+    const insertionPoint = combinedData.lastIndexOf("</Document>");
+    if (insertionPoint !== -1) {
+      const newContent = combinedData.substring(0, insertionPoint) + placemarksToAdd.join('\n') + '\n</Document>\n</kml>';
+      combinedFile.setContent(newContent);
+      console.log(`Appended ${placemarksToAdd.length} new placemarks to combined KML for ${projectId}.`);
+    }
+  } else {
+    console.log(`No new KML files to combine for ${projectId}.`);
   }
 }
 
 
-// --- HELPER FUNCTIONS (Adapted from original script) ---
+// --- HELPER & UTILITY FUNCTIONS ---
 
 function getImpactNumbers(shDshbrd) {
   let op = {};
@@ -199,21 +187,14 @@ function getImpactNumbers(shDshbrd) {
   const idRow = getIdRow(shDshbrd, 1);
   const cols = getCols(idRow, ["DATA_TTL", "DATA_OLD", "DATA_NW"]);
   const rows = getRows(idCol, ["TTL_ACRG", "VL_CVRD", "FRMRS_CVRD", "PLTS_CVRD"]);
-
   op["acreage"] = {
     'total': parseInt(shDshbrd.getRange(rows["TTL_ACRG"], cols["DATA_TTL"] + 1).getValue()) || 0,
     'old_vill': parseInt(shDshbrd.getRange(rows["TTL_ACRG"], cols["DATA_OLD"] + 1).getValue()) || 0,
     'new_vill': parseInt(shDshbrd.getRange(rows["TTL_ACRG"], cols["DATA_NW"] + 1).getValue()) || 0
   };
-  op["vill_count"] = {
-    'total': parseInt(shDshbrd.getRange(rows["VL_CVRD"], cols["DATA_TTL"] + 1).getValue()) || 0
-  };
-  op["frmr_count"] = {
-    'total': parseInt(shDshbrd.getRange(rows["FRMRS_CVRD"], cols["DATA_TTL"] + 1).getValue()) || 0
-  };
-  op["plot_count"] = {
-    'total': parseInt(shDshbrd.getRange(rows["PLTS_CVRD"], cols["DATA_TTL"] + 1).getValue()) || 0
-  };
+  op["vill_count"] = { 'total': parseInt(shDshbrd.getRange(rows["VL_CVRD"], cols["DATA_TTL"] + 1).getValue()) || 0 };
+  op["frmr_count"] = { 'total': parseInt(shDshbrd.getRange(rows["FRMRS_CVRD"], cols["DATA_TTL"] + 1).getValue()) || 0 };
+  op["plot_count"] = { 'total': parseInt(shDshbrd.getRange(rows["PLTS_CVRD"], cols["DATA_TTL"] + 1).getValue()) || 0 };
   return op;
 }
 
@@ -221,18 +202,14 @@ function getUDPData(sh, values, valuesD) {
   const idRow = getIdRow(sh);
   const cols = getCols(idRow, ["F_NM_FRMTD", "VLG_NM", "GPS_CRDNTS", "FRMR_CNTCT", "PLOT_NO", "ADHR_NO", "PDY_VRTY", "UDP_ACRG", "DT_FRMTD", "STRT_DTTM"]);
   let op = [];
-
   for (let i = 2; i < values.length; i++) {
     const crdnts = values[i][cols["GPS_CRDNTS"]].toString();
     if (!crdnts) continue;
-
     const [lat, long] = crdnts.split(",");
     if (isNaN(parseFloat(long)) || isNaN(parseFloat(lat))) continue;
-
     let rw = { 'type': 'Feature' };
     rw["geometry"] = { "type": "Point", "coordinates": [parseFloat(long), parseFloat(lat)] };
     rw['village'] = values[i][cols["VLG_NM"]];
-
     let ppts = {
       "name": `${values[i][cols["F_NM_FRMTD"]].toString().trim()}, ${values[i][cols["PLOT_NO"]].toString().trim()}`,
       'phoneFormatted': valuesD[i][cols["FRMR_CNTCT"]],
@@ -254,19 +231,12 @@ function getChartData(sh, values) {
   const idRow = getIdRow(sh);
   const cols = getCols(idRow, ["F_NM_FRMTD", "VLG_NM", "UDP_ACRG"]);
   let op = {};
-
   for (let i = 2; i < values.length; i++) {
     const villNm = values[i][cols["VLG_NM"]];
     if (!villNm || villNm.trim() === "") continue;
-
     const frmrNmFrmtd = values[i][cols["F_NM_FRMTD"]].toString().trim();
     if (!op[villNm]) {
-      op[villNm] = {
-        "acreage": 0,
-        "plotCount": 0,
-        "farmerCount": 0,
-        "farmerName": []
-      };
+      op[villNm] = { "acreage": 0, "plotCount": 0, "farmerCount": 0, "farmerName": [] };
     }
     op[villNm]["acreage"] += parseFloat(values[i][cols["UDP_ACRG"]]) || 0;
     op[villNm]["plotCount"] += 1;
@@ -275,27 +245,19 @@ function getChartData(sh, values) {
       op[villNm]["farmerCount"] += 1;
     }
   }
-
   const labelsVillage = Object.keys(op).sort();
   const acreage = labelsVillage.map(v => op[v]["acreage"]);
   const farmerCount = labelsVillage.map(v => op[v]["farmerCount"]);
   const plotCount = labelsVillage.map(v => op[v]["plotCount"]);
-
   return { labelsVillage, acreage, farmerCount, plotCount };
 }
 
-// --- GENERIC UTILITY FUNCTIONS ---
-
 function getIdRow(sh, id_rw = 2) {
-  const lColumn = sh.getLastColumn();
-  return sh.getRange(id_rw, 1, 1, lColumn);
+  return sh.getRange(id_rw, 1, 1, sh.getLastColumn());
 }
-
 function getIdCol(sh, id_col = 1) {
-  const lRow = sh.getLastRow();
-  return sh.getRange(1, id_col, lRow, 1);
+  return sh.getRange(1, id_col, sh.getLastRow(), 1);
 }
-
 function getColumn(idRow, colId) {
   const idArr = idRow.getValues()[0];
   for (let i = 0; i < idArr.length; i++) {
@@ -303,7 +265,6 @@ function getColumn(idRow, colId) {
   }
   return -1;
 }
-
 function getRow(idCol, rowId) {
   const idArr = idCol.getValues();
   for (let i = 0; i < idArr.length; i++) {
@@ -311,7 +272,6 @@ function getRow(idCol, rowId) {
   }
   return -1;
 }
-
 function getCols(idRow, Idntfrs) {
   let op = {};
   for (const idnfr of Idntfrs) {
@@ -319,7 +279,6 @@ function getCols(idRow, Idntfrs) {
   }
   return op;
 }
-
 function getRows(idCol, Idntfrs) {
   let op = {};
   for (const idnfr of Idntfrs) {

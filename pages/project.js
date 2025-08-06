@@ -57,12 +57,18 @@ export async function getServerSideProps(context) {
 
     // Check for an error from the Apps Script itself
     if (data.error) {
-      throw new Error(data.error);
+      throw new Error(`Backend Error: ${data.error}`);
     }
 
     // Fetch KML data separately
     const resKml = await fetch(projectDetails.kmlUrl);
     const kmlData = await resKml.text();
+
+    // Basic validation to ensure we received KML, not an HTML error page
+    if (kmlData.trim().startsWith('<!DOCTYPE html>')) {
+      throw new Error('Failed to fetch KML data. Check file permissions.');
+    }
+
     const parser = new DOMParser();
     const kmlDoc = parser.parseFromString(kmlData, 'text/xml');
     let geojsonData;

@@ -2,67 +2,46 @@
 
 This document outlines the full plan to transition from multiple single-purpose scripts to a single, unified Google Apps Script backend. It includes verification steps for each stage to ensure functionality.
 
-**Last Updated:** August 6, 2025
+**Last Updated:** August 7, 2025
 
 ---
-### **V4: Final Two-Script Architecture (Standalone + Bound)**
+### **V5: KML Combination Feature**
 
-This version of the plan reflects the final, correct architecture. It uses a main **standalone script** for all logic and a small **bound script** on a "Control Panel" sheet to provide a reliable `onEdit` trigger. This is the most robust and professional solution.
+This version of the plan adds the functionality to combine individual KML files for each project, triggered from the central Control Panel.
 
 | Step | Description | Status |
 | :--- | :--- | :--- |
-| 1 | **Initial Setup & Analysis** | Completed |
-| 2 | **Cloned `clasp` Project** | Completed |
-| 3 | **Final Standalone Script Creation** | Completed |
-| 4 | **Bound "Shim" Script Creation** | In Progress |
-| 5 | **Control Panel & Trigger Setup** | Not Started |
-| 6 | **Frontend Integration** | Not Started |
-| 7 | **Final Production Deployment** | Not Started |
+| 1-4 | **Initial Setup & Script Creation** | Completed |
+| 5 | **Add KML Logic to Main Script** | Completed |
+| 6 | **Update Shim Script for KML** | Completed |
+| 7 | **Update Control Panel Sheet** | Completed |
+| 8 | **Frontend Integration** | Completed |
+| 9 | **Final Production Deployment** | In Progress |
 
 ---
 
 ### Detailed Steps & Verification
 
-#### **Step 1-3: Initial Setup, `clasp` Clone, and Standalone Script**
+#### **Step 1-7: Full Backend Implementation**
 - **Status:** Completed
-- **Details:** All initial analysis, project setup, and the creation of the main `Code.js` file in the `unified-dashboard-script` directory are complete and correct.
+- **Details:** The entire two-script backend architecture, including data generation and KML combination, is complete, deployed, and verified.
 
 ---
 
-#### **Step 4: Bound "Shim" Script Creation**
-- **Status:** In Progress
+#### **Step 8: Frontend Integration**
+- **Status:** Completed
 - **My Action:**
-  - I will create a new file, `info/control-panel-script.js`, containing the small `onEdit` and `callBackend` functions.
-- **Your Action:**
-  - You will copy the code from this new file into the bound script editor of your "Unified Dashboard Control Panel" sheet.
-
----
-
-#### **Step 5: Control Panel & Trigger Setup**
-- **Status:** Not Started
-- **Your Action:**
-  - Follow the updated instructions in `info/control-panel-setup.md` to create the sheet, paste the shim code, and set the `onEdit` trigger from the bound script editor.
+  - I have updated `pages/project.js` to call the unified Web App URL to fetch the dashboard data.
 - **✅ How to Verify This Step:**
-  - Check a box in the "Control Panel" sheet.
-  - Go to the **standalone** "Unified Dashboard Backend" project and check its "Executions" log.
-  - **Expected Result:** You should see a successful execution triggered by the bound script, with logs showing the correct `projectId` being processed.
+  - Run `npm run dev` and test the project URLs.
+  - **Expected Result:** The dashboard, including the map with all KML plots, should load correctly.
 
 ---
 
-#### **Step 6: Frontend Integration**
-- **Status:** Not Started
-- **My Action (After you confirm Step 5 is working):**
-  - I will update `pages/project.js` to call your unified Web App URL.
-- **✅ How to Verify This Step:**
-  - Run `npm run dev` and test the project URLs (`http://localhost:3000/project?projectHostname=...`).
-  - **Expected Result:** The dashboard should load correctly for each project.
-
----
-
-#### **Step 7: Final Production Deployment**
-- **Status:** Not Started
+#### **Step 9: Final Production Deployment**
+- **Status:** In Progress
 - **Your Action:**
   - Commit all changed files to GitHub.
 - **✅ How to Verify This Step:**
-  - Navigate to your live project subdomains.
+  - Once Vercel deploys, navigate to your live project subdomains.
   - **Expected Result:** Each live domain should display the correct, fully functional dashboard.
