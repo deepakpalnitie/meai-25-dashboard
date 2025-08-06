@@ -3,7 +3,18 @@ import projectsConfig from './projects.json';
 
 export function middleware(request) {
   const url = request.nextUrl.clone();
+  const { pathname } = request.nextUrl;
   const hostname = request.headers.get('host');
+
+  // Prevent middleware from running on static assets, API routes, and files
+  if (
+    pathname.startsWith('/_next') ||
+    pathname.startsWith('/api') ||
+    pathname.startsWith('/static') ||
+    /\.(.*)$/.test(pathname)
+  ) {
+    return NextResponse.next();
+  }
 
   // Check if the hostname exists in our project configuration
   if (projectsConfig[hostname]) {
