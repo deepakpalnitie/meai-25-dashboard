@@ -78,10 +78,12 @@ export default function Index({ data }) {
   // const user = useUser({ redirectTo: '/login' })
   const user = true
   const totalAcreage = data["impactData"]["acreage"]["total"];
-  const waterSaved = totalAcreage * 3004;
-  const emissionReduced = totalAcreage * 1366 / 1000;
-  const fertilizerSaved = totalAcreage * 90 / 1000;
-  const ureaSubsidySaved = totalAcreage * 4600 / 100000;
+  const waterSaved = totalAcreage * 3.004;
+  const emissionReduced = totalAcreage * 1.366;
+  const fertilizerSaved = totalAcreage * 0.09;
+  const ureaSubsidySaved = totalAcreage * 0.046;
+  const paddyYieldIncrease = totalAcreage * 0.76;
+  const farmerIncomeIncrease = totalAcreage * 0.38354;
   // console.log("User2.")
   // console.log(user)
   // useEffect(() => {
@@ -145,7 +147,7 @@ export default function Index({ data }) {
               <Paper2 elevation={3} sx={{ background: "#005792" }}>
                 <Typography color="#ddd" variant="subtitle2">Fertilizer Saved (projected)</Typography>
                 <Typography color="#fff" variant='h4' component="p">
-                  <CountUp end={fertilizerSaved} duration={5} decimals={2} />
+                  <CountUp end={fertilizerSaved} duration={5}  />
                 </Typography>
                 <Typography color="#ddd" variant="subtitle2">metric ton</Typography>
               </Paper2>
@@ -153,25 +155,41 @@ export default function Index({ data }) {
               <Paper2 elevation={3} sx={{ background: "#4e9bbf" }}>
                 <Typography color="#ddd" variant="subtitle2">Water Saved (projected)</Typography>
                 <Typography color="#fff" variant='h4' component="p">
-                  <CountUp end={waterSaved} duration={5} />
+                  <CountUp end={waterSaved} duration={5}  />
                 </Typography>
-                <Typography color="#ddd" variant="subtitle2">m³</Typography>
+                <Typography color="#ddd" variant="subtitle2">TCM (Thousand m³)</Typography>
               </Paper2>
 
               <Paper2 elevation={3} sx={{ background: "#dc2f2f" }}>
                 <Typography color="#ddd" variant="subtitle2">Emission Reduced (projected)</Typography>
                 <Typography color="#fff" variant='h4' component="p">
-                  <CountUp end={emissionReduced} duration={5} decimals={2} />
+                  <CountUp end={emissionReduced} duration={5}  />
                 </Typography>
-                <Typography color="#ddd" variant="subtitle2">metric tonne</Typography>
+                <Typography color="#ddd" variant="subtitle2">metric ton</Typography>
               </Paper2>
 
               <Paper2 elevation={3} sx={{ background: "#8e44ad" }}>
                 <Typography color="#ddd" variant="subtitle2">Urea Subsidy Saved (projected)</Typography>
                 <Typography color="#fff" variant='h4' component="p">
-                  <CountUp end={ureaSubsidySaved} duration={5} decimals={2} />
+                  <CountUp end={ureaSubsidySaved} duration={5}  />
                 </Typography>
-                 <Typography color="#ddd" variant="subtitle2">Lakh Rupees</Typography>
+                 <Typography color="#ddd" variant="subtitle2">lakh ₹</Typography>
+              </Paper2>
+
+              <Paper2 elevation={3} sx={{ background: "#27ae60" }}>
+                <Typography color="#ddd" variant="subtitle2">Paddy Yield Increase (projected)</Typography>
+                <Typography color="#fff" variant='h4' component="p">
+                  <CountUp end={paddyYieldIncrease} duration={5}  />
+                </Typography>
+                <Typography color="#ddd" variant="subtitle2">metric ton</Typography>
+              </Paper2>
+
+              <Paper2 elevation={3} sx={{ background: "#2980b9" }}>
+                <Typography color="#ddd" variant="subtitle2">Farmer Income Increase (projected)</Typography>
+                <Typography color="#fff" variant='h4' component="p">
+                  <CountUp end={farmerIncomeIncrease} duration={5}  />
+                </Typography>
+                <Typography color="#ddd" variant="subtitle2">lakh ₹</Typography>
               </Paper2>
             </Box>
             <Typography variant="caption" display="block" gutterBottom align='center' color={'grey'}>

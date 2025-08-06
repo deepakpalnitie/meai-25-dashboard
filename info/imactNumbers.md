@@ -8,9 +8,9 @@ The primary input for these calculations is the **Total UDP Acreage**.
 
 ### 1. Water Saved
 
-- **Formula:** `Total UDP Acreage` * `3004`
-- **Unit:** cubic meters (m³)
-- **Description:** Each acre under the UDP program is projected to save 3,004 m³ of water per season.
+- **Formula:** `Total UDP Acreage` * `3.004`
+- **Unit:** Thousand Cubic Meters (TCM)
+- **Description:** Each acre under the UDP program is projected to save 3,004 m³ of water per season, which is equivalent to 3.004 TCM.
 
 ### 2. Emission Reduced
 
@@ -33,3 +33,33 @@ The primary input for these calculations is the **Total UDP Acreage**.
 - **Formula:** `Total UDP Acreage` * `0.046`
 - **Unit:** Lakh Rupees
 - **Description:** The savings in urea subsidy is projected to be 0.046 Lakh Rupees per acre.
+
+
+### 5. Paddy Yield Increase
+
+- **Formula:** `Total UDP Acreage` * `0.76`
+- **Unit:** metric ton
+- **Description:** The projected increase in paddy yield is 0.76 metric tons per acre.
+- **Calculation Breakdown:**
+  - Average UDP Paddy Weight: 43.7 quintals/acre
+  - Average Non-UDP Paddy Weight: 36.1 quintals/acre
+  - Increase in quintals: `43.7 - 36.1 = 7.6` quintals/acre
+  - Conversion to metric tons: `7.6 quintals / 10 = 0.76` metric tons/acre
+
+### 6. Farmer Income Increase
+
+- **Formula:** `Total UDP Acreage` * `0.38354`
+- **Unit:** Lakh Rupees
+- **Description:** The projected increase in farmer income is ₹0.38354 Lakh per acre.
+- **Calculation Breakdown:**
+  - **Increased Earnings from Paddy:**
+    - UDP Earnings: `43.7 quintals * ₹2,600/quintal = ₹113,620`
+    - Non-UDP Earnings: `36.1 quintals * ₹2,100/quintal = ₹75,810`
+    - Increase: `₹113,620 - ₹75,810 = ₹37,810`
+  - **Savings on Fertilizer:**
+    - Fertilizer saved: 2 bags/acre
+    - Cost per bag: ₹272
+    - Savings: `2 * ₹272 = ₹544`
+  - **Total Increase per Acre:**
+    - Total: `₹37,810 + ₹544 = ₹38,354`
+  - **Conversion to Lakh Rupees:** `₹38,354 / 100,000 = 0.38354`
