@@ -14,22 +14,22 @@ The primary input for these calculations is the **Total UDP Acreage**.
 
 ### 2. Emission Reduced
 
-- **Formula:** `Total UDP Acreage` * `1366`
-- **Unit:** kilograms of CO₂ equivalent (kg CO₂eq)
-- **Description:** The total projected reduction in carbon emissions is 1366 kg CO₂eq per acre. This is composed of four parts:
-  - **From Urea Reduction (333 kg CO₂eq per acre):** This is calculated using a Life Cycle Energy Analysis (LCEA) basis. The formula is `3.7 kg CO₂eq per kg of Urea` * `90 kg of Urea saved per acre`.
-  - **From Water Savings (1000 kg CO₂eq per acre):** This is a projected saving based on previous project data.
-  - **From Ground CO₂ Reduction (21.5 kg CO₂eq per acre):** Measured by a Testo 435-2 device on the ground, comparing UDP and Non-UDP plots.
-  - **From Ground CH₄ Reduction (11.1 kg CO₂eq per acre):** Measured by a GC-FID instrument on the ground, comparing UDP and Non-UDP plots.
+- **Formula:** `Total UDP Acreage` * `1.366`
+- **Unit:** metric tonne
+- **Description:** The total projected reduction in carbon emissions is 1.366 metric tonne per acre. This is composed of four parts:
+  - **From Urea Reduction (0.333 metric tonne per acre):** This is calculated using a Life Cycle Energy Analysis (LCEA) basis. The formula is `3.7 kg CO₂eq per kg of Urea` * `90 kg of Urea saved per acre`.
+  - **From Water Savings (1 metric tonne per acre):** This is a projected saving based on previous project data.
+  - **From Ground CO₂ Reduction (0.0215 metric tonne per acre):** Measured by a Testo 435-2 device on the ground, comparing UDP and Non-UDP plots.
+  - **From Ground CH₄ Reduction (0.0111 metric tonne per acre):** Measured by a GC-FID instrument on the ground, comparing UDP and Non-UDP plots.
 
 ### 3. Fertilizer Saved
 
-- **Formula:** `Total UDP Acreage` * `90`
-- **Unit:** kilograms (kg)
-- **Description:** Each acre is projected to save 2 bags of fertilizer, which is equivalent to 90 kg.
+- **Formula:** `Total UDP Acreage` * `0.09`
+- **Unit:** metric ton
+- **Description:** Each acre is projected to save 2 bags of fertilizer, which is equivalent to 0.09 metric ton.
 
 ### 4. Urea Subsidy Saved
 
-- **Formula:** `Total UDP Acreage` * `4600`
-- **Unit:** Indian Rupees (₹)
-- **Description:** The savings in urea subsidy is projected to be ₹4,600 per acre.
+- **Formula:** `Total UDP Acreage` * `0.046`
+- **Unit:** Lakh Rupees
+- **Description:** The savings in urea subsidy is projected to be 0.046 Lakh Rupees per acre.

@@ -79,9 +79,9 @@ export default function Index({ data }) {
   const user = true
   const totalAcreage = data["impactData"]["acreage"]["total"];
   const waterSaved = totalAcreage * 3004;
-  const emissionReduced = totalAcreage * 1366;
-  const fertilizerSaved = totalAcreage * 90;
-  const ureaSubsidySaved = totalAcreage * 4600;
+  const emissionReduced = totalAcreage * 1366 / 1000;
+  const fertilizerSaved = totalAcreage * 90 / 1000;
+  const ureaSubsidySaved = totalAcreage * 4600 / 100000;
   // console.log("User2.")
   // console.log(user)
   // useEffect(() => {
@@ -145,9 +145,9 @@ export default function Index({ data }) {
               <Paper2 elevation={3} sx={{ background: "#005792" }}>
                 <Typography color="#ddd" variant="subtitle2">Fertilizer Saved (projected)</Typography>
                 <Typography color="#fff" variant='h4' component="p">
-                  <CountUp end={fertilizerSaved} duration={5} />
+                  <CountUp end={fertilizerSaved} duration={5} decimals={2} />
                 </Typography>
-                <Typography color="#ddd" variant="subtitle2">kg</Typography>
+                <Typography color="#ddd" variant="subtitle2">metric ton</Typography>
               </Paper2>
 
               <Paper2 elevation={3} sx={{ background: "#4e9bbf" }}>
@@ -161,17 +161,17 @@ export default function Index({ data }) {
               <Paper2 elevation={3} sx={{ background: "#dc2f2f" }}>
                 <Typography color="#ddd" variant="subtitle2">Emission Reduced (projected)</Typography>
                 <Typography color="#fff" variant='h4' component="p">
-                  <CountUp end={emissionReduced} duration={5} />
+                  <CountUp end={emissionReduced} duration={5} decimals={2} />
                 </Typography>
-                <Typography color="#ddd" variant="subtitle2">kg CO₂eq</Typography>
+                <Typography color="#ddd" variant="subtitle2">metric tonne</Typography>
               </Paper2>
 
               <Paper2 elevation={3} sx={{ background: "#8e44ad" }}>
                 <Typography color="#ddd" variant="subtitle2">Urea Subsidy Saved (projected)</Typography>
                 <Typography color="#fff" variant='h4' component="p">
-                  <CountUp end={ureaSubsidySaved} duration={5} />
+                  <CountUp end={ureaSubsidySaved} duration={5} decimals={2} />
                 </Typography>
-                 <Typography color="#ddd" variant="subtitle2">in ₹</Typography>
+                 <Typography color="#ddd" variant="subtitle2">Lakh Rupees</Typography>
               </Paper2>
             </Box>
             <Typography variant="caption" display="block" gutterBottom align='center' color={'grey'}>
