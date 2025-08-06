@@ -2,19 +2,25 @@
   "csr-meai.distincthorizon.net": {
     "name": "MEAI CSR Project, 2025",
     "location": "Palwal, Haryana, India",
-    "apiUrl": "https://script.google.com/macros/s/AKfycbyflnRO_gASdkIOIVr9lAlIXi2OoleIewbqeFzTbxF6e1Wmu8rsSZHT9h1bC8IsMwC9/exec",
+    "projectId": "meai",
     "kmlUrl": "https://drive.google.com/uc?export=download&id=1glLFP_YF4c30odgdMjYBc___D_9KA_Zv"
   },
   "csr-aai.distincthorizon.net": {
-    "name": "AAI Project",
-    "location": "Location B",
-    "apiUrl": "https://script.google.com/macros/s/AKfycbyT8ywuMljvrjTtIDfGg4jTLsaxS_wjMwCmada2lxUVen-O5ya5QX8F9pEnoQ5AoXAe/exec",
+    "name": "AAI CSR Project, 2025",
+    "location": "Lakhimpur Kheri, Uttar Pradesh",
+    "projectId": "aai",
     "kmlUrl": "https://drive.google.com/uc?export=download&id=1K1vM4yc6TcTSJQ1NGU5jwTpFiIfzO88-"
   },
   "csr-irctc.distincthorizon.net": {
-    "name": "IRCTC Project",
-    "location": "Location C",
-    "apiUrl": "https://script.google.com/macros/s/CSR_IRCTC_ENDPOINT/exec",
-    "kmlUrl": "https://drive.google.com/uc?export=download&id=YOUR_IRCTC_KML_ID"
+    "name": "IRCTC CSR Project, 2025",
+    "location": "Amethi, Uttar Pradesh",
+    "projectId": "irctc",
+    "kmlUrl": "https://drive.google.com/uc?export=download&id=1RIqqm_QCkrX10DE9UpQdS3tcHfUuOXrI"
+  },
+  "csr-evalueserve.distincthorizon.net": {
+    "name": "Evalueserve CSR Project, 2025",
+    "location": "Sonipat, Haryana",
+    "projectId": "evalueserve",
+    "kmlUrl": "https://drive.google.com/uc?export=download&id=120qvpFy4yjhG-1oG0cr-O-R4vEiCY23X"
   }
 }

@@ -69,3 +69,28 @@ This is the most critical step. You need to create DNS records for each of your 
     
 
 This single setup eliminates the need for separate Vercel projects for each subdomain, allowing you to maintain a single codebase and deployment for all your client sites.
+
+---
+
+### **Local Testing and Verification**
+
+You cannot test subdomains directly on `localhost`, but you can verify that the multi-tenant setup is working correctly by simulating the middleware's behavior.
+
+1.  **Start the local development server:**
+    ```bash
+    npm run dev
+    ```
+
+2.  **Test each project in your browser:**
+    Once the server is running (usually at `http://localhost:3000`), open your browser and test each project by manually adding the `projectHostname` query parameter to the URL. This mimics what the middleware does in production.
+
+    *   **MEAI Project:**
+        [http://localhost:3000/project?projectHostname=csr-meai.distincthorizon.net](http://localhost:3000/project?projectHostname=csr-meai.distincthorizon.net)
+
+    *   **AAI Project:**
+        [http://localhost:3000/project?projectHostname=csr-aai.distincthorizon.net](http://localhost:3000/project?projectHostname=csr-aai.distincthorizon.net)
+
+    *   **IRCTC Project:**
+        [http://localhost:3000/project?projectHostname=csr-irctc.distincthorizon.net](http://localhost:3000/project?projectHostname=csr-irctc.distincthorizon.net)
+
+    When you visit each of these URLs, the page should render the specific `name`, `location`, and data associated with that project from your `projects.json` file.
