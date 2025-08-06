@@ -1,19 +1,21 @@
 /**
  * Unified Google Apps Script for Multi-Tenant Dashboard
  * 
- * This script serves pre-generated JSON data for multiple projects.
- * It is designed to be deployed as a single Web App.
+ * This script serves pre-generated JSON data for multiple projects. It is
+ * designed to be bound to a single "Control Panel" Google Sheet.
  * 
  * How it works:
- * 1. doGet(e): Handles GET requests. It expects a `projectId` in the URL 
- *    (e.g., .../exec?projectId=meai). It fetches the pre-generated JSON 
- *    file for that project from Google Drive and returns its content.
+ * 1. onEdit(e): An installable trigger that runs when the Control Panel sheet 
+ *    is edited. If a specific cell (e.g., a checkbox) is changed, it triggers
+ *    the data generation for the corresponding project.
  * 
- * 2. generateProjectData(projectId): A manually triggered function to process
- *    a project's Google Sheet and save the output to its designated JSON file.
+ * 2. doGet(e): Handles GET requests for the deployed Web App. It expects a 
+ *    `projectId` in the URL (e.g., .../exec?projectId=meai), finds the 
+ *    pre-generated JSON file for that project, and returns its content.
  * 
- * 3. onOpen(): Creates a custom menu in the Google Sheet UI to easily trigger
- *    the data generation for each project.
+ * 3. generateProjectData(projectId): The core function that reads a project's
+ *    Google Sheet, processes all the data, and saves the output to its 
+ *    designated JSON file in Google Drive.
  */
 
 // --- MASTER CONFIGURATION ---
@@ -45,29 +47,84 @@ const PROJECT_CONFIG = {
   }
 };
 
+// --- SCRIPT TRIGGERS ---
+
+/**
+ * An installable onEdit trigger to run when the control panel sheet is edited.
+ * @param {object} e The event object.
+ */
+function onEdit(e) {
+  const range = e.range;
+  const sheet = range.getSheet();
+  const cell = range.getA1Notation();
+  const value = range.getValue();
+
+  // Only proceed if a checkbox was checked (TRUE)
+  if (sheet.getName() !== "Control Panel" || value !== true) {
+    return;
+  }
+
+  // Map of cell locations to project IDs
+  const triggerCells = {
+    'B2': 'meai',
+    'B3': 'aai',
+    'B4': 'irctc',
+    'B5': 'evalueserve'
+  };
+
+  const projectId = triggerCells[cell];
+
+  if (projectId) {
+    console.log(`Trigger detected for projectId: ${projectId}`);
+    // Uncheck the box immediately to allow re-triggering
+    range.setValue(false);
+    generateProjectData(projectId);
+  }
+}
+
 // --- WEB APP ENTRY POINT ---
 
 /**
  * Handles HTTP GET requests for the Web App.
- * @param {object} e - The event parameter containing request details.
+ * @param {object} e The event parameter containing request details.
  * @returns {ContentService.TextOutput} The JSON data for the requested project.
  */
 function doGet(e) {
-  const projectId = e.parameter.projectId;
+  const generateProjectId = e.parameter.generate;
+  const serveProjectId = e.parameter.projectId;
 
-  if (!projectId || !PROJECT_CONFIG[projectId]) {
-    return createErrorResponse("Missing or invalid 'projectId' parameter.");
+  // Handle a request to generate data
+  if (generateProjectId) {
+    if (PROJECT_CONFIG[generateProjectId]) {
+      try {
+        generateProjectData(generateProjectId);
+        return ContentService.createTextOutput(JSON.stringify({ success: true, message: `Data generation started for ${generateProjectId}.` })).setMimeType(ContentService.MimeType.JSON);
+      } catch (err) {
+        return createErrorResponse(`Error during generation for ${generateProjectId}: ${err.message}`);
+      }
+    } else {
+      return createErrorResponse(`Invalid project ID for generation: ${generateProjectId}`);
+    }
   }
 
-  const jsonFileId = PROJECT_CONFIG[projectId].jsonFileId;
-
-  try {
-    const jsonFile = DriveApp.getFileById(jsonFileId);
-    const jsonData = jsonFile.getBlob().getDataAsString();
-    return ContentService.createTextOutput(jsonData).setMimeType(ContentService.MimeType.JSON);
-  } catch (error) {
-    return createErrorResponse(`Could not retrieve data for projectId '${projectId}'. Error: ${error.message}`);
+  // Handle a request to serve data
+  if (serveProjectId) {
+    if (PROJECT_CONFIG[serveProjectId]) {
+      const jsonFileId = PROJECT_CONFIG[serveProjectId].jsonFileId;
+      try {
+        const jsonFile = DriveApp.getFileById(jsonFileId);
+        const jsonData = jsonFile.getBlob().getDataAsString();
+        return ContentService.createTextOutput(jsonData).setMimeType(ContentService.MimeType.JSON);
+      } catch (error) {
+        console.error(`Could not retrieve data for projectId '${serveProjectId}'. Error: ${error.message}`);
+        return createErrorResponse(`Could not retrieve data for projectId '${serveProjectId}'. Error: ${error.message}`);
+      }
+    } else {
+      return createErrorResponse(`Invalid projectId for serving: ${serveProjectId}`);
+    }
   }
+
+  return createErrorResponse("Missing 'projectId' or 'generate' parameter.");
 }
 
 /**
@@ -78,40 +135,6 @@ function createErrorResponse(message) {
     .setMimeType(ContentService.MimeType.JSON);
 }
 
-
-// --- UI & MANUAL TRIGGERS ---
-
-/**
- * Adds a custom menu to the spreadsheet UI for easy data generation.
- */
-function onOpen() {
-  SpreadsheetApp.getUi()
-    .createMenu('Dashboard Actions')
-    .addItem('Generate MEAI Data', 'generateMeaiData')
-    .addItem('Generate AAI Data', 'generateAaiData')
-    .addItem('Generate IRCTC Data', 'generateIrctcData')
-    .addItem('Generate Evalueserve Data', 'generateEvalueserveData')
-    .addToUi();
-}
-
-// Wrapper functions for the menu items
-function generateMeaiData() {
-  generateProjectData('meai');
-}
-
-function generateAaiData() {
-  generateProjectData('aai');
-}
-
-function generateIrctcData() {
-  generateProjectData('irctc');
-}
-
-function generateEvalueserveData() {
-  generateProjectData('evalueserve');
-}
-
-
 // --- CORE DATA PROCESSING LOGIC ---
 
 /**
@@ -119,18 +142,27 @@ function generateEvalueserveData() {
  * @param {string} projectId - The ID of the project to process (e.g., 'meai').
  */
 function generateProjectData(projectId) {
+  // If called from the shim, projectId is an array. Extract the first element.
+  if (Array.isArray(projectId)) {
+    projectId = projectId[0];
+  }
+  
   const config = PROJECT_CONFIG[projectId];
   if (!config) {
-    SpreadsheetApp.getUi().alert(`Invalid projectId: ${projectId}`);
+    console.error(`Invalid projectId: ${projectId}. No configuration found.`);
     return;
   }
 
-  SpreadsheetApp.getUi().alert(`Starting data generation for ${projectId.toUpperCase()}. This may take a moment...`);
+  console.log(`Starting data generation for ${projectId.toUpperCase()}.`);
 
   try {
     const ss = SpreadsheetApp.openById(config.sheetId);
     const shGrndData = ss.getSheetByName("Ground Data");
     const shDshbrd = ss.getSheetByName("Dashboard");
+
+    if (!shGrndData || !shDshbrd) {
+      throw new Error(`Required sheet 'Ground Data' or 'Dashboard' not found in spreadsheet for project ${projectId}.`);
+    }
 
     const groundDataValues = shGrndData.getDataRange().getValues();
     const groundDataDisplayValues = shGrndData.getDataRange().getDisplayValues();
@@ -151,17 +183,15 @@ function generateProjectData(projectId) {
     const jsonFile = DriveApp.getFileById(config.jsonFileId);
     jsonFile.setContent(JSON.stringify(finalJson, null, 2));
 
-    SpreadsheetApp.getUi().alert(`Successfully generated and saved data for ${projectId.toUpperCase()}.`);
+    console.log(`Successfully generated and saved data for ${projectId.toUpperCase()}.`);
 
   } catch (error) {
-    SpreadsheetApp.getUi().alert(`An error occurred while generating data for ${projectId}: ${error.message}`);
-    console.error(`Error generating data for ${projectId}:`, error);
+    console.error(`An error occurred while generating data for ${projectId}: ${error.stack}`);
   }
 }
 
 
 // --- HELPER FUNCTIONS (Adapted from original script) ---
-// These functions are modified to accept a sheet object as a parameter.
 
 function getImpactNumbers(shDshbrd) {
   let op = {};
@@ -271,7 +301,7 @@ function getColumn(idRow, colId) {
   for (let i = 0; i < idArr.length; i++) {
     if (idArr[i] == colId) return i + 1;
   }
-  return -1; // Return -1 if not found
+  return -1;
 }
 
 function getRow(idCol, rowId) {
@@ -279,7 +309,7 @@ function getRow(idCol, rowId) {
   for (let i = 0; i < idArr.length; i++) {
     if (idArr[i][0] == rowId) return i + 1;
   }
-  return -1; // Return -1 if not found
+  return -1;
 }
 
 function getCols(idRow, Idntfrs) {

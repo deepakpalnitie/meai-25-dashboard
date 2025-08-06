@@ -36,36 +36,40 @@ const Paper2 = styled(Paper)(({ theme }) => ({
 }));
 
 
-// Use getServerSideProps for server-side data fetching.
-// This runs on every request and is essential for dynamic data.
+// The single, unified Apps Script URL.
+const APPS_SCRIPT_BASE_URL = "https://script.google.com/macros/s/AKfycbz_RT3XRhkgntax0Mdkjf6EgPpLd0Cvej9xEjWfKk14C44xqL61llLgHI5P2r1UoZ58nQ/exec";
+
 export async function getServerSideProps(context) {
-  // Get the hostname from the URL query parameter provided by the middleware
   const { projectHostname } = context.query;
+  const projectDetails = projectsConfig[projectHostname];
 
-  // Retrieve the project configuration from our central file
-  const project = projectsConfig[projectHostname];
-
-  if (!project) {
-    // If a project is not found, return a 404 page
+  if (!projectDetails) {
     return { notFound: true };
   }
 
   try {
-    // Fetch data from the project's specific Google Apps Script endpoint
-    const res = await fetch(project.apiUrl);
+    // Construct the full API URL with the specific projectId
+    const fullApiUrl = `${APPS_SCRIPT_BASE_URL}?projectId=${projectDetails.projectId}`;
+    
+    // Fetch data from the single Apps Script web app
+    const res = await fetch(fullApiUrl);
     const data = await res.json();
-    const resKml = await fetch(project.kmlUrl)
-    const kmlData = await resKml.text()
+
+    // Check for an error from the Apps Script itself
+    if (data.error) {
+      throw new Error(data.error);
+    }
+
+    // Fetch KML data separately
+    const resKml = await fetch(projectDetails.kmlUrl);
+    const kmlData = await resKml.text();
     const parser = new DOMParser();
     const kmlDoc = parser.parseFromString(kmlData, 'text/xml');
     let geojsonData;
     try {
-      // Convert KML to GeoJSON
       geojsonData = toGeoJSON.kml(kmlDoc);
-      console.log("Successfully converted KML to GeoJSON. Features found:", geojsonData.features.length);
     } catch (error) {
       console.error("Error converting KML to GeoJSON:", error);
-      // If conversion fails, pass an empty GeoJSON object to prevent crashes
       geojsonData = { type: 'FeatureCollection', features: [] };
     }
   
@@ -75,22 +79,21 @@ export async function getServerSideProps(context) {
     return {
       props: {
         project: {
-          name: project.name,
-          location: project.location,
+          name: projectDetails.name,
+          location: projectDetails.location,
           data: data,
         },
       },
     };
   } catch (error) {
     console.error(`Error fetching data for ${projectHostname}:`, error);
-    // You can handle this error gracefully on the frontend as well
     return {
       props: {
         project: {
-          name: project.name,
-          location: project.location,
-          data: null, // Return null data to indicate an error
-          error: 'Failed to fetch project data.',
+          name: projectDetails.name,
+          location: projectDetails.location,
+          data: null,
+          error: `Failed to fetch project data. Reason: ${error.message}`,
         },
       },
     };
