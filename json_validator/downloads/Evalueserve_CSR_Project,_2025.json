@@ -1,0 +1,28 @@
+{
+  "impactData": {
+    "acreage": {
+      "total": 0,
+      "old_vill": 0,
+      "new_vill": 0
+    },
+    "vill_count": {
+      "total": 1
+    },
+    "frmr_count": {
+      "total": 1
+    },
+    "plot_count": {
+      "total": 0
+    }
+  },
+  "mapData": {
+    "type": "FeatureCollection",
+    "features": []
+  },
+  "chartData": {
+    "labelsVillage": [],
+    "acreage": [],
+    "farmerCount": [],
+    "plotCount": []
+  }
+}

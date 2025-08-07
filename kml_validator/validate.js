@@ -48,16 +48,31 @@ async function main() {
         console.error(`   This usually means the Google Drive file is not shared publicly.`);
       } else {
         try {
-          const parser = new XMLParser();
-          const result = parser.parse(kmlContent);
+          console.log(`   - Attempting to parse XML...`);
+          
+          const parsePromise = new Promise((resolve, reject) => {
+            const parser = new XMLParser();
+            const result = parser.parse(kmlContent);
+            resolve(result);
+          });
+
+          const timeoutPromise = new Promise((_, reject) => {
+            setTimeout(() => {
+              reject(new Error('Parsing timed out after 10 seconds.'));
+            }, 10000);
+          });
+
+          const result = await Promise.race([parsePromise, timeoutPromise]);
+
+          console.log(`   - XML parsing complete.`);
+
           if (result && result.kml) {
             console.log(` - KML Validation: SUCCESS. Parsed successfully.`);
           } else {
-            // This case might be rare if the XML is valid but not KML.
             console.warn(` - KML Validation: FAILED. The file is valid XML but does not appear to be a KML file.`);
           }
         } catch (parseError) {
-          console.error(` - KML Validation: FAILED. The file is not valid XML.`);
+          console.error(` - KML Validation: FAILED. The file is not valid XML or timed out.`);
           console.error(`   Parser Error: ${parseError.message}`);
         }
       }

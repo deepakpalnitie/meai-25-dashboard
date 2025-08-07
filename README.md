@@ -43,3 +43,53 @@ More information [in the documentation](https://mui.com/material-ui/guides/routi
 
 You now have a working example project.
 You can head back to the documentation and continue by browsing the [templates](https://mui.com/material-ui/getting-started/templates/) section.
+
+---
+
+## Project Configuration and Workflow
+
+This project uses a multi-tenant architecture to serve multiple CSR project dashboards from a single codebase. All project configurations are managed in a central file, `projects.json`, which is the single source of truth.
+
+For complete architectural details, see the documentation at [`info/README.md`](./info/README.md).
+
+### Developer Workflow
+
+Follow these steps to add a new project or update an existing one.
+
+**1. Update Configuration**
+
+Modify the root `projects.json` file to add or update a project's configuration details (e.g., sheet IDs, KML file IDs).
+
+**2. Sync Backend Config**
+
+The Google Apps Script backend uses its own configuration object. Run the following command to update it from `projects.json`:
+
+```bash
+node update-apps-script-config.js
+```
+
+**3. Deploy Backend**
+
+Push the updated configuration to your deployed Google Apps Script using `clasp`:
+
+```bash
+clasp push
+```
+
+**4. Run the Frontend**
+
+Start the local development server with:
+
+```bash
+npm run dev
+```
+
+To view a specific project, you must use the `projectHostname` query parameter in the URL, like so:
+*   `http://localhost:3000/project?projectHostname=csr-meai.distincthorizon.net`
+
+### Validation Utilities
+
+To debug issues with project data files, you can use the built-in validation scripts. These scripts download the KML and JSON files from Google Drive, save them locally, and report any access or parsing errors.
+
+*   **KML Validator**: `node kml_validator/validate.js`
+*   **JSON Validator**: `node json_validator/validate.js`

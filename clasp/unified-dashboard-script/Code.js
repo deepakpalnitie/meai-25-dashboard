@@ -7,29 +7,29 @@
 
 // --- MASTER CONFIGURATION ---
 const PROJECT_CONFIG = {
-  'meai': {
-    sheetId: '1V--Zg14tB9SNCNfbK8uGUOAXypQStyeCKs9MOrWuzAA',
-    jsonFileId: '1Ebykn1coBUHWdSalJzloyrFDiqnzqQaL',
-    mediaFolderId: '1NrCmuxUKyPZIWg0lHoBjkGKc4ox6LUaD',
-    kmlFileId: '1glLFP_YF4c30odgdMjYBc___D_9KA_Zv'
+  "meai": {
+    "sheetId": "1V--Zg14tB9SNCNfbK8uGUOAXypQStyeCKs9MOrWuzAA",
+    "jsonFileId": "1Ebykn1coBUHWdSalJzloyrFDiqnzqQaL",
+    "mediaFolderId": "1NrCmuxUKyPZIWg0lHoBjkGKc4ox6LUaD",
+    "kmlFileId": "1glLFP_YF4c30odgdMjYBc___D_9KA_Zv"
   },
-  'aai': {
-    sheetId: '1vhM3VfaoaA5DQNTgwP8tLC5tCNGtfY0jKMiFVHgasdg',
-    jsonFileId: '195R6E23ob_y5_B16NdVabfaXz_01_TJB',
-    mediaFolderId: '1cDsaZ5RhJJGw7L7Jc2FNZfJpHhez8Jr0',
-    kmlFileId: '1K1vM4yc6TcTSJQ1NGU5jwTpFiIfzO88-'
+  "aai": {
+    "sheetId": "1vhM3VfaoaA5DQNTgwP8tLC5tCNGtfY0jKMiFVHgasdg",
+    "jsonFileId": "195R6E23ob_y5_B16NdVabfaXz_01_TJB",
+    "mediaFolderId": "1cDsaZ5RhJJGw7L7Jc2FNZfJpHhez8Jr0",
+    "kmlFileId": "1K1vM4yc6TcTSJQ1NGU5jwTpFiIfzO88-"
   },
-  'irctc': {
-    sheetId: '19AVjHE0fBngjwgyYKZY6PEQSbnyZhVMWGba-c06D6V0',
-    jsonFileId: '1z9rpOjjzAhNcDl4TcIoxCndUdJRR4dTx',
-    mediaFolderId: '1U7E43mskNXqiIYvmtCKQP7fqifH8MWJr',
-    kmlFileId: '1RIqqm_QCkrX10DE9UpQdS3tcHfUuOXrI'
+  "irctc": {
+    "sheetId": "19AVjHE0fBngjwgyYKZY6PEQSbnyZhVMWGba-c06D6V0",
+    "jsonFileId": "1z9rpOjjzAhNcDl4TcIoxCndUdJRR4dTx",
+    "mediaFolderId": "1U7E43mskNXqiIYvmtCKQP7fqifH8MWJr",
+    "kmlFileId": "1RIqqm_QCkrX10DE9UpQdS3tcHfUuOXrI"
   },
-  'evalueserve': {
-    sheetId: '1VrE7kmhcYVS4NkjDFHQ3snMmaPY47ONEU4Zr3ym69WQ',
-    jsonFileId: '1Hrwhu3MZ8HrpnTccwPMOZs1m6pTbsM0A',
-    mediaFolderId: '1k12_1n2c3yV9pqeABWhwiFMfn9bqFttH',
-    kmlFileId: '120qvpFy4yjhG-1oG0cr-O-R4vEiCY23X'
+  "evalueserve": {
+    "sheetId": "1VrE7kmhcYVS4NkjDFHQ3snMmaPY47ONEU4Zr3ym69WQ",
+    "jsonFileId": "1Hrwhu3MZ8HrpnTccwPMOZs1m6pTbsM0A",
+    "mediaFolderId": "1k12_1n2c3yV9pqeABWhwiFMfn9bqFttH",
+    "kmlFileId": "120qvpFy4yjhG-1oG0cr-O-R4vEiCY23X"
   }
 };
 

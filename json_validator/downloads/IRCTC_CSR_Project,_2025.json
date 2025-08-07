@@ -1,0 +1,697 @@
+{
+  "impactData": {
+    "acreage": {
+      "total": 62,
+      "old_vill": 30,
+      "new_vill": 31
+    },
+    "vill_count": {
+      "total": 12
+    },
+    "frmr_count": {
+      "total": 26
+    },
+    "plot_count": {
+      "total": 28
+    }
+  },
+  "mapData": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.58767538145185,
+            26.339684527877438
+          ]
+        },
+        "village": "Suratgarh",
+        "properties": {
+          "name": "Deshraj Singh, Plot 1",
+          "phoneFormatted": "(+91)9415-931-602",
+          "phone": 9415931602,
+          "aadhaar": "357061152139",
+          "address": "Suratgarh",
+          "paddyVariety": 7029,
+          "UDPAcreage": 1,
+          "date": "07-Jul'25",
+          "dateTime": "07-Jul'25 04:02 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.59714341163635,
+            26.34012471077608
+          ]
+        },
+        "village": "Suratgarh",
+        "properties": {
+          "name": "Mohd. Anees, Plot 1",
+          "phoneFormatted": "(+91)6393-883-082",
+          "phone": 6393883082,
+          "aadhaar": "937277833329",
+          "address": "Suratgarh",
+          "paddyVariety": 7029,
+          "UDPAcreage": 3,
+          "date": "08-Jul'25",
+          "dateTime": "08-Jul'25 04:08 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.58807871863246,
+            26.337205494214732
+          ]
+        },
+        "village": "Suratgarh",
+        "properties": {
+          "name": "Kamlendra Pratap Singh, Plot 1",
+          "phoneFormatted": "(+91)8948-588-426",
+          "phone": 8948588426,
+          "aadhaar": "771096163285",
+          "address": "Suratgarh",
+          "paddyVariety": 7029,
+          "UDPAcreage": 1,
+          "date": "12-Jul'25",
+          "dateTime": "12-Jul'25 07:10 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.58737447112799,
+            26.338934707486985
+          ]
+        },
+        "village": "Suratgarh",
+        "properties": {
+          "name": "Shivpratap Singh, Plot 1",
+          "phoneFormatted": "(+91)9198-467-929",
+          "phone": 9198467929,
+          "aadhaar": "583286823587",
+          "address": "Suratgarh",
+          "paddyVariety": 7029,
+          "UDPAcreage": 2,
+          "date": "12-Jul'25",
+          "dateTime": "12-Jul'25 08:18 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.58941261470318,
+            26.342568227689934
+          ]
+        },
+        "village": "Suratgarh",
+        "properties": {
+          "name": "Banshraj Singh, Plot 1",
+          "phoneFormatted": "(+91)9721-512-609",
+          "phone": 9721512609,
+          "aadhaar": "872289682228",
+          "address": "Suratgarh",
+          "paddyVariety": 7029,
+          "UDPAcreage": 3,
+          "date": "12-Jul'25",
+          "dateTime": "12-Jul'25 12:24 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.59033076837659,
+            26.34403446017213
+          ]
+        },
+        "village": "Suratgarh",
+        "properties": {
+          "name": "Surya Prakash Singh, Plot 1",
+          "phoneFormatted": "(+91)9792-897-071",
+          "phone": 9792897071,
+          "aadhaar": "564663382393",
+          "address": "Suratgarh",
+          "paddyVariety": 7029,
+          "UDPAcreage": 4.5,
+          "date": "10-Jul'25",
+          "dateTime": "10-Jul'25 06:27 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.59360658377409,
+            26.340381159404803
+          ]
+        },
+        "village": "Suratgarh",
+        "properties": {
+          "name": "Shivpratap Singh, Plot 2",
+          "phoneFormatted": "(+91)9198-468-053",
+          "phone": 9198468053,
+          "aadhaar": "583286823587",
+          "address": "Suratgarh",
+          "paddyVariety": 7029,
+          "UDPAcreage": 2,
+          "date": "10-Jul'25",
+          "dateTime": "10-Jul'25 07:05 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.70326115563512,
+            26.137773001540573
+          ]
+        },
+        "village": "Poore Bhola Padari ",
+        "properties": {
+          "name": "Subham Tiwari, Plot 1",
+          "phoneFormatted": "(+91)9889-756-776",
+          "phone": 9889756776,
+          "aadhaar": "671360213831",
+          "address": "Poore Bhola Padari ",
+          "paddyVariety": 6474,
+          "UDPAcreage": 3.5,
+          "date": "13-Jul'25",
+          "dateTime": "13-Jul'25 08:06 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.70044081285596,
+            26.141336218047726
+          ]
+        },
+        "village": "Poore Bhola Padari ",
+        "properties": {
+          "name": "Ashish Tripathi, Plot 1",
+          "phoneFormatted": "(+91)7007-800-991",
+          "phone": 7007800991,
+          "aadhaar": "455498789666",
+          "address": "Poore Bhola Padari ",
+          "paddyVariety": 6474,
+          "UDPAcreage": 1.5,
+          "date": "13-Jul'25",
+          "dateTime": "13-Jul'25 12:30 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.66594944894314,
+            26.145277791910715
+          ]
+        },
+        "village": "Saintha Gauriganj ",
+        "properties": {
+          "name": "Sanjay Kumar Singh, Plot 1",
+          "phoneFormatted": "(+91)9838-174-659",
+          "phone": 9838174659,
+          "aadhaar": "832360420433",
+          "address": "Saintha Gauriganj ",
+          "paddyVariety": 6474,
+          "UDPAcreage": 1.5,
+          "date": "14-Jul'25",
+          "dateTime": "14-Jul'25 01:23 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.59007763490081,
+            26.334394524902827
+          ]
+        },
+        "village": "Pure Chhatta ",
+        "properties": {
+          "name": "Dhananjay Singh, Plot 1",
+          "phoneFormatted": "(+91)9721-816-268",
+          "phone": 9721816268,
+          "aadhaar": "974443974948",
+          "address": "Pure Chhatta ",
+          "paddyVariety": 7029,
+          "UDPAcreage": 2.25,
+          "date": "14-Jul'25",
+          "dateTime": "14-Jul'25 12:47 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.59276604652405,
+            26.339658837099144
+          ]
+        },
+        "village": "Suratgarh",
+        "properties": {
+          "name": "Pawan Singh, Plot 1",
+          "phoneFormatted": "(+91)6393-919-948",
+          "phone": 6393919948,
+          "aadhaar": "871621814896",
+          "address": "Suratgarh",
+          "paddyVariety": 7029,
+          "UDPAcreage": 2,
+          "date": "14-Jul'25",
+          "dateTime": "14-Jul'25 03:41 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.68890262022614,
+            26.11572913112278
+          ]
+        },
+        "village": "Pure Ayodhya ",
+        "properties": {
+          "name": "Ram Raj, Plot 1",
+          "phoneFormatted": "(+91)9811-152-813",
+          "phone": 9811152813,
+          "aadhaar": "733553718180",
+          "address": "Pure Ayodhya ",
+          "paddyVariety": 6474,
+          "UDPAcreage": 2,
+          "date": "17-Jul'25",
+          "dateTime": "17-Jul'25 07:09 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.68872157111764,
+            26.113543361501584
+          ]
+        },
+        "village": "Pure Ayodhya ",
+        "properties": {
+          "name": "Ram Awadh, Plot 1",
+          "phoneFormatted": "(+91)9838-079-124",
+          "phone": 9838079124,
+          "aadhaar": "286890860803",
+          "address": "Pure Ayodhya ",
+          "paddyVariety": 6474,
+          "UDPAcreage": 2,
+          "date": "17-Jul'25",
+          "dateTime": "17-Jul'25 09:10 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.68971667066216,
+            26.1132886714947
+          ]
+        },
+        "village": "Pure Ayodhya ",
+        "properties": {
+          "name": "Dev Kala, Plot 1",
+          "phoneFormatted": "(+91)7408-885-374",
+          "phone": 7408885374,
+          "aadhaar": "207297791521",
+          "address": "Pure Ayodhya ",
+          "paddyVariety": 7029,
+          "UDPAcreage": 1,
+          "date": "16-Jul'25",
+          "dateTime": "16-Jul'25 12:28 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.68180583044887,
+            26.12258963437317
+          ]
+        },
+        "village": "Purediwan Pahadganj ",
+        "properties": {
+          "name": "Satish, Plot 1",
+          "phoneFormatted": "(+91)7571-964-077",
+          "phone": 7571964077,
+          "aadhaar": "657423698573",
+          "address": "Purediwan Pahadganj ",
+          "paddyVariety": 6474,
+          "UDPAcreage": 1.5,
+          "date": "17-Jul'25",
+          "dateTime": "17-Jul'25 11:43 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.59068850800395,
+            26.34323659587215
+          ]
+        },
+        "village": "Suratgarh",
+        "properties": {
+          "name": "Dheeraj Pal, Plot 1",
+          "phoneFormatted": "(+91)8840-017-497",
+          "phone": 8840017497,
+          "aadhaar": "605724780381",
+          "address": "Suratgarh",
+          "paddyVariety": 7029,
+          "UDPAcreage": 4.5,
+          "date": "11-Jul'25",
+          "dateTime": "11-Jul'25 09:13 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.59863606095314,
+            26.33588099711147
+          ]
+        },
+        "village": "Suratgarh",
+        "properties": {
+          "name": "Shafeeq, Plot 1",
+          "phoneFormatted": "(+91)6386-514-099",
+          "phone": 6386514099,
+          "aadhaar": "783696852769",
+          "address": "Suratgarh",
+          "paddyVariety": 7029,
+          "UDPAcreage": 1,
+          "date": "16-Jul'25",
+          "dateTime": "16-Jul'25 07:22 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.60033859312534,
+            26.347339435987536
+          ]
+        },
+        "village": "Suratgarh",
+        "properties": {
+          "name": "Makhdoom, Plot 1",
+          "phoneFormatted": "(+91)9336-678-318",
+          "phone": 9336678318,
+          "aadhaar": "759516271983",
+          "address": "Suratgarh",
+          "paddyVariety": 7029,
+          "UDPAcreage": 1.25,
+          "date": "16-Jul'25",
+          "dateTime": "16-Jul'25 09:23 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.60029551014304,
+            26.336875723160592
+          ]
+        },
+        "village": "Suratgarh",
+        "properties": {
+          "name": "Shivkumar, Plot 1",
+          "phoneFormatted": "(+91)8957-237-144",
+          "phone": 8957237144,
+          "aadhaar": "599011430470",
+          "address": "Suratgarh",
+          "paddyVariety": 7029,
+          "UDPAcreage": 1,
+          "date": "16-Jul'25",
+          "dateTime": "16-Jul'25 05:13 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.70407755300403,
+            26.22679109085961
+          ]
+        },
+        "village": "Harakh Pur ",
+        "properties": {
+          "name": "Vinod Kumar Singh, Plot 1",
+          "phoneFormatted": "(+91)9792-306-326",
+          "phone": 9792306326,
+          "aadhaar": "383587185100",
+          "address": "Harakh Pur ",
+          "paddyVariety": 7029,
+          "UDPAcreage": 3,
+          "date": "19-Jul'25",
+          "dateTime": "19-Jul'25 10:07 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.61566054448485,
+            26.298916526040838
+          ]
+        },
+        "village": "Amarbojha Barauliya",
+        "properties": {
+          "name": "Shailendr Pratap Singh, Plot 1",
+          "phoneFormatted": "(+91)9129-326-719",
+          "phone": 9129326719,
+          "aadhaar": "981271997676",
+          "address": "Amarbojha Barauliya",
+          "paddyVariety": 6474,
+          "UDPAcreage": 2.25,
+          "date": "19-Jul'25",
+          "dateTime": "19-Jul'25 04:02 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.67389884591103,
+            26.127069460903634
+          ]
+        },
+        "village": "Pure Rishal",
+        "properties": {
+          "name": "Sunil Kumar, Plot 1",
+          "phoneFormatted": "(+91)9919-227-047",
+          "phone": 9919227047,
+          "aadhaar": "969083322366",
+          "address": "Pure Rishal",
+          "paddyVariety": 7029,
+          "UDPAcreage": 3.5,
+          "date": "20-Jul'25",
+          "dateTime": "20-Jul'25 10:06 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.69644717127085,
+            26.128153420691106
+          ]
+        },
+        "village": "Pure Devideen ",
+        "properties": {
+          "name": "Jai Karan Tiwari, Plot 1",
+          "phoneFormatted": "(+91)8795-100-086",
+          "phone": 8795100086,
+          "aadhaar": "866731492043",
+          "address": "Pure Devideen ",
+          "paddyVariety": 7029,
+          "UDPAcreage": 2.75,
+          "date": "21-Jul'25",
+          "dateTime": "21-Jul'25 09:25 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.67743382975459,
+            26.12496006380409
+          ]
+        },
+        "village": "Pure Rishal",
+        "properties": {
+          "name": "Gyanendra Shukla, Plot 1",
+          "phoneFormatted": "(+91)7622-825-950",
+          "phone": 7622825950,
+          "aadhaar": "771800704774",
+          "address": "Pure Rishal",
+          "paddyVariety": 7029,
+          "UDPAcreage": 1,
+          "date": "24-Jul'25",
+          "dateTime": "24-Jul'25 12:59 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.6812789440155,
+            26.120066982677173
+          ]
+        },
+        "village": "Purediwan Pahadganj ",
+        "properties": {
+          "name": "Satish, Plot 2",
+          "phoneFormatted": "(+91)7571-964-077",
+          "phone": 7571964077,
+          "aadhaar": "657423698573",
+          "address": "Purediwan Pahadganj ",
+          "paddyVariety": 6474,
+          "UDPAcreage": 3.5,
+          "date": "30-Jul'25",
+          "dateTime": "30-Jul'25 07:15 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.67762828990817,
+            26.133203886954448
+          ]
+        },
+        "village": "Madhavpur Pahadganj",
+        "properties": {
+          "name": "Yadunath Maurya, Plot 1",
+          "phoneFormatted": "(+91)9918-993-490",
+          "phone": 9918993490,
+          "aadhaar": "697785740652",
+          "address": "Madhavpur Pahadganj",
+          "paddyVariety": 7029,
+          "UDPAcreage": 2,
+          "date": "30-Jul'25",
+          "dateTime": "30-Jul'25 03:30 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            81.63823518902063,
+            26.15568654705985
+          ]
+        },
+        "village": " Chandaipur",
+        "properties": {
+          "name": "Vijay Kumar Yadav, Plot 1",
+          "phoneFormatted": "(+91)6388-219-277",
+          "phone": 6388219277,
+          "aadhaar": "846212664969",
+          "address": " Chandaipur",
+          "paddyVariety": 7029,
+          "UDPAcreage": 2.5,
+          "date": "31-Jul'25",
+          "dateTime": "31-Jul'25 05:15 pm"
+        }
+      }
+    ]
+  },
+  "chartData": {
+    "labelsVillage": [
+      " Chandaipur",
+      "Amarbojha Barauliya",
+      "Harakh Pur ",
+      "Madhavpur Pahadganj",
+      "Poore Bhola Padari ",
+      "Pure Ayodhya ",
+      "Pure Chhatta ",
+      "Pure Devideen ",
+      "Pure Rishal",
+      "Purediwan Pahadganj ",
+      "Saintha Gauriganj ",
+      "Suratgarh"
+    ],
+    "acreage": [
+      2.5,
+      2.25,
+      3,
+      2,
+      5,
+      5,
+      2.25,
+      2.75,
+      4.5,
+      5,
+      1.5,
+      26.25
+    ],
+    "farmerCount": [
+      1,
+      1,
+      1,
+      1,
+      2,
+      3,
+      1,
+      1,
+      2,
+      1,
+      1,
+      11
+    ],
+    "plotCount": [
+      1,
+      1,
+      1,
+      1,
+      2,
+      3,
+      1,
+      1,
+      2,
+      2,
+      1,
+      12
+    ]
+  }
+}

@@ -1,0 +1,3265 @@
+{
+  "impactData": {
+    "acreage": {
+      "total": 1919,
+      "old_vill": 1406,
+      "new_vill": 512
+    },
+    "vill_count": {
+      "total": 27
+    },
+    "frmr_count": {
+      "total": 205
+    },
+    "plot_count": {
+      "total": 407
+    }
+  },
+  "mapData": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.4760422167439,
+            27.9620105088529
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Satyadev, Plot 1",
+          "phoneFormatted": "(+91)9050-067-502",
+          "phone": 9050067502,
+          "aadhaar": "953637566814",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 3,
+          "date": "29-Jun'25",
+          "dateTime": "29-Jun'25 05:34 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.47805004939437,
+            27.96144149940497
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Bhagat Singh, Plot 1",
+          "phoneFormatted": "(+91)7015-481-818",
+          "phone": 7015481818,
+          "aadhaar": "467058053740",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 1.5,
+          "date": "28-Jun'25",
+          "dateTime": "28-Jun'25 07:28 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.47547676976465,
+            27.96314829566962
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Bhagat Singh, Plot 2",
+          "phoneFormatted": "(+91)7015-481-818",
+          "phone": 7015481818,
+          "aadhaar": "467058053740",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 1,
+          "date": "30-Jun'25",
+          "dateTime": "30-Jun'25 05:47 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.39514246582985,
+            27.98386341202712
+          ]
+        },
+        "village": "Palri",
+        "properties": {
+          "name": "Parvesh Rathi, Plot 1",
+          "phoneFormatted": "(+91)8816-080-488",
+          "phone": 8816080488,
+          "aadhaar": "998670053236",
+          "address": "Palri",
+          "paddyVariety": 1692,
+          "UDPAcreage": 1,
+          "date": "27-Jun'25",
+          "dateTime": "27-Jun'25 02:20 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.45886202901602,
+            27.955743226237885
+          ]
+        },
+        "village": "Darana",
+        "properties": {
+          "name": "Rohit, Plot 1",
+          "phoneFormatted": "(+91)8918-483-632",
+          "phone": 8918483632,
+          "aadhaar": "675083795821",
+          "address": "Darana",
+          "paddyVariety": 1692,
+          "UDPAcreage": 2,
+          "date": "02-Jul'25",
+          "dateTime": "02-Jul'25 08:33 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.45329748346778,
+            27.951180265553198
+          ]
+        },
+        "village": "Darana",
+        "properties": {
+          "name": "Rohit, Plot 2",
+          "phoneFormatted": "(+91)8918-483-632",
+          "phone": 8918483632,
+          "aadhaar": "675083795821",
+          "address": "Darana",
+          "paddyVariety": 1509,
+          "UDPAcreage": 3,
+          "date": "02-Jul'25",
+          "dateTime": "02-Jul'25 06:19 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.34295486613439,
+            28.082062435761436
+          ]
+        },
+        "village": "Bahrola",
+        "properties": {
+          "name": "Sunder, Plot 1",
+          "phoneFormatted": "(+91)9991-131-131",
+          "phone": 9991131131,
+          "aadhaar": "NA",
+          "address": "Bahrola",
+          "paddyVariety": 1509,
+          "UDPAcreage": 1,
+          "date": "10-Jul'25",
+          "dateTime": "10-Jul'25 04:05 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.34201088772147,
+            28.08250817467529
+          ]
+        },
+        "village": "Bahrola",
+        "properties": {
+          "name": "Sunder, Plot 2",
+          "phoneFormatted": "(+91)9991-131-131",
+          "phone": 9991131131,
+          "aadhaar": "NA",
+          "address": "Bahrola",
+          "paddyVariety": 1509,
+          "UDPAcreage": 1.5,
+          "date": "10-Jul'25",
+          "dateTime": "10-Jul'25 05:50 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.38684639334679,
+            28.013377954915384
+          ]
+        },
+        "village": "Pingore",
+        "properties": {
+          "name": "Subhash, Plot 1",
+          "phoneFormatted": "(+91)9306-057-534",
+          "phone": 9306057534,
+          "aadhaar": "259985622533",
+          "address": "Pingore",
+          "paddyVariety": 1509,
+          "UDPAcreage": 4.5,
+          "date": "15-Jul'25",
+          "dateTime": "15-Jul'25 06:05 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.47810335829854,
+            27.958493411476564
+          ]
+        },
+        "village": "Hasanpur",
+        "properties": {
+          "name": "Vishvender Singh, Plot 1",
+          "phoneFormatted": "(+91)9050-582-503",
+          "phone": 9050582503,
+          "aadhaar": "NA",
+          "address": "Hasanpur",
+          "paddyVariety": 1509,
+          "UDPAcreage": 6,
+          "date": "11-Jul'25",
+          "dateTime": "11-Jul'25 06:00 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.47860107570887,
+            27.95975602133528
+          ]
+        },
+        "village": "Hasanpur",
+        "properties": {
+          "name": "Vishvender Singh, Plot 2",
+          "phoneFormatted": "(+91)9050-582-503",
+          "phone": 9050582503,
+          "aadhaar": "NA",
+          "address": "Hasanpur",
+          "paddyVariety": 1509,
+          "UDPAcreage": 5.25,
+          "date": "11-Jul'25",
+          "dateTime": "11-Jul'25 12:22 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.47647425159812,
+            27.956807148389082
+          ]
+        },
+        "village": "Hasanpur",
+        "properties": {
+          "name": "Vishvender Singh, Plot 3",
+          "phoneFormatted": "(+91)9050-582-503",
+          "phone": 9050582503,
+          "aadhaar": "NA",
+          "address": "Hasanpur",
+          "paddyVariety": 1509,
+          "UDPAcreage": 5,
+          "date": "12-Jul'25",
+          "dateTime": "12-Jul'25 07:05 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.47842785478713,
+            27.956637752111725
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Bhupender, Plot 1",
+          "phoneFormatted": "(+91)8053-182-930",
+          "phone": 8053182930,
+          "aadhaar": "NA",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 7,
+          "date": "13-Jul'25",
+          "dateTime": "13-Jul'25 07:05 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.48014415866868,
+            27.95633189354252
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Bhupender, Plot 2",
+          "phoneFormatted": "(+91)8053-182-930",
+          "phone": 8053182930,
+          "aadhaar": "NA",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 3,
+          "date": "13-Jul'25",
+          "dateTime": "13-Jul'25 04:00 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.47592674568295,
+            27.954983442413045
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Manoj Kumar, Plot 1",
+          "phoneFormatted": "(+91)9817-277-446",
+          "phone": 9817277446,
+          "aadhaar": "539742407355",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 6,
+          "date": "12-Jul'25",
+          "dateTime": "12-Jul'25 12:05 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.4739970639348,
+            27.955399242436528
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Sunil Kumar, Plot 1",
+          "phoneFormatted": "(+91)8930-698-963",
+          "phone": 8930698963,
+          "aadhaar": "633083989521",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 7,
+          "date": "12-Jul'25",
+          "dateTime": "12-Jul'25 04:25 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.48470611870289,
+            27.9642375862261
+          ]
+        },
+        "village": "Sahnoli",
+        "properties": {
+          "name": "Rakesh Sharma, Plot 1",
+          "phoneFormatted": "(+91)8708-737-342",
+          "phone": 8708737342,
+          "aadhaar": "920202530711",
+          "address": "Sahnoli",
+          "paddyVariety": 1509,
+          "UDPAcreage": 4.5,
+          "date": "06-Jul'25",
+          "dateTime": "06-Jul'25 07:30 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.40252021700144,
+            27.9883629266372
+          ]
+        },
+        "village": "Bhupgarh",
+        "properties": {
+          "name": "Dhani Ram, Plot 1",
+          "phoneFormatted": "(+91)9671-143-400",
+          "phone": 9671143400,
+          "aadhaar": "803437179472",
+          "address": "Bhupgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 1,
+          "date": "06-Jul'25",
+          "dateTime": "06-Jul'25 07:00 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.40620674565434,
+            27.987435502599467
+          ]
+        },
+        "village": "Bhupgarh",
+        "properties": {
+          "name": "Dhani Ram, Plot 2",
+          "phoneFormatted": "(+91)9671-143-400",
+          "phone": 9671143400,
+          "aadhaar": "803437179472",
+          "address": "Bhupgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 6,
+          "date": "06-Jul'25",
+          "dateTime": "06-Jul'25 05:30 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.40902826189995,
+            27.987645118164934
+          ]
+        },
+        "village": "Bhupgarh",
+        "properties": {
+          "name": "Dhani Ram, Plot 3",
+          "phoneFormatted": "(+91)9671-143-400",
+          "phone": 9671143400,
+          "aadhaar": "803437179472",
+          "address": "Bhupgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 6,
+          "date": "07-Jul'25",
+          "dateTime": "07-Jul'25 07:30 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.40741474553943,
+            27.98879828483018
+          ]
+        },
+        "village": "Bhupgarh",
+        "properties": {
+          "name": "Dhani Ram, Plot 4",
+          "phoneFormatted": "(+91)9671-143-400",
+          "phone": 9671143400,
+          "aadhaar": "803437179472",
+          "address": "Bhupgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 3,
+          "date": "07-Jul'25",
+          "dateTime": "07-Jul'25 05:30 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.40498080849648,
+            27.988364406945948
+          ]
+        },
+        "village": "Bhupgarh",
+        "properties": {
+          "name": "Dhani Ram, Plot 5",
+          "phoneFormatted": "(+91)9671-143-400",
+          "phone": 9671143400,
+          "aadhaar": "803437179472",
+          "address": "Bhupgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 1,
+          "date": "08-Jul'25",
+          "dateTime": "08-Jul'25 06:25 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.4057998880744,
+            27.9892428209279
+          ]
+        },
+        "village": "Bhupgarh",
+        "properties": {
+          "name": "Dhani Ram, Plot 6",
+          "phoneFormatted": "(+91)9671-143-400",
+          "phone": 9671143400,
+          "aadhaar": "803437179472",
+          "address": "Bhupgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 3,
+          "date": "10-Jul'25",
+          "dateTime": "10-Jul'25 08:30 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.48417939990759,
+            27.949320815315563
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Mohan Shyam, Plot 3",
+          "phoneFormatted": "(+91)9991-003-389",
+          "phone": 9991003389,
+          "aadhaar": "962011251915",
+          "address": "Ramgarh",
+          "paddyVariety": 1692,
+          "UDPAcreage": 1.5,
+          "date": "05-Jul'25",
+          "dateTime": "05-Jul'25 06:00 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.48707048594952,
+            27.948351294252895
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Ram Prashad, Plot 1",
+          "phoneFormatted": "(+91)9991-276-034",
+          "phone": 9991276034,
+          "aadhaar": "889032966867",
+          "address": "Ramgarh",
+          "paddyVariety": 1506,
+          "UDPAcreage": 7,
+          "date": "07-Jul'25",
+          "dateTime": "07-Jul'25 07:35 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.49278509989381,
+            27.947469290082932
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Shivhari, Plot 1",
+          "phoneFormatted": "(+91)9812-883-938",
+          "phone": 9812883938,
+          "aadhaar": "353044204981",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 4,
+          "date": "07-Jul'25",
+          "dateTime": "07-Jul'25 05:00 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.4930982477963,
+            27.947009476765615
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Shivhari, Plot 2",
+          "phoneFormatted": "(+91)9812-883-938",
+          "phone": 9812883938,
+          "aadhaar": "353044204981",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 3.5,
+          "date": "08-Jul'25",
+          "dateTime": "08-Jul'25 07:35 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.4772971868515,
+            27.960439809294627
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Bhagat Singh, Plot 3",
+          "phoneFormatted": "(+91)7015-481-818",
+          "phone": 7015481818,
+          "aadhaar": "467058053740",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 4,
+          "date": "28-Jun'25",
+          "dateTime": "28-Jun'25 07:30 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.47770387679338,
+            27.960221703256263
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Bhagat Singh, Plot 4",
+          "phoneFormatted": "(+91)7015-481-818",
+          "phone": 7015481818,
+          "aadhaar": "467058053740",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 1.5,
+          "date": "28-Jun'25",
+          "dateTime": "28-Jun'25 01:00 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.47893115505576,
+            27.960671687731285
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Rohtash, Plot 1",
+          "phoneFormatted": "(+91)9991-136-420",
+          "phone": 9991136420,
+          "aadhaar": "335606070460",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 3.5,
+          "date": "30-Jun'25",
+          "dateTime": "30-Jun'25 08:00 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.47645447030663,
+            27.95881724490325
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Rohtash, Plot 2",
+          "phoneFormatted": "(+91)9991-136-420",
+          "phone": 9991136420,
+          "aadhaar": "335606070460",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 7.8,
+          "date": "30-Jun'25",
+          "dateTime": "30-Jun'25 02:40 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.47389497235417,
+            27.960225249331355
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Karan Singh, Plot 1",
+          "phoneFormatted": "(+91)8059-055-858",
+          "phone": 8059055858,
+          "aadhaar": "840032510540",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 8,
+          "date": "01-Jul'25",
+          "dateTime": "01-Jul'25 10:50 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.18860181048512,
+            28.14318962287308
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Vivek, Plot 1",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "503671519243",
+          "address": "Mandkola",
+          "paddyVariety": 1692,
+          "UDPAcreage": 8.5,
+          "date": "23-Jun'25",
+          "dateTime": "23-Jun'25 06:30 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.19040241092443,
+            28.14245127006842
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Radhe Lal, Plot 1",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "612895685978",
+          "address": "Mandkola",
+          "paddyVariety": 1692,
+          "UDPAcreage": 8.5,
+          "date": "23-Jun'25",
+          "dateTime": "23-Jun'25 11:50 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.18833610415459,
+            28.131791326891545
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Jitender, Plot 1",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "782666669360",
+          "address": "Mandkola",
+          "paddyVariety": 1692,
+          "UDPAcreage": 9,
+          "date": "24-Jun'25",
+          "dateTime": "24-Jun'25 07:00 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.19019068405032,
+            28.13100617565386
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Munish Kumar, Plot 1",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "451736190243",
+          "address": "Mandkola",
+          "paddyVariety": 1509,
+          "UDPAcreage": 9,
+          "date": "24-Jun'25",
+          "dateTime": "24-Jun'25 12:30 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.16482704505324,
+            28.133773023698403
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Bhupender, Plot 1",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "451736191665",
+          "address": "Mandkola",
+          "paddyVariety": 1692,
+          "UDPAcreage": 4.5,
+          "date": "25-Jun'25",
+          "dateTime": "25-Jun'25 07:30 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.16684205457568,
+            28.132109910025342
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Nitesh, Plot 1",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "284093363605",
+          "address": "Mandkola",
+          "paddyVariety": 1509,
+          "UDPAcreage": 4.5,
+          "date": "25-Jun'25",
+          "dateTime": "25-Jun'25 10:10 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.16359205543995,
+            28.13355866987245
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Sikander, Plot 1",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "348601366411",
+          "address": "Mandkola",
+          "paddyVariety": 1509,
+          "UDPAcreage": 6,
+          "date": "06-Jul'25",
+          "dateTime": "06-Jul'25 09:00 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.16979097574949,
+            28.13885180191299
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Sukhram, Plot 1",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "728768602236",
+          "address": "Mandkola",
+          "paddyVariety": 1692,
+          "UDPAcreage": 10.5,
+          "date": "26-Jun'25",
+          "dateTime": "26-Jun'25 01:00 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.16728378087282,
+            28.138231377976922
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Manoj, Plot 1",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "951857482666",
+          "address": "Mandkola",
+          "paddyVariety": 1692,
+          "UDPAcreage": 9,
+          "date": "07-Jul'25",
+          "dateTime": "07-Jul'25 12:30 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.16728763654828,
+            28.136568631804145
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Kuldeep, Plot 1",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "343730393474",
+          "address": "Mandkola",
+          "paddyVariety": 1509,
+          "UDPAcreage": 5.5,
+          "date": "28-Jun'25",
+          "dateTime": "28-Jun'25 06:40 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.17016262933612,
+            28.13701491948419
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Vipin, Plot 1",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "991883850268",
+          "address": "Mandkola",
+          "paddyVariety": 1509,
+          "UDPAcreage": 8,
+          "date": "28-Jun'25",
+          "dateTime": "28-Jun'25 02:00 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.16890601441264,
+            28.137278640223474
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Sunil, Plot 1",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "550285563500",
+          "address": "Mandkola",
+          "paddyVariety": 1509,
+          "UDPAcreage": 5,
+          "date": "29-Jun'25",
+          "dateTime": "29-Jun'25 08:00 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.17172535136342,
+            28.135201953881833
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Ravi, Plot 1",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "274627060847",
+          "address": "Mandkola",
+          "paddyVariety": 1509,
+          "UDPAcreage": 7.5,
+          "date": "29-Jun'25",
+          "dateTime": "29-Jun'25 12:05 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.16374393552542,
+            28.125245325211228
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Lokesh, Plot 1",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "358999237919",
+          "address": "Mandkola",
+          "paddyVariety": 1509,
+          "UDPAcreage": 7,
+          "date": "29-Jun'25",
+          "dateTime": "29-Jun'25 04:00 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.16154418885708,
+            28.139087879115955
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Vikash Dagar, Plot 1",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "844954533945",
+          "address": "Mandkola",
+          "paddyVariety": 1692,
+          "UDPAcreage": 9,
+          "date": "30-Jun'25",
+          "dateTime": "30-Jun'25 08:50 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.16525787487626,
+            28.14067594035882
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Deshpal, Plot 1",
+          "phoneFormatted": "(+91)8708-665-726",
+          "phone": 8708665726,
+          "aadhaar": "608773997167",
+          "address": "Mandkola",
+          "paddyVariety": 1692,
+          "UDPAcreage": 8,
+          "date": "30-Jun'25",
+          "dateTime": "30-Jun'25 03:06 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.16440191492438,
+            28.137721676043693
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Vinit, Plot 1",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "444397858743",
+          "address": "Mandkola",
+          "paddyVariety": 1509,
+          "UDPAcreage": 9,
+          "date": "01-Jul'25",
+          "dateTime": "01-Jul'25 07:30 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.16728763654828,
+            28.136568631804145
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Kuldeep, Plot 1",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "343730393474",
+          "address": "Mandkola",
+          "paddyVariety": 1509,
+          "UDPAcreage": 8,
+          "date": "01-Jul'25",
+          "dateTime": "01-Jul'25 02:06 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.19878548198187,
+            28.138580742037078
+          ]
+        },
+        "village": "Manduri",
+        "properties": {
+          "name": "Karamveer, Plot 1",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "333709026407",
+          "address": "Manduri",
+          "paddyVariety": 1509,
+          "UDPAcreage": 5.8,
+          "date": "14-Jul'25",
+          "dateTime": "14-Jul'25 07:23 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.19635541878674,
+            28.13632929742605
+          ]
+        },
+        "village": "Manduri",
+        "properties": {
+          "name": "Anil, Plot 1",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "293387343389",
+          "address": "Manduri",
+          "paddyVariety": 1509,
+          "UDPAcreage": 5.5,
+          "date": "13-Jul'25",
+          "dateTime": "13-Jul'25 08:23 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.2102770768106,
+            28.14150152587188
+          ]
+        },
+        "village": "Manduri",
+        "properties": {
+          "name": "Sedak Ram, Plot 1",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "200553408204",
+          "address": "Manduri",
+          "paddyVariety": 1509,
+          "UDPAcreage": 3.5,
+          "date": "16-Jul'25",
+          "dateTime": "16-Jul'25 05:24 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.21524139234359,
+            28.14604793698848
+          ]
+        },
+        "village": "Manduri",
+        "properties": {
+          "name": "Rajwati, Plot 1",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "631187183227",
+          "address": "Manduri",
+          "paddyVariety": 1509,
+          "UDPAcreage": 6.5,
+          "date": "17-Jul'25",
+          "dateTime": "17-Jul'25 05:24 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.3771262991527,
+            27.981171013448346
+          ]
+        },
+        "village": "Siya",
+        "properties": {
+          "name": "Beerpal, Plot 1",
+          "phoneFormatted": "(+91)9813-910-207",
+          "phone": 9813910207,
+          "aadhaar": "243115519125",
+          "address": "Siya",
+          "paddyVariety": 1509,
+          "UDPAcreage": 2.5,
+          "date": "01-Jul'25",
+          "dateTime": "01-Jul'25 06:30 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.39364478737116,
+            28.01541659886653
+          ]
+        },
+        "village": "Siya",
+        "properties": {
+          "name": "Adesh Kumar, Plot 1",
+          "phoneFormatted": "(+91)9793-536-296",
+          "phone": 9793536296,
+          "aadhaar": "293966876631",
+          "address": "Siya",
+          "paddyVariety": 1847,
+          "UDPAcreage": 2,
+          "date": "01-Jul'25",
+          "dateTime": "01-Jul'25 09:50 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.39117363467813,
+            28.01518069423995
+          ]
+        },
+        "village": "Siya",
+        "properties": {
+          "name": "Baljeet Singh, Plot 1",
+          "phoneFormatted": "(+91)9899-108-455",
+          "phone": 9899108455,
+          "aadhaar": "824180017006",
+          "address": "Siya",
+          "paddyVariety": 1509,
+          "UDPAcreage": 3,
+          "date": "01-Jul'25",
+          "dateTime": "01-Jul'25 02:00 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.3932056571413,
+            28.01609007017425
+          ]
+        },
+        "village": "Siya",
+        "properties": {
+          "name": "Babu, Plot 1",
+          "phoneFormatted": "(+91)9671-909-843",
+          "phone": 9671909843,
+          "aadhaar": "893897375265",
+          "address": "Siya",
+          "paddyVariety": 1847,
+          "UDPAcreage": 5,
+          "date": "01-Jul'25",
+          "dateTime": "01-Jul'25 05:00 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.38331094287281,
+            27.99334706874157
+          ]
+        },
+        "village": "Siya",
+        "properties": {
+          "name": "Niraj Singh, Plot 1",
+          "phoneFormatted": "(+91)9999-968-145",
+          "phone": 9999968145,
+          "aadhaar": "438594629654",
+          "address": "Siya",
+          "paddyVariety": 1509,
+          "UDPAcreage": 5.5,
+          "date": "02-Jul'25",
+          "dateTime": "02-Jul'25 08:00 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.38997925303876,
+            28.01448470400497
+          ]
+        },
+        "village": "Siya",
+        "properties": {
+          "name": "Babu, Plot 2",
+          "phoneFormatted": "(+91)9671-909-843",
+          "phone": 9671909843,
+          "aadhaar": "893897375265",
+          "address": "Siya",
+          "paddyVariety": 1509,
+          "UDPAcreage": 4.5,
+          "date": "02-Jul'25",
+          "dateTime": "02-Jul'25 12:05 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.3911645822227,
+            28.014043645697313
+          ]
+        },
+        "village": "Siya",
+        "properties": {
+          "name": "Baljeet Singh, Plot 2",
+          "phoneFormatted": "(+91)9899-108-455",
+          "phone": 9899108455,
+          "aadhaar": "824180017006",
+          "address": "Siya",
+          "paddyVariety": 1509,
+          "UDPAcreage": 2,
+          "date": "02-Jul'25",
+          "dateTime": "02-Jul'25 04:30 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.39036226645112,
+            28.015616835842593
+          ]
+        },
+        "village": "Siya",
+        "properties": {
+          "name": "Yogesh Kumar, Plot 1",
+          "phoneFormatted": "(+91)7565-938-966",
+          "phone": 7565938966,
+          "aadhaar": "557802824879",
+          "address": "Siya",
+          "paddyVariety": 1509,
+          "UDPAcreage": 1,
+          "date": "03-Jul'25",
+          "dateTime": "03-Jul'25 09:00 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.3792222661861,
+            27.994799267498763
+          ]
+        },
+        "village": "Siya",
+        "properties": {
+          "name": "Beerpal, Plot 2",
+          "phoneFormatted": "(+91)9813-910-207",
+          "phone": 9813910207,
+          "aadhaar": "243115519125",
+          "address": "Siya",
+          "paddyVariety": 1509,
+          "UDPAcreage": 2,
+          "date": "03-Jul'25",
+          "dateTime": "03-Jul'25 03:50 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.37922600715964,
+            27.993884982409845
+          ]
+        },
+        "village": "Siya",
+        "properties": {
+          "name": "Beerpal, Plot 3",
+          "phoneFormatted": "(+91)9813-910-207",
+          "phone": 9813910207,
+          "aadhaar": "243115519125",
+          "address": "Siya",
+          "paddyVariety": 1509,
+          "UDPAcreage": 4,
+          "date": "04-Jul'25",
+          "dateTime": "04-Jul'25 10:00 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.37758051379984,
+            27.994333347556257
+          ]
+        },
+        "village": "Siya",
+        "properties": {
+          "name": "Beerpal, Plot 4",
+          "phoneFormatted": "(+91)9813-910-207",
+          "phone": 9813910207,
+          "aadhaar": "243115519125",
+          "address": "Siya",
+          "paddyVariety": 1509,
+          "UDPAcreage": 4,
+          "date": "04-Jul'25",
+          "dateTime": "04-Jul'25 05:00 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.39445950835943,
+            28.015470468574456
+          ]
+        },
+        "village": "Siya",
+        "properties": {
+          "name": "Baljeet Singh, Plot 3",
+          "phoneFormatted": "(+91)9899-108-455",
+          "phone": 9899108455,
+          "aadhaar": "824180017006",
+          "address": "Siya",
+          "paddyVariety": 1509,
+          "UDPAcreage": 2.25,
+          "date": "06-Jul'25",
+          "dateTime": "06-Jul'25 08:30 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.39194990374284,
+            28.01361145244305
+          ]
+        },
+        "village": "Siya",
+        "properties": {
+          "name": "Sarveshvar Singh, Plot 1",
+          "phoneFormatted": "(+91)9193-501-998",
+          "phone": 9193501998,
+          "aadhaar": "875295883891",
+          "address": "Siya",
+          "paddyVariety": 1509,
+          "UDPAcreage": 2,
+          "date": "06-Jul'25",
+          "dateTime": "06-Jul'25 01:00 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.39103311819,
+            28.012991526982013
+          ]
+        },
+        "village": "Siya",
+        "properties": {
+          "name": "Sarveshvar Singh, Plot 2",
+          "phoneFormatted": "(+91)9193-501-998",
+          "phone": 9193501998,
+          "aadhaar": "875295883891",
+          "address": "Siya",
+          "paddyVariety": 1509,
+          "UDPAcreage": 2,
+          "date": "07-Jul'25",
+          "dateTime": "07-Jul'25 07:50 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.39320809021592,
+            28.016988437097822
+          ]
+        },
+        "village": "Siya",
+        "properties": {
+          "name": "Sarveshvar Singh, Plot 3",
+          "phoneFormatted": "(+91)9193-501-998",
+          "phone": 9193501998,
+          "aadhaar": "875295883891",
+          "address": "Siya",
+          "paddyVariety": 1509,
+          "UDPAcreage": 2,
+          "date": "07-Jul'25",
+          "dateTime": "07-Jul'25 12:20 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.39196880992777,
+            28.01282661897219
+          ]
+        },
+        "village": "Siya",
+        "properties": {
+          "name": "Sarveshvar Singh, Plot 4",
+          "phoneFormatted": "(+91)9193-501-998",
+          "phone": 9193501998,
+          "aadhaar": "875295883891",
+          "address": "Siya",
+          "paddyVariety": 1509,
+          "UDPAcreage": 1,
+          "date": "08-Jul'25",
+          "dateTime": "08-Jul'25 11:00 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.38085451211532,
+            27.99387123934605
+          ]
+        },
+        "village": "Siya",
+        "properties": {
+          "name": "Beerpal, Plot 5",
+          "phoneFormatted": "(+91)9813-910-207",
+          "phone": 9813910207,
+          "aadhaar": "243115519125",
+          "address": "Siya",
+          "paddyVariety": 1509,
+          "UDPAcreage": 2,
+          "date": "08-Jul'25",
+          "dateTime": "08-Jul'25 04:00 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.38086691207127,
+            27.99432820431609
+          ]
+        },
+        "village": "Siya",
+        "properties": {
+          "name": "Beerpal, Plot 6",
+          "phoneFormatted": "(+91)9813-910-207",
+          "phone": 9813910207,
+          "aadhaar": "243115519125",
+          "address": "Siya",
+          "paddyVariety": 1509,
+          "UDPAcreage": 2,
+          "date": "09-Jul'25",
+          "dateTime": "09-Jul'25 10:40 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.39526668563485,
+            28.015142955538252
+          ]
+        },
+        "village": "Siya",
+        "properties": {
+          "name": "Yogesh Kumar, Plot 2",
+          "phoneFormatted": "(+91)7565-938-966",
+          "phone": 7565938966,
+          "aadhaar": "557802824879",
+          "address": "Siya",
+          "paddyVariety": 1509,
+          "UDPAcreage": 3,
+          "date": "11-Jul'25",
+          "dateTime": "11-Jul'25 02:10 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.39234506348149,
+            28.012144539629624
+          ]
+        },
+        "village": "Siya",
+        "properties": {
+          "name": "Yogesh Kumar, Plot 3",
+          "phoneFormatted": "(+91)7565-938-966",
+          "phone": 7565938966,
+          "aadhaar": "557802824879",
+          "address": "Siya",
+          "paddyVariety": 1809,
+          "UDPAcreage": 4,
+          "date": "12-Jul'25",
+          "dateTime": "12-Jul'25 09:50 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.38085337113007,
+            27.995032869293368
+          ]
+        },
+        "village": "Siya",
+        "properties": {
+          "name": "Indresh, Plot 1",
+          "phoneFormatted": "(+91)9813-901-207",
+          "phone": 9813901207,
+          "aadhaar": "417142132635",
+          "address": "Siya",
+          "paddyVariety": 1509,
+          "UDPAcreage": 4,
+          "date": "13-Jul'25",
+          "dateTime": "13-Jul'25 10:50 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.39484993740916,
+            28.013956324143244
+          ]
+        },
+        "village": "Siya",
+        "properties": {
+          "name": "Adesh Kumar, Plot 2",
+          "phoneFormatted": "(+91)9793-536-296",
+          "phone": 9793536296,
+          "aadhaar": "293966876631",
+          "address": "Siya",
+          "paddyVariety": 1509,
+          "UDPAcreage": 5.5,
+          "date": "14-Jul'25",
+          "dateTime": "14-Jul'25 03:30 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.47903284490243,
+            27.985386359635854
+          ]
+        },
+        "village": "Jatoli",
+        "properties": {
+          "name": "Uday Singh, Plot 1",
+          "phoneFormatted": "(+91)9050-274-521",
+          "phone": 9050274521,
+          "aadhaar": "835377897238",
+          "address": "Jatoli",
+          "paddyVariety": 1509,
+          "UDPAcreage": 5.75,
+          "date": "17-Jul'25",
+          "dateTime": "17-Jul'25 08:45 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.47870936989784,
+            27.97747124650425
+          ]
+        },
+        "village": "Jatoli",
+        "properties": {
+          "name": "Uday Singh, Plot 2",
+          "phoneFormatted": "(+91)9050-274-521",
+          "phone": 9050274521,
+          "aadhaar": "835377897238",
+          "address": "Jatoli",
+          "paddyVariety": 1509,
+          "UDPAcreage": 1.5,
+          "date": "17-Jul'25",
+          "dateTime": "17-Jul'25 12:05 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.48022132293528,
+            27.97702317019212
+          ]
+        },
+        "village": "Jatoli",
+        "properties": {
+          "name": "Uday Singh, Plot 3",
+          "phoneFormatted": "(+91)9050-274-521",
+          "phone": 9050274521,
+          "aadhaar": "835377897238",
+          "address": "Jatoli",
+          "paddyVariety": 1509,
+          "UDPAcreage": 1.75,
+          "date": "17-Jul'25",
+          "dateTime": "17-Jul'25 03:30 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.47940405855044,
+            27.981086276018964
+          ]
+        },
+        "village": "Jatoli",
+        "properties": {
+          "name": "Lakhmichand, Plot 2",
+          "phoneFormatted": "(+91)9416-949-387",
+          "phone": 9416949387,
+          "aadhaar": "664962671282",
+          "address": "Jatoli",
+          "paddyVariety": 1509,
+          "UDPAcreage": 4,
+          "date": "02-Jul'25",
+          "dateTime": "02-Jul'25 07:30 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.47378018952219,
+            27.95309113771868
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Lovekush, Plot 3",
+          "phoneFormatted": "(+91)8053-916-200",
+          "phone": 8053916200,
+          "aadhaar": "493937337501",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 1.5,
+          "date": "02-Jul'25",
+          "dateTime": "02-Jul'25 08:00 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.47450316714526,
+            27.951805259035694
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Krishn Kumar, Plot 1",
+          "phoneFormatted": "(+91)7027-638-822",
+          "phone": 7027638822,
+          "aadhaar": "469209164547",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 4,
+          "date": "02-Jul'25",
+          "dateTime": "02-Jul'25 10:00 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.47440719722852,
+            27.953606264305648
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Naveen Tewatia, Plot 1",
+          "phoneFormatted": "(+91)8053-516-110",
+          "phone": 8053516110,
+          "aadhaar": "411968713171",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 1,
+          "date": "02-Jul'25",
+          "dateTime": "02-Jul'25 02:30 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.47359214962076,
+            27.953632598592783
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Naveen Tewatia, Plot 2",
+          "phoneFormatted": "(+91)8053-516-110",
+          "phone": 8053516110,
+          "aadhaar": "411968713171",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 1,
+          "date": "02-Jul'25",
+          "dateTime": "02-Jul'25 03:30 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.49199062278674,
+            27.958350892774398
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Naveen Tewatia, Plot 3",
+          "phoneFormatted": "(+91)8053-516-110",
+          "phone": 8053516110,
+          "aadhaar": "411968713171",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 4,
+          "date": "02-Jul'25",
+          "dateTime": "02-Jul'25 04:40 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.47521989643576,
+            27.958821160064552
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Dulichand, Plot 1",
+          "phoneFormatted": "(+91)9050-436-490",
+          "phone": 9050436490,
+          "aadhaar": "NA",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 4,
+          "date": "03-Jul'25",
+          "dateTime": "03-Jul'25 06:45 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.4741871587343,
+            27.958400769837077
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Dulichand, Plot 2",
+          "phoneFormatted": "(+91)9050-436-490",
+          "phone": 9050436490,
+          "aadhaar": "NA",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 3,
+          "date": "03-Jul'25",
+          "dateTime": "03-Jul'25 08:50 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.47220900957245,
+            27.95841242510111
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Lakhmichand, Plot 1",
+          "phoneFormatted": "(+91)8168-937-442",
+          "phone": 8168937442,
+          "aadhaar": "664962671282",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 6.25,
+          "date": "04-Jul'25",
+          "dateTime": "04-Jul'25 07:50 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.47145632983839,
+            27.957038871772696
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Man Singh, Plot 1",
+          "phoneFormatted": "(+91)8816-060-754",
+          "phone": 8816060754,
+          "aadhaar": "660295132467",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 10,
+          "date": "04-Jul'25",
+          "dateTime": "04-Jul'25 12:20 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.47484066663515,
+            27.96066123328096
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Naresh, Plot 1",
+          "phoneFormatted": "(+91)9053-212-447",
+          "phone": 9053212447,
+          "aadhaar": "NA",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 4,
+          "date": "05-Jul'25",
+          "dateTime": "05-Jul'25 08:05 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.47655541541224,
+            27.95383137276253
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Jitendra, Plot 1",
+          "phoneFormatted": "(+91)8053-916-091",
+          "phone": 8053916091,
+          "aadhaar": "NA",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 3,
+          "date": "05-Jul'25",
+          "dateTime": "05-Jul'25 10:30 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.47757742140404,
+            27.95283052211053
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Jitendra, Plot 2",
+          "phoneFormatted": "(+91)8053-916-091",
+          "phone": 8053916091,
+          "aadhaar": "NA",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 3,
+          "date": "05-Jul'25",
+          "dateTime": "05-Jul'25 01:30 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.48538397345695,
+            27.95627668043423
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Anoop, Plot 1",
+          "phoneFormatted": "(+91)9050-373-738",
+          "phone": 9050373738,
+          "aadhaar": "379123057301",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 5.8,
+          "date": "05-Jul'25",
+          "dateTime": "05-Jul'25 05:00 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.48707880349158,
+            27.954944691308683
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Nawal Singh, Plot 1",
+          "phoneFormatted": "(+91)9671-052-802",
+          "phone": 9671052802,
+          "aadhaar": "283015758021",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 6,
+          "date": "14-Jul'25",
+          "dateTime": "14-Jul'25 03:20 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.48954044532958,
+            27.95675658673838
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Bhagat Singh, Plot 3",
+          "phoneFormatted": "(+91)8053-414-004",
+          "phone": 8053414004,
+          "aadhaar": "467058053740",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 6,
+          "date": "14-Jul'25",
+          "dateTime": "14-Jul'25 08:10 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.48340655944659,
+            27.959048989623255
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Rohtash Kumar, Plot 1",
+          "phoneFormatted": "(+91)9466-833-262",
+          "phone": 9466833262,
+          "aadhaar": "450298509535",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 3,
+          "date": "03-Jul'25",
+          "dateTime": "03-Jul'25 07:40 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.48439797570639,
+            27.957904547323054
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Rohtash Kumar, Plot 2",
+          "phoneFormatted": "(+91)9466-833-262",
+          "phone": 9466833262,
+          "aadhaar": "450298509535",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 2.5,
+          "date": "03-Jul'25",
+          "dateTime": "03-Jul'25 10:55 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.48913779854774,
+            27.953590025127752
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Kuldeep Master, Plot 1",
+          "phoneFormatted": "(+91)9813-137-126",
+          "phone": 9813137126,
+          "aadhaar": "555566833811",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 8.5,
+          "date": "03-Jul'25",
+          "dateTime": "03-Jul'25 01:00 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.48666759996706,
+            27.958287929858777
+          ]
+        },
+        "village": "Ramgarh",
+        "properties": {
+          "name": "Jugender, Plot 1",
+          "phoneFormatted": "(+91)9813-414-655",
+          "phone": 9813414655,
+          "aadhaar": "723983984207",
+          "address": "Ramgarh",
+          "paddyVariety": 1509,
+          "UDPAcreage": 7,
+          "date": "02-Jul'25",
+          "dateTime": "02-Jul'25 10:55 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.21765667200089,
+            28.146982282723854
+          ]
+        },
+        "village": "Manduri",
+        "properties": {
+          "name": "Rajwati, Plot 2",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "631187183227",
+          "address": "Manduri",
+          "paddyVariety": 1509,
+          "UDPAcreage": 7.5,
+          "date": "17-Jul'25",
+          "dateTime": "17-Jul'25 06:25 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.21108727157116,
+            28.140611492869986
+          ]
+        },
+        "village": "Manduri",
+        "properties": {
+          "name": "Sedak Ram, Plot 2",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "200553408204",
+          "address": "Manduri",
+          "paddyVariety": 1509,
+          "UDPAcreage": 4,
+          "date": "15-Jul'25",
+          "dateTime": "15-Jul'25 08:28 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.19511075390109,
+            28.13790775262187
+          ]
+        },
+        "village": "Manduri",
+        "properties": {
+          "name": "Anil, Plot 2",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "293387343389",
+          "address": "Manduri",
+          "paddyVariety": 1509,
+          "UDPAcreage": 2,
+          "date": "12-Jul'25",
+          "dateTime": "12-Jul'25 04:25 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.1966873295605,
+            28.137676592977535
+          ]
+        },
+        "village": "Manduri",
+        "properties": {
+          "name": "Anil, Plot 3",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "293387343389",
+          "address": "Manduri",
+          "paddyVariety": 1509,
+          "UDPAcreage": 3,
+          "date": "14-Jul'25",
+          "dateTime": "14-Jul'25 03:26 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.19882337376475,
+            28.137458550353493
+          ]
+        },
+        "village": "Manduri",
+        "properties": {
+          "name": "Karamveer, Plot 2",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "333709026407",
+          "address": "Manduri",
+          "paddyVariety": 1509,
+          "UDPAcreage": 4,
+          "date": "14-Jul'25",
+          "dateTime": "14-Jul'25 08:22 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.19920072656643,
+            28.14053329348817
+          ]
+        },
+        "village": "Manduri",
+        "properties": {
+          "name": "Karamveer, Plot 3",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "333709026407",
+          "address": "Manduri",
+          "paddyVariety": 1509,
+          "UDPAcreage": 3,
+          "date": "17-Jul'25",
+          "dateTime": "17-Jul'25 09:27 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.19643453136086,
+            28.17002491646194
+          ]
+        },
+        "village": "Sahroli",
+        "properties": {
+          "name": "Vijay, Plot 3",
+          "phoneFormatted": "(+91)9813-934-876",
+          "phone": 9813934876,
+          "aadhaar": "257329944622",
+          "address": "Sahroli",
+          "paddyVariety": 1509,
+          "UDPAcreage": 9.5,
+          "date": "05-Jul'25",
+          "dateTime": "05-Jul'25 07:30 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.1881950890936,
+            28.1705443100769
+          ]
+        },
+        "village": "Sahroli",
+        "properties": {
+          "name": "Prem, Plot 1",
+          "phoneFormatted": "(+91)9728-651-633",
+          "phone": 9728651633,
+          "aadhaar": "416342321610",
+          "address": "Sahroli",
+          "paddyVariety": 1509,
+          "UDPAcreage": 7,
+          "date": "05-Jul'25",
+          "dateTime": "05-Jul'25 02:30 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.19564423208685,
+            28.167892300607583
+          ]
+        },
+        "village": "Sahroli",
+        "properties": {
+          "name": "Prem, Plot 2",
+          "phoneFormatted": "(+91)9728-651-633",
+          "phone": 9728651633,
+          "aadhaar": "416342321610",
+          "address": "Sahroli",
+          "paddyVariety": 1509,
+          "UDPAcreage": 2.5,
+          "date": "06-Jul'25",
+          "dateTime": "06-Jul'25 06:30 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.18820651993155,
+            28.17208024714165
+          ]
+        },
+        "village": "Sahroli",
+        "properties": {
+          "name": "Bram Singh, Plot 1",
+          "phoneFormatted": "(+91)8708-139-476",
+          "phone": 8708139476,
+          "aadhaar": "NA",
+          "address": "Sahroli",
+          "paddyVariety": 5109,
+          "UDPAcreage": 7,
+          "date": "06-Jul'25",
+          "dateTime": "06-Jul'25 08:00 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.18159470707178,
+            28.169460984629104
+          ]
+        },
+        "village": "Sahroli",
+        "properties": {
+          "name": "Bram Singh, Plot 2",
+          "phoneFormatted": "(+91)8708-139-476",
+          "phone": 8708139476,
+          "aadhaar": "NA",
+          "address": "Sahroli",
+          "paddyVariety": 1509,
+          "UDPAcreage": 8,
+          "date": "06-Jul'25",
+          "dateTime": "06-Jul'25 04:00 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.18101954087615,
+            28.171741243313683
+          ]
+        },
+        "village": "Sahroli",
+        "properties": {
+          "name": "Prem, Plot 3",
+          "phoneFormatted": "(+91)9728-651-633",
+          "phone": 9728651633,
+          "aadhaar": "416342321610",
+          "address": "Sahroli",
+          "paddyVariety": 1509,
+          "UDPAcreage": 4.5,
+          "date": "07-Jul'25",
+          "dateTime": "07-Jul'25 08:00 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.20906554177404,
+            28.174243756023948
+          ]
+        },
+        "village": "Sahroli",
+        "properties": {
+          "name": "Khajan Singh, Plot 1",
+          "phoneFormatted": "(+91)8053-893-029",
+          "phone": 8053893029,
+          "aadhaar": "435594804016",
+          "address": "Sahroli",
+          "paddyVariety": 1509,
+          "UDPAcreage": 9,
+          "date": "09-Jul'25",
+          "dateTime": "09-Jul'25 08:40 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.19979349523783,
+            28.178037628050028
+          ]
+        },
+        "village": "Sahroli",
+        "properties": {
+          "name": "Bahadur, Plot 1",
+          "phoneFormatted": "(+91)8053-847-419",
+          "phone": 8053847419,
+          "aadhaar": "804474297216",
+          "address": "Sahroli",
+          "paddyVariety": 1509,
+          "UDPAcreage": 6.5,
+          "date": "09-Jul'25",
+          "dateTime": "09-Jul'25 01:30 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.18411950394511,
+            28.177414624835677
+          ]
+        },
+        "village": "Sahroli",
+        "properties": {
+          "name": "Bahadur, Plot 2",
+          "phoneFormatted": "(+91)8053-847-419",
+          "phone": 8053847419,
+          "aadhaar": "804474297216",
+          "address": "Sahroli",
+          "paddyVariety": 1509,
+          "UDPAcreage": 6,
+          "date": "10-Jul'25",
+          "dateTime": "10-Jul'25 07:30 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.20298274335745,
+            28.177205383364836
+          ]
+        },
+        "village": "Sahroli",
+        "properties": {
+          "name": "Kailash, Plot 1",
+          "phoneFormatted": "(+91)8053-837-009",
+          "phone": 8053837009,
+          "aadhaar": "354461574567",
+          "address": "Sahroli",
+          "paddyVariety": 1509,
+          "UDPAcreage": 6,
+          "date": "10-Jul'25",
+          "dateTime": "10-Jul'25 02:30 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.18126311898232,
+            28.17849555846567
+          ]
+        },
+        "village": "Sahroli",
+        "properties": {
+          "name": "Khajan Singh, Plot 2",
+          "phoneFormatted": "(+91)8053-893-029",
+          "phone": 8053893029,
+          "aadhaar": "435594804016",
+          "address": "Sahroli",
+          "paddyVariety": 1509,
+          "UDPAcreage": 6,
+          "date": "12-Jul'25",
+          "dateTime": "12-Jul'25 08:30 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.19068486549433,
+            28.18491921821625
+          ]
+        },
+        "village": "Rajupur",
+        "properties": {
+          "name": "Jagveer, Plot 1",
+          "phoneFormatted": "(+91)9813-441-626",
+          "phone": 9813441626,
+          "aadhaar": "785620909001",
+          "address": "Rajupur",
+          "paddyVariety": 1509,
+          "UDPAcreage": 6,
+          "date": "13-Jul'25",
+          "dateTime": "13-Jul'25 07:35 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.2128982655704,
+            28.164687219019022
+          ]
+        },
+        "village": "Rajupur",
+        "properties": {
+          "name": "Devender, Plot 1",
+          "phoneFormatted": "(+91)9813-470-138",
+          "phone": 9813470138,
+          "aadhaar": "775078717242",
+          "address": "Rajupur",
+          "paddyVariety": 1509,
+          "UDPAcreage": 7,
+          "date": "13-Jul'25",
+          "dateTime": "13-Jul'25 03:30 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.21029673933093,
+            28.16630028961015
+          ]
+        },
+        "village": "Rajupur",
+        "properties": {
+          "name": "Devender, Plot 2",
+          "phoneFormatted": "(+91)9813-470-138",
+          "phone": 9813470138,
+          "aadhaar": "775078717242",
+          "address": "Rajupur",
+          "paddyVariety": 1509,
+          "UDPAcreage": 5.5,
+          "date": "14-Jul'25",
+          "dateTime": "14-Jul'25 10:00 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.20541714959441,
+            28.165851341566018
+          ]
+        },
+        "village": "Rajupur",
+        "properties": {
+          "name": "Jitendra, Plot 1",
+          "phoneFormatted": "(+91)9050-208-426",
+          "phone": 9050208426,
+          "aadhaar": "802287489148",
+          "address": "Rajupur",
+          "paddyVariety": 1509,
+          "UDPAcreage": 6,
+          "date": "14-Jul'25",
+          "dateTime": "14-Jul'25 03:50 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.20699115770813,
+            28.16286277700231
+          ]
+        },
+        "village": "Rajupur",
+        "properties": {
+          "name": "Jitendra, Plot 2",
+          "phoneFormatted": "(+91)9050-208-426",
+          "phone": 9050208426,
+          "aadhaar": "802287489148",
+          "address": "Rajupur",
+          "paddyVariety": 1509,
+          "UDPAcreage": 4,
+          "date": "15-Jul'25",
+          "dateTime": "15-Jul'25 07:30 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.20869650384412,
+            28.171272426305826
+          ]
+        },
+        "village": "Rajupur",
+        "properties": {
+          "name": "Madan Singh, Plot 1",
+          "phoneFormatted": "(+91)9991-769-463",
+          "phone": 9991769463,
+          "aadhaar": "254944939851",
+          "address": "Rajupur",
+          "paddyVariety": 1509,
+          "UDPAcreage": 6,
+          "date": "15-Jul'25",
+          "dateTime": "15-Jul'25 03:30 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.21033407375216,
+            28.17129187742063
+          ]
+        },
+        "village": "Rajupur",
+        "properties": {
+          "name": "Madan Singh, Plot 2",
+          "phoneFormatted": "(+91)9991-769-463",
+          "phone": 9991769463,
+          "aadhaar": "254944939851",
+          "address": "Rajupur",
+          "paddyVariety": 1509,
+          "UDPAcreage": 6,
+          "date": "16-Jul'25",
+          "dateTime": "16-Jul'25 07:30 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.20458341762424,
+            28.163327999822663
+          ]
+        },
+        "village": "Rajupur",
+        "properties": {
+          "name": "Dharmender, Plot 1",
+          "phoneFormatted": "(+91)9817-944-373",
+          "phone": 9817944373,
+          "aadhaar": "442425714724",
+          "address": "Rajupur",
+          "paddyVariety": 1509,
+          "UDPAcreage": 4,
+          "date": "16-Jul'25",
+          "dateTime": "16-Jul'25 12:30 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.20294231172585,
+            28.16972908833133
+          ]
+        },
+        "village": "Rajupur",
+        "properties": {
+          "name": "Dharmender, Plot 2",
+          "phoneFormatted": "(+91)9817-944-373",
+          "phone": 9817944373,
+          "aadhaar": "442425714724",
+          "address": "Rajupur",
+          "paddyVariety": 1509,
+          "UDPAcreage": 4,
+          "date": "17-Jul'25",
+          "dateTime": "17-Jul'25 08:30 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.19773841530348,
+            28.171987443277636
+          ]
+        },
+        "village": "Rajupur",
+        "properties": {
+          "name": "Bhiram Singh, Plot 1",
+          "phoneFormatted": "(+91)8053-636-114",
+          "phone": 8053636114,
+          "aadhaar": "983255447614",
+          "address": "Rajupur",
+          "paddyVariety": 1509,
+          "UDPAcreage": 8.5,
+          "date": "17-Jul'25",
+          "dateTime": "17-Jul'25 03:30 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.1992832142015,
+            28.175162488604926
+          ]
+        },
+        "village": "Rajupur",
+        "properties": {
+          "name": "Bhiram Singh, Plot 2",
+          "phoneFormatted": "(+91)8053-636-114",
+          "phone": 8053636114,
+          "aadhaar": "983255447614",
+          "address": "Rajupur",
+          "paddyVariety": 1509,
+          "UDPAcreage": 2,
+          "date": "18-Jul'25",
+          "dateTime": "18-Jul'25 08:30 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.2160270379669,
+            28.168771983476873
+          ]
+        },
+        "village": "Kishorpur",
+        "properties": {
+          "name": "Ramveer, Plot 1",
+          "phoneFormatted": "(+91)9050-085-648",
+          "phone": 9050085648,
+          "aadhaar": "684232646580",
+          "address": "Kishorpur",
+          "paddyVariety": 1509,
+          "UDPAcreage": 6.5,
+          "date": "18-Jul'25",
+          "dateTime": "18-Jul'25 07:30 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.2160437413279,
+            28.170152082033837
+          ]
+        },
+        "village": "Kishorpur",
+        "properties": {
+          "name": "Ramveer, Plot 2",
+          "phoneFormatted": "(+91)9050-085-648",
+          "phone": 9050085648,
+          "aadhaar": "684232646580",
+          "address": "Kishorpur",
+          "paddyVariety": 1509,
+          "UDPAcreage": 3.75,
+          "date": "18-Jul'25",
+          "dateTime": "18-Jul'25 03:00 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.21432571941799,
+            28.173815795305728
+          ]
+        },
+        "village": "Kishorpur",
+        "properties": {
+          "name": "Ramveer, Plot 3",
+          "phoneFormatted": "(+91)9050-085-648",
+          "phone": 9050085648,
+          "aadhaar": "684232646580",
+          "address": "Kishorpur",
+          "paddyVariety": 1509,
+          "UDPAcreage": 3,
+          "date": "19-Jul'25",
+          "dateTime": "19-Jul'25 06:30 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.21322642804785,
+            28.170377501910558
+          ]
+        },
+        "village": "Kishorpur",
+        "properties": {
+          "name": "Jagbir, Plot 1",
+          "phoneFormatted": "(+91)9671-742-920",
+          "phone": 9671742920,
+          "aadhaar": "832038296419",
+          "address": "Kishorpur",
+          "paddyVariety": 1509,
+          "UDPAcreage": 6.5,
+          "date": "19-Jul'25",
+          "dateTime": "19-Jul'25 12:30 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.21156732730569,
+            28.175131527605245
+          ]
+        },
+        "village": "Kishorpur",
+        "properties": {
+          "name": "Jagbir, Plot 2",
+          "phoneFormatted": "(+91)9671-742-920",
+          "phone": 9671742920,
+          "aadhaar": "832038296419",
+          "address": "Kishorpur",
+          "paddyVariety": 1509,
+          "UDPAcreage": 4,
+          "date": "20-Jul'25",
+          "dateTime": "20-Jul'25 07:30 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.2134761516513,
+            28.175149782789596
+          ]
+        },
+        "village": "Kishorpur",
+        "properties": {
+          "name": "Jagbir, Plot 3",
+          "phoneFormatted": "(+91)9671-742-920",
+          "phone": 9671742920,
+          "aadhaar": "832038296419",
+          "address": "Kishorpur",
+          "paddyVariety": 1509,
+          "UDPAcreage": 2.5,
+          "date": "20-Jul'25",
+          "dateTime": "20-Jul'25 02:30 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.15864723548293,
+            28.130469385259815
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Vivek, Plot 2",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "503671519243",
+          "address": "Mandkola",
+          "paddyVariety": 1509,
+          "UDPAcreage": 6,
+          "date": "20-Jul'25",
+          "dateTime": "20-Jul'25 06:30 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.15619754046202,
+            28.128864167964807
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Vivek, Plot 3",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "503671519243",
+          "address": "Mandkola",
+          "paddyVariety": 1509,
+          "UDPAcreage": 8,
+          "date": "20-Jul'25",
+          "dateTime": "20-Jul'25 03:30 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.17098103836179,
+            28.147938038554507
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Radhe Lal, Plot 2",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "612895685978",
+          "address": "Mandkola",
+          "paddyVariety": 1509,
+          "UDPAcreage": 8,
+          "date": "19-Jul'25",
+          "dateTime": "19-Jul'25 08:30 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.17138571664691,
+            28.1440911661198
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Radhe Lal, Plot 3",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "612895685978",
+          "address": "Mandkola",
+          "paddyVariety": 1509,
+          "UDPAcreage": 3,
+          "date": "19-Jul'25",
+          "dateTime": "19-Jul'25 02:30 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.17835878953338,
+            28.14906643064983
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Jitender, Plot 2",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "782666669360",
+          "address": "Mandkola",
+          "paddyVariety": 1509,
+          "UDPAcreage": 6,
+          "date": "18-Jul'25",
+          "dateTime": "18-Jul'25 06:50 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.1775547666427,
+            28.155637281447767
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Munish Kumar, Plot 2",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "451736190243",
+          "address": "Mandkola",
+          "paddyVariety": 1509,
+          "UDPAcreage": 7.25,
+          "date": "18-Jul'25",
+          "dateTime": "18-Jul'25 01:30 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.17875810863652,
+            28.155633039166638
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Munish Kumar, Plot 3",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "451736190243",
+          "address": "Mandkola",
+          "paddyVariety": 1509,
+          "UDPAcreage": 3.75,
+          "date": "19-Jul'25",
+          "dateTime": "19-Jul'25 04:00 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.18098804985635,
+            28.14995952996214
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Bhupender, Plot 2",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "451736191665",
+          "address": "Mandkola",
+          "paddyVariety": 1509,
+          "UDPAcreage": 5.75,
+          "date": "17-Jul'25",
+          "dateTime": "17-Jul'25 09:30 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.17588956256066,
+            28.150168804702403
+          ]
+        },
+        "village": "Mandkola",
+        "properties": {
+          "name": "Nitesh, Plot 2",
+          "phoneFormatted": "",
+          "phone": "",
+          "aadhaar": "284093363605",
+          "address": "Mandkola",
+          "paddyVariety": 1509,
+          "UDPAcreage": 7,
+          "date": "17-Jul'25",
+          "dateTime": "17-Jul'25 02:30 pm"
+        }
+      }
+    ]
+  },
+  "chartData": {
+    "labelsVillage": [
+      "Atohan",
+      "Bahrola",
+      "Bamni Khera",
+      "Banswa",
+      "Bhaindoli",
+      "Bhiduki",
+      "Bhupgarh",
+      "Darana",
+      "Hasanpur",
+      "Hosangabad",
+      "Jatoli",
+      "Khambi",
+      "Kishorpur",
+      "Likhi",
+      "Maachhipura",
+      "Maholi",
+      "Mandkola",
+      "Manduri",
+      "Maroli",
+      "Mohammadpur",
+      "Palri",
+      "Pingore",
+      "Rajupur",
+      "Ramgarh",
+      "Sahnoli",
+      "Sahroli",
+      "Siya"
+    ],
+    "acreage": [
+      250.50000000000003,
+      2.5,
+      149.45,
+      23.189999999999998,
+      38.36,
+      22.6,
+      20,
+      56.49999999999999,
+      42.16,
+      61.709999999999994,
+      53.93,
+      36.5,
+      26.25,
+      38.33,
+      31.8,
+      59.93,
+      244.35,
+      44.8,
+      50.699999999999996,
+      56.839999999999996,
+      1,
+      24.38,
+      59,
+      287.23,
+      36.43,
+      136.05,
+      65.25
+    ],
+    "farmerCount": [
+      29,
+      1,
+      12,
+      5,
+      3,
+      2,
+      1,
+      5,
+      5,
+      10,
+      8,
+      3,
+      2,
+      5,
+      8,
+      6,
+      20,
+      4,
+      5,
+      5,
+      1,
+      3,
+      6,
+      34,
+      3,
+      11,
+      8
+    ],
+    "plotCount": [
+      46,
+      2,
+      26,
+      8,
+      11,
+      5,
+      6,
+      13,
+      12,
+      11,
+      20,
+      8,
+      6,
+      8,
+      17,
+      12,
+      35,
+      10,
+      9,
+      12,
+      1,
+      4,
+      11,
+      65,
+      5,
+      22,
+      22
+    ]
+  }
+}

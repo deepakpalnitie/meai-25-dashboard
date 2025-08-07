@@ -1,0 +1,569 @@
+{
+  "impactData": {
+    "acreage": {
+      "total": 65,
+      "old_vill": 65,
+      "new_vill": 0
+    },
+    "vill_count": {
+      "total": 12,
+      "old_vill": 12,
+      "new_vill": 0
+    },
+    "frmr_count": {
+      "total": 15,
+      "old_vill": 0,
+      "new_vill": 15
+    },
+    "plot_count": {
+      "total": 22
+    }
+  },
+  "mapData": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.4163902439177,
+            28.17324532936334
+          ]
+        },
+        "village": "Chaudhipur",
+        "properties": {
+          "name": "Angrej Singh, Plot 1",
+          "phoneFormatted": "(+91)9918-670-028",
+          "phone": 9918670028,
+          "aadhaar": "449273895283",
+          "address": "Chaudhipur",
+          "paddyVariety": "PR126",
+          "UDPAcreage": 1.25,
+          "date": "28-Mar'25",
+          "dateTime": "28-Mar'25 08:24 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.41632587090135,
+            28.17234684182834
+          ]
+        },
+        "village": "Chaudhipur",
+        "properties": {
+          "name": "Angrej Singh, Plot 2",
+          "phoneFormatted": "(+91)9918-670-028",
+          "phone": 9918670028,
+          "aadhaar": "449273895283",
+          "address": "Chaudhipur",
+          "paddyVariety": "PR126",
+          "UDPAcreage": 1,
+          "date": "28-Mar'25",
+          "dateTime": "28-Mar'25 10:45 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.42484926059842,
+            28.168293651607105
+          ]
+        },
+        "village": "Puranpur",
+        "properties": {
+          "name": "Sukhdev Singh, Plot 1",
+          "phoneFormatted": "(+91)9451-237-832",
+          "phone": 9451237832,
+          "aadhaar": "459691203968",
+          "address": "Puranpur",
+          "paddyVariety": "PR126",
+          "UDPAcreage": 1,
+          "date": "05-Apr'25",
+          "dateTime": "05-Apr'25 03:13 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.46296797692776,
+            28.152715953566783
+          ]
+        },
+        "village": "Balarpur ",
+        "properties": {
+          "name": "Parminder Singh, Plot 1",
+          "phoneFormatted": "(+91)9717-237-260",
+          "phone": 9717237260,
+          "aadhaar": "872215207511",
+          "address": "Balarpur ",
+          "paddyVariety": "PR126",
+          "UDPAcreage": 3,
+          "date": "09-Apr'25",
+          "dateTime": "09-Apr'25 06:22 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.46248802915215,
+            28.151708509391888
+          ]
+        },
+        "village": "Balarpur ",
+        "properties": {
+          "name": "Parminder Singh, Plot 2",
+          "phoneFormatted": "(+91)9717-237-260",
+          "phone": 9717237260,
+          "aadhaar": "872215207511",
+          "address": "Balarpur ",
+          "paddyVariety": "PR126",
+          "UDPAcreage": 1.7,
+          "date": "10-Apr'25",
+          "dateTime": "10-Apr'25 06:31 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.48707449808717,
+            28.15888310088843
+          ]
+        },
+        "village": "ShahNagar ",
+        "properties": {
+          "name": "Onkar Singh, Plot 1",
+          "phoneFormatted": "(+91)9565-002-519",
+          "phone": 9565002519,
+          "aadhaar": "763148711925",
+          "address": "ShahNagar ",
+          "paddyVariety": "PR126",
+          "UDPAcreage": 2.5,
+          "date": "12-Apr'25",
+          "dateTime": "12-Apr'25 02:12 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.48763290047646,
+            28.15593835854576
+          ]
+        },
+        "village": "ShahNagar ",
+        "properties": {
+          "name": "Onkar Singh, Plot 2",
+          "phoneFormatted": "(+91)9565-002-519",
+          "phone": 9565002519,
+          "aadhaar": "763148711925",
+          "address": "ShahNagar ",
+          "paddyVariety": "PR126",
+          "UDPAcreage": 1.5,
+          "date": "13-Apr'25",
+          "dateTime": "13-Apr'25 08:18 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.49328833818436,
+            28.13854077930785
+          ]
+        },
+        "village": "ShahNagar ",
+        "properties": {
+          "name": "Amandeep Singh, Plot 1",
+          "phoneFormatted": "(+91)9918-939-390",
+          "phone": 9918939390,
+          "aadhaar": "640665142927",
+          "address": "ShahNagar ",
+          "paddyVariety": "PR126",
+          "UDPAcreage": 3,
+          "date": "18-Apr'25",
+          "dateTime": "18-Apr'25 04:15 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.48843337222934,
+            28.145687430949852
+          ]
+        },
+        "village": "ShahNagar ",
+        "properties": {
+          "name": "Maninder Singh, Plot 1",
+          "phoneFormatted": "(+91)6387-159-372",
+          "phone": 6387159372,
+          "aadhaar": "270074864962",
+          "address": "ShahNagar ",
+          "paddyVariety": "PR126",
+          "UDPAcreage": 4.5,
+          "date": "15-Apr'25",
+          "dateTime": "15-Apr'25 05:30 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.48726795241237,
+            28.14474436770572
+          ]
+        },
+        "village": "ShahNagar ",
+        "properties": {
+          "name": "Maninder Singh, Plot 2",
+          "phoneFormatted": "(+91)6387-159-372",
+          "phone": 6387159372,
+          "aadhaar": "270074864962",
+          "address": "ShahNagar ",
+          "paddyVariety": "PR126",
+          "UDPAcreage": 3.2,
+          "date": "16-Apr'25",
+          "dateTime": "16-Apr'25 05:40 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.48664836212993,
+            28.143862048363204
+          ]
+        },
+        "village": "ShahNagar ",
+        "properties": {
+          "name": "Sukhdev Singh, Plot 1",
+          "phoneFormatted": "(+91)7355-125-622",
+          "phone": 7355125622,
+          "aadhaar": "704669943662",
+          "address": "ShahNagar ",
+          "paddyVariety": "PR126",
+          "UDPAcreage": 3,
+          "date": "18-Apr'25",
+          "dateTime": "18-Apr'25 01:44 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.49368714913726,
+            28.13183301580526
+          ]
+        },
+        "village": "ShahNagar ",
+        "properties": {
+          "name": "Sukhdev Singh, Plot 2",
+          "phoneFormatted": "(+91)7355-125-622",
+          "phone": 7355125622,
+          "aadhaar": "704669943662",
+          "address": "ShahNagar ",
+          "paddyVariety": "PR126",
+          "UDPAcreage": 3.3,
+          "date": "19-Apr'25",
+          "dateTime": "19-Apr'25 12:43 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.45821342617273,
+            28.16408926677606
+          ]
+        },
+        "village": "Hajratpur",
+        "properties": {
+          "name": "Lakhvinder Singh, Plot 1",
+          "phoneFormatted": "(+91)9956-589-413",
+          "phone": 9956589413,
+          "aadhaar": "316928278187",
+          "address": "Hajratpur",
+          "paddyVariety": "PR126",
+          "UDPAcreage": 1,
+          "date": "20-Apr'25",
+          "dateTime": "20-Apr'25 03:15 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.45708756893873,
+            28.163973398777884
+          ]
+        },
+        "village": "Hajratpur",
+        "properties": {
+          "name": "Lakhvinder Singh, Plot 2",
+          "phoneFormatted": "(+91)9956-589-413",
+          "phone": 9956589413,
+          "aadhaar": "316928278187",
+          "address": "Hajratpur",
+          "paddyVariety": "PR126",
+          "UDPAcreage": 3,
+          "date": "20-Apr'25",
+          "dateTime": "20-Apr'25 04:05 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.4099990427494,
+            28.181832450603707
+          ]
+        },
+        "village": "Sankata Devi",
+        "properties": {
+          "name": "Amit Seth, Plot 1",
+          "phoneFormatted": "(+91)9415-168-628",
+          "phone": 9415168628,
+          "aadhaar": "563890616566",
+          "address": "Sankata Devi",
+          "paddyVariety": "PR126",
+          "UDPAcreage": 4,
+          "date": "29-Mar'25",
+          "dateTime": "29-Mar'25 05:28 pm"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.4288480989635,
+            28.149456057676346
+          ]
+        },
+        "village": "Shyampur",
+        "properties": {
+          "name": "Vikramjeet Singh, Plot 1",
+          "phoneFormatted": "(+91)8957-297-233",
+          "phone": 8957297233,
+          "aadhaar": "320382101662",
+          "address": "Shyampur",
+          "paddyVariety": "PR126",
+          "UDPAcreage": 3.5,
+          "date": "23-Apr'25",
+          "dateTime": "23-Apr'25 09:35 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.43128622695804,
+            28.15425237945265
+          ]
+        },
+        "village": "Kunvarpur",
+        "properties": {
+          "name": "Bhajan Singh, Plot 1",
+          "phoneFormatted": "(+91)9648-066-362",
+          "phone": 9648066362,
+          "aadhaar": "897163165017",
+          "address": "Kunvarpur",
+          "paddyVariety": "PR126",
+          "UDPAcreage": 2,
+          "date": "26-Apr'25",
+          "dateTime": "26-Apr'25 10:28 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.42902747169137,
+            28.15013923182304
+          ]
+        },
+        "village": "Shyampur",
+        "properties": {
+          "name": "Vikramjeet Singh, Plot 2",
+          "phoneFormatted": "(+91)8957-297-233",
+          "phone": 8957297233,
+          "aadhaar": "320382101662",
+          "address": "Shyampur",
+          "paddyVariety": "PR126",
+          "UDPAcreage": 5.5,
+          "date": "30-Apr'25",
+          "dateTime": "30-Apr'25 04:44 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.47609638422728,
+            28.206530602152302
+          ]
+        },
+        "village": "Kukra",
+        "properties": {
+          "name": "Gurmeet Singh, Plot 1",
+          "phoneFormatted": "(+91)9936-512-753",
+          "phone": 9936512753,
+          "aadhaar": "724232449463",
+          "address": "Kukra",
+          "paddyVariety": "PR126",
+          "UDPAcreage": 6.5,
+          "date": "30-Apr'25",
+          "dateTime": "30-Apr'25 08:40 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.47831641510129,
+            28.20818739231003
+          ]
+        },
+        "village": "Hindustan Farm",
+        "properties": {
+          "name": "Gurvinder Singh, Plot 1",
+          "phoneFormatted": "(+91)8090-885-365",
+          "phone": 8090885365,
+          "aadhaar": "313705947631",
+          "address": "Hindustan Farm",
+          "paddyVariety": "PR126",
+          "UDPAcreage": 5,
+          "date": "03-May'25",
+          "dateTime": "03-May'25 06:11 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.42970590293407,
+            28.158076423718143
+          ]
+        },
+        "village": "Arjunpur",
+        "properties": {
+          "name": "Thakur Prasad, Plot 1",
+          "phoneFormatted": "(+91)6393-100-336",
+          "phone": 6393100336,
+          "aadhaar": "331293286316",
+          "address": "Arjunpur",
+          "paddyVariety": "PR126",
+          "UDPAcreage": 2.5,
+          "date": "04-May'25",
+          "dateTime": "04-May'25 07:12 am"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.40980039164424,
+            28.17701800717385
+          ]
+        },
+        "village": "Sikanderpur ",
+        "properties": {
+          "name": "Pradeep Singh, Plot 1",
+          "phoneFormatted": "(+91)9795-949-292",
+          "phone": 9795949292,
+          "aadhaar": "750599364323",
+          "address": "Sikanderpur ",
+          "paddyVariety": "PR126",
+          "UDPAcreage": 3.5,
+          "date": "05-May'25",
+          "dateTime": "05-May'25 07:47 am"
+        }
+      }
+    ]
+  },
+  "chartData": {
+    "labelsVillage": [
+      "Arjunpur",
+      "Balarpur ",
+      "Chaudhipur",
+      "Hajratpur",
+      "Hindustan Farm",
+      "Kukra",
+      "Kunvarpur",
+      "Puranpur",
+      "Sankata Devi",
+      "ShahNagar ",
+      "Shyampur",
+      "Sikanderpur "
+    ],
+    "acreage": [
+      2.5,
+      4.7,
+      2.25,
+      4,
+      5,
+      6.5,
+      2,
+      1,
+      4,
+      21,
+      9,
+      3.5
+    ],
+    "farmerCount": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      4,
+      1,
+      1
+    ],
+    "plotCount": [
+      1,
+      2,
+      2,
+      2,
+      1,
+      1,
+      1,
+      1,
+      1,
+      7,
+      2,
+      1
+    ]
+  }
+}

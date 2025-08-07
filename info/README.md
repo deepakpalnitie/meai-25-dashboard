@@ -15,49 +15,75 @@ The project is built with a **multi-tenant architecture**, allowing a single, un
 
 ---
 
-## 2. Multi-Tenant Architecture & Deployment
+## 2. System Architecture
 
-The application uses a single Next.js codebase deployed on one Vercel project to serve multiple subdomains (e.g., `csr-meai.distincthorizon.net`, `csr-aai.distincthorizon.net`).
+The application uses a multi-tenant architecture where a single codebase serves multiple distinct projects. The configuration for all projects is managed in a central file, acting as the single source of truth.
 
-*   **`projects.json`**: This file at the project root is the configuration hub for the multi-tenant setup. It maps each project's unique hostname to its specific backend details, such as Google Sheet IDs and KML file IDs.
+### 2.1. Single Source of Truth: `projects.json`
 
-*   **`middleware.js`**: This Next.js middleware runs on every incoming request. It inspects the request's hostname, looks it up in `projects.json`, and rewrites the URL to a generic `/project` page. The original hostname is passed as a query parameter, allowing the page to dynamically fetch and display the correct project's data.
+The `projects.json` file in the project root is the master configuration file. It contains a JSON object where each key is a project's hostname (e.g., `csr-meai.distincthorizon.net`) and the value is an object containing all configuration details for that project, including:
+*   `name`: The display name of the project.
+*   `projectId`: A short identifier used by the backend.
+*   `sheetId`: The Google Sheet ID for the project's data.
+*   `jsonFileId`: The Google Drive file ID for the generated JSON data.
+*   `mediaFolderId`: The Google Drive folder ID for farmer media.
+*   `kmlFileId`: The Google Drive file ID for the combined KML file.
+*   `kmlUrl`: The public download URL for the combined KML file.
 
-*   **Vercel Deployment**: All project subdomains are configured on Vercel with CNAME records pointing to `771242483e90c739.vercel-dns-017.com`. This routes all traffic to the single deployment. For detailed setup instructions, see [`info/vercel.md`](./vercel.md).
+### 2.2. Frontend (Next.js)
 
----
+The frontend is a Next.js application deployed on Vercel.
+*   **`middleware.js`**: On every request, this middleware reads the hostname, finds the corresponding project in `projects.json`, and rewrites the URL to the generic `/project` page, passing the hostname as a query parameter.
+*   **`pages/project.js`**: This page uses the hostname to fetch and display the correct project's data.
 
-## 3. Backend Architecture & Functionality
+### 2.3. Backend (Google Apps Script)
 
-The backend is powered by a sophisticated two-script Google Apps Script system that automates data processing and serves data to the frontend. All backend assets are controlled by the **distincthorizon1@gmail.com** Google account.
-
-### 3.1. Core Components
-
-1.  **`clasp/unified-dashboard-script/`**: The main, standalone backend script deployed as a Google Web App. It acts as a centralized RESTful API. Its `doGet(e)` function can perform three main actions based on URL parameters:
-    *   `?projectId=<id>`: Serves the pre-generated JSON data for the specified project.
-    *   `?generate=<id>`: Triggers the data generation process for a project.
-    *   `?combineKml=<id>`: Triggers the KML combination process for a project.
-
-2.  **`clasp/control-panel-script/`**: A "shim" script bound to a "Unified Dashboard Control Panel" Google Sheet. This sheet provides a simple UI for non-technical users. By checking a box, an `onEdit` trigger fires, which calls the main script's Web App URL via `UrlFetchApp.fetch()` to initiate data generation or KML combination.
-
-### 3.2. Key Automated Features
-
-The backend scripts contain logic for a high degree of automation:
-
-*   **Automated Data Processing**: An `onEdit` trigger in the master "Ground Data" Google Sheet can process a row automatically. This script can:
-    *   Find a corresponding farmer folder in Google Drive.
-    *   Extract and link to multimedia files and Aadhaar PDFs within that folder.
-    *   Find the correct KML file based on a plot number.
-    *   Calculate the plot area in acres from the KML coordinates.
-    *   Extract the plot's central GPS coordinates from the KML.
-
-*   **KML Processing**: The backend can combine thousands of individual farmer KML files into a single, optimized file for the map. It automatically validates and fixes common issues, such as unclosed polygons, before appending them. A reset function also exists to rebuild this combined file from scratch.
-
-*   **Utility Functions**: The script includes helper functions for data validation, such as `findKMLDuplicates`, which identifies potentially duplicate plots by calculating the geographic distance between their GPS coordinates.
+The backend is a Google Apps Script web app (`clasp/unified-dashboard-script/`) that acts as a RESTful API. It is deployed via `clasp`.
+*   **Configuration:** The script's `PROJECT_CONFIG` variable is **not** edited directly. Instead, it is updated programmatically by a local Node.js script before deployment (see Developer Workflow).
+*   **Endpoints:**
+    *   `?projectId=<id>`: Serves the pre-generated JSON data.
+    *   `?generate=<id>`: Triggers data generation for a project.
+    *   `?combineKml=<id>`: Triggers KML combination for a project.
 
 ---
 
-## 4. Key Project Links
+## 3. Developer Workflow
+
+### 3.1. Adding or Updating a Project
+
+To add a new project or update an existing one:
+
+1.  **Update `projects.json`**: Add or modify the entry for the project in the root `projects.json` file. Ensure all IDs and URLs are correct.
+2.  **Update Apps Script Config**: Run the helper script from the project root to sync the changes with the Google Apps Script file:
+    ```bash
+    node update-apps-script-config.js
+    ```
+3.  **Deploy the Backend**: Push the updated configuration to Google Apps Script using `clasp`:
+    ```bash
+    cd clasp/unified-dashboard-script && clasp push
+    ```
+4.  **Deploy the Frontend**: Commit and push your changes to Git. Vercel will automatically build and deploy the frontend.
+
+### 3.2. Local Testing
+
+To test a project locally, run `npm run dev` and open a project-specific URL:
+*   `http://localhost:3000/project?projectHostname=csr-meai.distincthorizon.net`
+
+---
+
+## 4. Validation Utilities
+
+To debug issues with KML or JSON files, two validation scripts are available. They download the respective files for each project, save them locally, and report any parsing errors.
+
+*   **KML Validator**: `node kml_validator/validate.js`
+*   **JSON Validator**: `node json_validator/validate.js`
+
+The downloaded files are saved in the `kml_validator/downloads/` and `json_validator/downloads/` directories.
+
+---
+
+## 5. Key Project Links
+
 
 *   **Primary Account:** All assets are managed under **distincthorizon1@gmail.com**.
 
