@@ -58,11 +58,16 @@ To add a new project or update an existing one:
     ```bash
     node update-apps-script-config.js
     ```
-3.  **Deploy the Backend**: Push the updated configuration to Google Apps Script using `clasp`:
+3.  **Deploy the Backend**: Push the updated configuration to Google Apps Script. This command updates the code, but does **not** make the changes live on the web app URL.
     ```bash
     cd clasp/unified-dashboard-script && clasp push
     ```
-4.  **Deploy the Frontend**: Commit and push your changes to Git. Vercel will automatically build and deploy the frontend.
+4.  **Create a New Deployment (If Required)**: If you have changed the behavior of the `doGet(e)` function (e.g., added a new URL parameter like `resetKml`), you **must** create a new deployment to make the changes live.
+    *   Open the [Unified Backend Script](https://script.google.com/d/1bwJ5mrmdgWyuJZqqn_Eru6W7LDM7f0Plr6EKrGj_uv-XjkzC4Hri5DFx/edit) in the editor.
+    *   Click **Deploy > New deployment**.
+    *   Give it a description (e.g., "Added KML reset feature").
+    *   Click **Deploy**.
+5.  **Deploy the Frontend**: Commit and push your changes to Git. Vercel will automatically build and deploy the frontend.
 
 ### 3.2. Local Testing
 
@@ -71,7 +76,29 @@ To test a project locally, run `npm run dev` and open a project-specific URL:
 
 ---
 
-## 4. Validation Utilities
+## 4. Managing Project Data
+
+All routine data updates, such as generating the JSON file or combining KMLs, are performed using the **[Unified Dashboard Control Panel](https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID_HERE/edit)** Google Sheet. <!-- FIXME: Add the correct link -->
+
+### 4.1. How to Trigger Actions
+
+The sheet has a simple checkbox interface. To perform an action for a specific project, simply check the box in the corresponding row and column:
+
+*   **Generate JSON Data (Column B):** Check this box to regenerate the main JSON data file from the project's "Ground Data" sheet.
+*   **Combine KML Files (Column C):** Check this box to process any new KML files and add them to the combined KML file for the map. If the script times out, you can simply check the box again to continue where it left off.
+*   **Reset KML File (Column D):** Check this box to completely reset the combined KML file. This will clear all existing plot data from the map and un-check all the "processed" checkboxes in the "Ground Data" sheet, allowing you to rebuild the KML from scratch.
+
+### 4.2. Viewing Action Status and Logs
+
+When you check a box, the action is sent to the backend script. To see the status, progress, or any potential errors:
+
+1.  Open the **[Unified Backend Script](https://script.google.com/d/1bwJ5mrmdgWyuJZqqn_Eru6W7LDM7f0Plr6EKrGj_uv-XjkzC4Hri5DFx/edit)** in the Apps Script editor.
+2.  In the left-hand menu, click on **Executions**.
+3.  This will show you a list of all the times the script has been run. You can click on any execution to see the detailed logs, which will show you which files are being processed and if any errors occurred.
+
+---
+
+## 5. Validation Utilities
 
 To debug issues with KML or JSON files, two validation scripts are available. They download the respective files for each project, save them locally, and report any parsing errors.
 
@@ -89,6 +116,7 @@ The downloaded files are saved in the `kml_validator/downloads/` and `json_valid
 
 ### Scripts & Deployment
 *   **Unified Backend Script:** [Open in Editor](https://script.google.com/d/1bwJ5mrmdgWyuJZqqn_Eru6W7LDM7f0Plr6EKrGj_uv-XjkzC4Hri5DFx/edit)
+*   **Control Panel Sheet:** [Link to Sheet](https://docs.google.com/spreadsheets/d/1TOc97duIT-jOYN7jkxqX_3alT2TEGuBxUJSWN2S5dCg/edit) <!-- FIXME: Add the correct link to the Control Panel Google Sheet -->
 *   **Control Panel Shim Script:** [Open in Editor](https://script.google.com/d/1r9rdXbYbF-Cj3ZDEmw93mXa5t5OVDBTVS7JfWbJPTnPLQwTsYBCl1-5x/edit)
 *   **Backend Web App URL:** `https://script.google.com/macros/s/AKfycbz_RT3XRhkgntax0Mdkjf6EgPpLd0Cvej9xEjWfKk14C44xqL61llLgHI5P2r1UoZ58nQ/exec`
 

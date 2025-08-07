@@ -39,6 +39,7 @@ function doGet(e) {
   const generateProjectId = e.parameter.generate;
   const serveProjectId = e.parameter.projectId;
   const combineKmlProjectId = e.parameter.combineKml;
+  const resetKmlProjectId = e.parameter.resetKml;
 
   // Handle a request to generate dashboard data
   if (generateProjectId) {
@@ -48,6 +49,11 @@ function doGet(e) {
   // Handle a request to combine KML files
   if (combineKmlProjectId) {
     return handleGeneration(combineKmlProjectId, combineProjectKml);
+  }
+
+  // Handle a request to reset a combined KML file
+  if (resetKmlProjectId) {
+    return handleGeneration(resetKmlProjectId, resetProjectKml);
   }
 
   // Handle a request to serve dashboard data
@@ -73,8 +79,10 @@ function doGet(e) {
 function handleGeneration(projectId, generationFunction) {
   if (PROJECT_CONFIG[projectId]) {
     try {
-      generationFunction(projectId);
-      return ContentService.createTextOutput(JSON.stringify({ success: true, message: `Process started for ${projectId}.` })).setMimeType(ContentService.MimeType.JSON);
+      const result = generationFunction(projectId); // Capture the return value
+      const message = result ? result.message : `Process started for ${projectId}.`;
+      return ContentService.createTextOutput(JSON.stringify({ success: true, message: message }))
+        .setMimeType(ContentService.MimeType.JSON);
     } catch (err) {
       return createErrorResponse(`Error during process for ${projectId}: ${err.message}`);
     }
@@ -192,10 +200,66 @@ function combineProjectKml(projectId) {
     if (insertionPoint !== -1) {
       const newContent = combinedData.substring(0, insertionPoint) + placemarksToAdd.join('\n') + '\n<\/Document>\n<\/kml>';
       combinedFile.setContent(newContent);
-      console.log(`Appended ${placemarksToAdd.length} new placemarks to combined KML for ${projectId}.`);
+      const message = `Appended ${placemarksToAdd.length} new placemarks to combined KML for ${projectId}.`;
+      console.log(message);
+      return { message: message };
     }
   } else {
-    console.log(`No new KML files to combine for ${projectId}.`);
+    const message = `No new KML files to combine for ${projectId}. Combination process is complete.`;
+    console.log(message);
+    return { message: message };
+  }
+}
+
+// --- KML RESET LOGIC ---
+
+function resetProjectKml(projectId) {
+  if (Array.isArray(projectId)) projectId = projectId[0];
+  const config = PROJECT_CONFIG[projectId];
+  if (!config) throw new Error(`Invalid projectId: ${projectId}`);
+
+  console.log(`Starting KML reset for ${projectId.toUpperCase()}.`);
+  const ss = SpreadsheetApp.openById(config.sheetId);
+  const sh = ss.getSheetByName("Ground Data");
+  if (!sh) throw new Error(`'Ground Data' sheet not found for project ${projectId}.`);
+
+  const data_strt_rw = 3;
+  const idRow = getIdRow(sh);
+  const edtKmlCmbndCol = getColumn(idRow, "KML_CMBND");
+  const lRow = sh.getLastRow();
+
+  // 1. Clear all checkboxes in the KML_CMBND column
+  if (lRow >= data_strt_rw) {
+    const rangeToClear = sh.getRange(data_strt_rw, edtKmlCmbndCol, lRow - data_strt_rw + 1, 1);
+    rangeToClear.setValue(false);
+    console.log(`Reset ${lRow - data_strt_rw + 1} checkboxes in KML_CMBND column for ${projectId}.`);
+  }
+
+  // 2. Overwrite the combined KML file with a blank template
+  const kmlHeader = `<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Style id='BMPoly'>
+<LineStyle>
+<color>ffff0000</color>
+<width>1.2</width>
+</LineStyle>
+<PolyStyle>
+<color>ff00ff00</color>
+<fill>1</fill>
+</PolyStyle>
+</Style>`;
+  const kmlFooter = `</Document>
+</kml>`;
+  const blankKmlContent = kmlHeader + '\n' + kmlFooter;
+
+  try {
+    const combinedFile = DriveApp.getFileById(config.kmlFileId);
+    combinedFile.setContent(blankKmlContent);
+    console.log(`Successfully reset the combined KML file for ${projectId}.`);
+  } catch (e) {
+    console.error(`Failed to write to combined KML file during reset for ${projectId}: ${e.toString()}`);
+    throw new Error(`Failed to reset KML file for ${projectId}.`);
   }
 }
 

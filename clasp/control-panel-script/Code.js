@@ -65,13 +65,16 @@ function handleEditTrigger(e) {
   } else if (column === 3) { // Column C is for KML Combination
     console.log(`Triggering KML Combination for ${projectId}`);
     triggerBackend(projectId, 'combineKml');
+  } else if (column === 4) { // Column D is for KML Reset
+    console.log(`Triggering KML Reset for ${projectId}`);
+    triggerBackend(projectId, 'resetKml');
   }
 }
 
 /**
  * Calls the deployed Web App URL of the main script to trigger a process.
  * @param {string} projectId The project to process.
- * @param {string} action The action to perform ('generate' or 'combineKml').
+ * @param {string} action The action to perform ('generate', 'combineKml', or 'resetKml').
  */
 function triggerBackend(projectId, action) {
   const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbz_RT3XRhkgntax0Mdkjf6EgPpLd0Cvej9xEjWfKk14C44xqL61llLgHI5P2r1UoZ58nQ/exec';
