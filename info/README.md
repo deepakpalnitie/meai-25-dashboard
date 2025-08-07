@@ -30,6 +30,14 @@ The `projects.json` file in the project root is the master configuration file. I
 *   `kmlFileId`: The Google Drive file ID for the combined KML file.
 *   `kmlUrl`: The public download URL for the combined KML file.
 
+**Important Guidelines for `projectId`**
+
+The `projectId` is a critical identifier that links the frontend, the backend, and the Control Panel Google Sheet. It is used as an API key in the backend script's URL (`.../exec?generate=meai`).
+
+*   **Dependency:** The Control Panel script (`clasp/control-panel-script/Code.js`) contains a **hardcoded map** that links a specific row in the sheet to a `projectId`. This is the most critical dependency to be aware of.
+*   **Guidelines:** The `projectId` must be a unique, simple string with no spaces or special characters.
+*   **Changing the ID:** It is safest to set this once and not change it. If you must change it, you must update it in **both** `projects.json` and the `projectRows` object in `clasp/control-panel-script/Code.js`, and then redeploy both scripts.
+
 ### 2.2. Frontend (Next.js)
 
 The frontend is a Next.js application deployed on Vercel.
@@ -54,13 +62,16 @@ The backend is a Google Apps Script web app (`clasp/unified-dashboard-script/`) 
 To add a new project or update an existing one:
 
 1.  **Update `projects.json`**: Add or modify the entry for the project in the root `projects.json` file. Ensure all IDs and URLs are correct.
-2.  **Update Apps Script Config**: Run the helper script from the project root to sync the changes with the Google Apps Script file:
+2.  **Update Apps Script Config**: Run the helper script from the project root. This will automatically sync the changes from `projects.json` into **both** the main backend script and the control panel script.
     ```bash
     node update-apps-script-config.js
     ```
-3.  **Deploy the Backend**: Push the updated configuration to Google Apps Script. This command updates the code, but does **not** make the changes live on the web app URL.
+3.  **Deploy the Backend**: Push the updated configuration to both Google Apps Script projects.
     ```bash
+    # Deploy the main script
     cd clasp/unified-dashboard-script && clasp push
+    # Deploy the control panel script
+    cd ../control-panel-script && clasp push
     ```
 4.  **Create a New Deployment (If Required)**: If you have changed the behavior of the `doGet(e)` function (e.g., added a new URL parameter like `resetKml`), you **must** create a new deployment to make the changes live.
     *   Open the [Unified Backend Script](https://script.google.com/d/1bwJ5mrmdgWyuJZqqn_Eru6W7LDM7f0Plr6EKrGj_uv-XjkzC4Hri5DFx/edit) in the editor.
