@@ -76,14 +76,6 @@ export default function ProjectPage() {
   }
   
   // --- Render Dashboard with Data ---
-  const totalAcreage = data["impactData"]["acreage"]["total"];
-  const waterSaved = totalAcreage * 3.004;
-  const emissionReduced = totalAcreage * 0.9656;
-  const fertilizerSaved = totalAcreage * 0.09;
-  const ureaSubsidySaved = totalAcreage * 0.046;
-  const paddyYieldIncrease = totalAcreage * 0.76;
-  const farmerIncomeIncrease = totalAcreage * 0.38354;
-
   return (
     <Layout title={projectDetails.name}>
       <Box sx={{ my: 4 }}>
@@ -94,89 +86,72 @@ export default function ProjectPage() {
           {projectDetails.location}
         </Typography>
 
-        <Box
-          sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            '& > :not(style)': {
-              m: 1,
-              width: { xs: '45%', md: '30%' },
-              margin: "0.5em auto",
-            },
-          }}
-        >
-           <Paper2 elevation={3} sx={{ background: "rgb(23, 109, 10)" }}>
-              <Typography color="#ddd" variant="subtitle2"
-              >Total UDP acreage</Typography>
-              <Typography color="#fff" variant='h4' component="p">
-                <CountUp end={totalAcreage} duration={5} />
-              </Typography>
-              <Typography color="#ddd" variant="subtitle2">Acres</Typography>
-            </Paper2>
-
-            <Paper2 elevation={3} sx={{ background: "#f8b400" }}>
-              <Typography color="#ddd" variant="subtitle2"
-              >Villages impacted</Typography>
-              <Typography color="#fff" variant='h4' component="p">
-                <CountUp end={data["impactData"]["vill_count"]["total"]} duration={5} />
-              </Typography>
-              <Typography color="#ddd" variant="subtitle2">&nbsp;</Typography>
-            </Paper2>
-
-            <Paper2 elevation={3} sx={{ background: "#005792" }}>
-              <Typography color="#ddd" variant="subtitle2">Fertilizer Saved (projected)</Typography>
-              <Typography color="#fff" variant='h4' component="p">
-                <CountUp end={fertilizerSaved} duration={5}  />
-              </Typography>
-              <Typography color="#ddd" variant="subtitle2">metric ton</Typography>
-            </Paper2>
-
-            <Paper2 elevation={3} sx={{ background: "#4e9bbf" }}>
-              <Typography color="#ddd" variant="subtitle2">Water Saved (projected)</Typography>
-              <Typography color="#fff" variant='h4' component="p">
-                <CountUp end={waterSaved} duration={5}  />
-              </Typography>
-              <Typography color="#ddd" variant="subtitle2">TCM (Thousand m³)</Typography>
-            </Paper2>
-
-            <Paper2 elevation={3} sx={{ background: "#dc2f2f" }}>
-              <Typography color="#ddd" variant="subtitle2">Emission Reduced (projected)</Typography>
-              <Typography color="#fff" variant='h4' component="p">
-                <CountUp end={emissionReduced} duration={5}  />
-              </Typography>
-              <Typography color="#ddd" variant="subtitle2">metric ton</Typography>
-            </Paper2>
-
-            <Paper2 elevation={3} sx={{ background: "#8e44ad" }}>
-              <Typography color="#ddd" variant="subtitle2">Urea Subsidy Saved (projected)</Typography>
-              <Typography color="#fff" variant='h4' component="p">
-                <CountUp end={ureaSubsidySaved} duration={5}  />
-              </Typography>
-               <Typography color="#ddd" variant="subtitle2">lakh ₹</Typography>
-            </Paper2>
-
-            <Paper2 elevation={3} sx={{ background: "#27ae60" }}>
-              <Typography color="#ddd" variant="subtitle2">Paddy Yield Increase (projected)</Typography>
-              <Typography color="#fff" variant='h4' component="p">
-                <CountUp end={paddyYieldIncrease} duration={5}  />
-              </Typography>
-              <Typography color="#ddd" variant="subtitle2">metric ton</Typography>
-            </Paper2>
-
-            <Paper2 elevation={3} sx={{ background: "#2980b9" }}>
-              <Typography color="#ddd" variant="subtitle2">Farmer Income Increase (projected)</Typography>
-              <Typography color="#fff" variant='h4' component="p">
-                <CountUp end={farmerIncomeIncrease} duration={5}  />
-              </Typography>
-              <Typography color="#ddd" variant="subtitle2">lakh ₹</Typography>
-            </Paper2>
-        </Box>
-        <Typography variant="caption" display="block" gutterBottom align='center' color={'grey'}>
-          *Projected numbers are based on past project data.
-        </Typography>
-
-        <DMap mapData={data} projectHostname={projectHostname} />
-        <Chart chartData={data} />
+        {/* Only render the dashboard content if data is available */}
+        {data ? (
+          <>
+            <Box
+              sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                '& > :not(style)': {
+                  m: 1,
+                  width: { xs: '45%', md: '30%' },
+                  margin: "0.5em auto",
+                },
+              }}
+            >
+              <Paper2 elevation={3} sx={{ background: "rgb(23, 109, 10)" }}>
+                <Typography color="#ddd" variant="subtitle2">Total UDP acreage</Typography>
+                <Typography color="#fff" variant='h4' component="p"><CountUp end={data.impactData.acreage.total} duration={5} /></Typography>
+                <Typography color="#ddd" variant="subtitle2">Acres</Typography>
+              </Paper2>
+              <Paper2 elevation={3} sx={{ background: "#f8b400" }}>
+                <Typography color="#ddd" variant="subtitle2">Villages impacted</Typography>
+                <Typography color="#fff" variant='h4' component="p"><CountUp end={data.impactData.vill_count.total} duration={5} /></Typography>
+                <Typography color="#ddd" variant="subtitle2">&nbsp;</Typography>
+              </Paper2>
+              <Paper2 elevation={3} sx={{ background: "#005792" }}>
+                <Typography color="#ddd" variant="subtitle2">Fertilizer Saved (projected)</Typography>
+                <Typography color="#fff" variant='h4' component="p"><CountUp end={data.impactData.acreage.total * 0.09} duration={5} /></Typography>
+                <Typography color="#ddd" variant="subtitle2">metric ton</Typography>
+              </Paper2>
+              <Paper2 elevation={3} sx={{ background: "#4e9bbf" }}>
+                <Typography color="#ddd" variant="subtitle2">Water Saved (projected)</Typography>
+                <Typography color="#fff" variant='h4' component="p"><CountUp end={data.impactData.acreage.total * 3.004} duration={5} /></Typography>
+                <Typography color="#ddd" variant="subtitle2">TCM (Thousand m³)</Typography>
+              </Paper2>
+              <Paper2 elevation={3} sx={{ background: "#dc2f2f" }}>
+                <Typography color="#ddd" variant="subtitle2">Emission Reduced (projected)</Typography>
+                <Typography color="#fff" variant='h4' component="p"><CountUp end={data.impactData.acreage.total * 0.9656} duration={5} /></Typography>
+                <Typography color="#ddd" variant="subtitle2">metric ton</Typography>
+              </Paper2>
+              <Paper2 elevation={3} sx={{ background: "#8e44ad" }}>
+                <Typography color="#ddd" variant="subtitle2">Urea Subsidy Saved (projected)</Typography>
+                <Typography color="#fff" variant='h4' component="p"><CountUp end={data.impactData.acreage.total * 0.046} duration={5} /></Typography>
+                <Typography color="#ddd" variant="subtitle2">lakh ₹</Typography>
+              </Paper2>
+              <Paper2 elevation={3} sx={{ background: "#27ae60" }}>
+                <Typography color="#ddd" variant="subtitle2">Paddy Yield Increase (projected)</Typography>
+                <Typography color="#fff" variant='h4' component="p"><CountUp end={data.impactData.acreage.total * 0.76} duration={5} /></Typography>
+                <Typography color="#ddd" variant="subtitle2">metric ton</Typography>
+              </Paper2>
+              <Paper2 elevation={3} sx={{ background: "#2980b9" }}>
+                <Typography color="#ddd" variant="subtitle2">Farmer Income Increase (projected)</Typography>
+                <Typography color="#fff" variant='h4' component="p"><CountUp end={data.impactData.acreage.total * 0.38354} duration={5} /></Typography>
+                <Typography color="#ddd" variant="subtitle2">lakh ₹</Typography>
+              </Paper2>
+            </Box>
+            <Typography variant="caption" display="block" gutterBottom align='center' color={'grey'}>
+              *Projected numbers are based on past project data.
+            </Typography>
+            <DMap mapData={data} projectHostname={projectHostname} />
+            <Chart chartData={data} />
+          </>
+        ) : (
+          <Box sx={{ display: 'flex', justifyContent: 'center', my: 4 }}>
+            <CircularProgress />
+          </Box>
+        )}
       </Box>
     </Layout>
   );

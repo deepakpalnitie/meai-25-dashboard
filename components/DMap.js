@@ -9,6 +9,7 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import StopIcon from '@mui/icons-material/Stop';
 import CircularProgress from '@mui/material/CircularProgress';
 import Alert from '@mui/material/Alert';
+import Box from '@mui/material/Box';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGVlcGltaGVyZSIsImEiOiJjbGtpaXBlcjIwYnU4M2RtanhwM3FyOWlrIn0.fOtppmYa8OXrwOPjIDXz7Q';
 
@@ -20,10 +21,10 @@ export default function DMap({ mapData, projectHostname }) {
     kmlFetcher
   );
 
-  const mapContainer = useRef(null); // Create a ref for the map container
-  const map = useRef(null); // Create a ref for the map instance
+  const mapContainer = useRef(null);
+  const map = useRef(null);
   
-  const [Map, setMap] = useState(); // This can be removed if map.current is used everywhere
+  const [Map, setMap] = useState();
   const stores = mapData.mapData;
   const [isAnimating, setIsAnimating] = useState(false);
   const animationTimeoutIds = useRef([]);
@@ -34,15 +35,13 @@ export default function DMap({ mapData, projectHostname }) {
   });
 
   useEffect(() => {
-    // Initialize map only once the container is ready
-    if (map.current) return; // initialize map only once
-    if (!mapContainer.current) return; // wait for container to exist
+    if (map.current || !mapContainer.current) return;
 
     const initialCenter = stores.features.length > 0 ? stores.features[0].geometry.coordinates : [78.9629, 20.5937];
     const initialZoom = stores.features.length > 0 ? 16 : 5;
 
     map.current = new mapboxgl.Map({
-      container: mapContainer.current, // Use the ref
+      container: mapContainer.current,
       style: 'mapbox://styles/mapbox/satellite-streets-v11',
       center: initialCenter,
       zoom: initialZoom,
@@ -50,14 +49,14 @@ export default function DMap({ mapData, projectHostname }) {
     });
 
     map.current.addControl(new mapboxgl.NavigationControl(), 'top-right');
-    setMap(map.current); // Keep this for components that need the map instance as a prop
-  }, [stores.features]); // Rerun if features change, though it should be stable
+    setMap(map.current);
+  }, [stores.features]);
 
   useEffect(() => {
-    if (!Map || !kmlData) return; // Wait for map and KML data
+    if (!Map || !kmlData) return;
 
     const handleLoad = () => {
-      if (Map.getSource('places')) return; // Don't add sources/layers if they already exist
+      if (Map.getSource('places')) return;
 
       Map.addSource('places', { type: 'geojson', data: stores });
 
@@ -66,7 +65,7 @@ export default function DMap({ mapData, projectHostname }) {
         addMarkers();
       }
 
-      const parser = new DOMParser();
+      const parser = new window.DOMParser();
       const kmlDoc = parser.parseFromString(kmlData, 'text/xml');
       const geojsonData = toGeoJSON.kml(kmlDoc);
 
@@ -98,11 +97,7 @@ export default function DMap({ mapData, projectHostname }) {
       Map.on('load', handleLoad);
     }
 
-    // Cleanup function to remove the event listener
-    return () => {
-      Map.off('load', handleLoad);
-    };
-
+    return () => { Map.off('load', handleLoad); };
   }, [Map, kmlData, stores]);
 
   useEffect(() => {
@@ -172,7 +167,6 @@ export default function DMap({ mapData, projectHostname }) {
   function buildLocationList(stores) {
     const listings = document.getElementById('listings');
     if (!listings) return;
-    // Clear existing listings before building new ones
     listings.innerHTML = '';
     for (const store of stores.features) {
       const listing = listings.appendChild(document.createElement('div'));
@@ -231,28 +225,49 @@ export default function DMap({ mapData, projectHostname }) {
       .addTo(Map);
   }
 
-  if (kmlError) {
-    return <Alert severity="warning" sx={{ m: 2 }}>Could not load map boundaries (KML). Please check file permissions.</Alert>;
-  }
-  if (!kmlData) {
-    return <CircularProgress sx={{m: 2}} />;
-  }
-
   return (
     <>
       <div id="wrapper" className="wrapper" style={{ position: 'relative' }}>
         <Button
           variant="contained"
           onClick={toggleAnimation}
-          style={{ position: 'absolute', top: '5px', left: '5%', zIndex: 1 }}
+          style={{ position: 'absolute', top: '5px', left: '5%', zIndex: 10 }}
           startIcon={isAnimating ? <StopIcon /> : <PlayArrowIcon />}
         >
           {isAnimating ? 'Stop Tour' : 'Start Tour'}
         </Button>
-        <div ref={mapContainer} id="map" className={mapcss.map}></div>
+        
+        {/* Map Container */}
+        <div ref={mapContainer} id="map" className={mapcss.map}>
+          {/* Loading/Error Overlay */}
+          {(!kmlData || kmlError) && (
+            <Box
+              sx={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                zIndex: 5,
+              }}
+            >
+              {kmlError ? (
+                <Alert severity="warning">Could not load map boundaries (KML).</Alert>
+              ) : (
+                <CircularProgress />
+              )}
+            </Box>
+          )}
+        </div>
+
         <div id="listings" className={mapcss.listings}></div>
         {Map && <LiveLocation map={Map} />}
       </div>
     </>
   );
 }
+
