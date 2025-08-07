@@ -1,21 +1,32 @@
 import React, { useState, useEffect, useRef } from 'react';
 import mapboxgl from '!mapbox-gl';
+import useSWR from 'swr';
+import toGeoJSON from '@mapbox/togeojson';
 import mapcss from './map.module.css';
 import LiveLocation from './LiveLocation';
 import Button from '@mui/material/Button';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import StopIcon from '@mui/icons-material/Stop';
+import CircularProgress from '@mui/material/CircularProgress';
+import Alert from '@mui/material/Alert';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGVlcGltaGVyZSIsImEiOiJjbGtpaXBlcjIwYnU4M2RtanhwM3FyOWlrIn0.fOtppmYa8OXrwOPjIDXz7Q';
 
-export default function DMap({ mapData }) {
-  const kmlData = mapData["kmlData"];
-  const [Map, setMap] = useState();
-  const [pageIsMounted, setPageIsMounted] = useState(false);
-  const stores = mapData.mapData;
-  const [isAnimating, setIsAnimating] = useState(false); // Animation disabled on load
-  const animationTimeoutIds = useRef([]);
+const kmlFetcher = (url) => fetch(url).then((res) => res.text());
 
+export default function DMap({ mapData, projectHostname }) {
+  const { data: kmlData, error: kmlError } = useSWR(
+    projectHostname ? `/api/kml-data?projectHostname=${projectHostname}` : null,
+    kmlFetcher
+  );
+
+  const mapContainer = useRef(null); // Create a ref for the map container
+  const map = useRef(null); // Create a ref for the map instance
+  
+  const [Map, setMap] = useState(); // This can be removed if map.current is used everywhere
+  const stores = mapData.mapData;
+  const [isAnimating, setIsAnimating] = useState(false);
+  const animationTimeoutIds = useRef([]);
   const [listingsReady, setListingsReady] = useState(false);
 
   stores.features.forEach((store, i) => {
@@ -23,124 +34,112 @@ export default function DMap({ mapData }) {
   });
 
   useEffect(() => {
-    setPageIsMounted(true);
+    // Initialize map only once the container is ready
+    if (map.current) return; // initialize map only once
+    if (!mapContainer.current) return; // wait for container to exist
 
-    // Set a default center, e.g., a central point in India.
-    // Use the first feature's coordinates if available, otherwise use the default.
-    const initialCenter = stores.features.length > 0
-      ? stores.features[0].geometry.coordinates
-      : [78.9629, 20.5937]; // Default center (India)
+    const initialCenter = stores.features.length > 0 ? stores.features[0].geometry.coordinates : [78.9629, 20.5937];
+    const initialZoom = stores.features.length > 0 ? 16 : 5;
 
-    const initialZoom = stores.features.length > 0 ? 16 : 5; // Zoom out if no features
-
-    const map = new mapboxgl.Map({
-      container: 'map',
+    map.current = new mapboxgl.Map({
+      container: mapContainer.current, // Use the ref
       style: 'mapbox://styles/mapbox/satellite-streets-v11',
       center: initialCenter,
       zoom: initialZoom,
       scrollZoom: true,
     });
 
-    map.addControl(new mapboxgl.NavigationControl(), 'top-right');
-    setMap(map);
-  }, []);
+    map.current.addControl(new mapboxgl.NavigationControl(), 'top-right');
+    setMap(map.current); // Keep this for components that need the map instance as a prop
+  }, [stores.features]); // Rerun if features change, though it should be stable
 
   useEffect(() => {
-    if (pageIsMounted && stores && Map) {
-      Map.on('load', () => {
-        Map.addSource('places', {
-          type: 'geojson',
-          data: stores,
-        });
+    if (!Map || !kmlData) return; // Wait for map and KML data
 
-        // Only build markers and listings if there are features
-        if (stores.features.length > 0) {
-          buildLocationList(stores);
-          addMarkers();
-        }
+    const handleLoad = () => {
+      if (Map.getSource('places')) return; // Don't add sources/layers if they already exist
 
-        Map.addSource('kml-data', {
-          type: 'geojson',
-          data: kmlData,
-        });
+      Map.addSource('places', { type: 'geojson', data: stores });
 
-        Map.addLayer({
-          id: 'kml-layer-fill',
-          type: 'fill',
-          source: 'kml-data',
-          paint: {
-            'fill-color': '#00FF20',
-            'fill-opacity': 0.3,
-          },
-        });
+      if (stores.features.length > 0) {
+        buildLocationList(stores);
+        addMarkers();
+      }
 
-        Map.addLayer({
-          id: 'kml-layer-outline',
-          type: 'line',
-          source: 'kml-data',
-          paint: {
-            'line-color': '#006400',
-            'line-width': 1.5,
-          },
-        });
+      const parser = new DOMParser();
+      const kmlDoc = parser.parseFromString(kmlData, 'text/xml');
+      const geojsonData = toGeoJSON.kml(kmlDoc);
 
-        setListingsReady(true);
-        
-        // Only create popup and highlight if there are features
-        if (stores.features.length > 0) {
-          createPopUp(stores.features[0]);
-          highlightListing(stores.features[0].properties.id);
-        }
+      Map.addSource('kml-data', { type: 'geojson', data: geojsonData });
+      Map.addLayer({
+        id: 'kml-layer-fill',
+        type: 'fill',
+        source: 'kml-data',
+        paint: { 'fill-color': '#00FF20', 'fill-opacity': 0.3 },
       });
+      Map.addLayer({
+        id: 'kml-layer-outline',
+        type: 'line',
+        source: 'kml-data',
+        paint: { 'line-color': '#006400', 'line-width': 1.5 },
+      });
+
+      setListingsReady(true);
+      
+      if (stores.features.length > 0) {
+        createPopUp(stores.features[0]);
+        highlightListing(stores.features[0].properties.id);
+      }
+    };
+
+    if (Map.isStyleLoaded()) {
+      handleLoad();
+    } else {
+      Map.on('load', handleLoad);
     }
-  }, [pageIsMounted, stores, Map]);
+
+    // Cleanup function to remove the event listener
+    return () => {
+      Map.off('load', handleLoad);
+    };
+
+  }, [Map, kmlData, stores]);
 
   useEffect(() => {
     if (!Map || !listingsReady) return;
-
-    if (isAnimating) {
-      startAnimation();
-    } else {
-      stopAnimation();
-    }
+    isAnimating ? startAnimation() : stopAnimation();
   }, [isAnimating, Map, listingsReady]);
 
   const startAnimation = () => {
-    stopAnimation(); // Clear any existing timeouts
+    stopAnimation();
     stores.features.forEach((feature, index) => {
       const timeoutId = setTimeout(() => {
-        const mapContainer = document.getElementById('map');
-        if (mapContainer) {
-          const rect = mapContainer.getBoundingClientRect();
+        const mapDiv = document.getElementById('map');
+        if (mapDiv) {
+          const rect = mapDiv.getBoundingClientRect();
           const mapIsInViewport = rect.top < window.innerHeight && rect.bottom >= 0;
           flyToStore(feature, mapIsInViewport);
         } else {
           flyToStore(feature, false);
         }
-
         createPopUp(feature);
         highlightListing(feature.properties.id);
-      }, index * 3000); // 3-second delay
+      }, index * 3000);
       animationTimeoutIds.current.push(timeoutId);
     });
   };
 
   const highlightListing = (id) => {
     const activeItem = document.getElementsByClassName(mapcss.active);
-    if (activeItem[0]) {
-      activeItem[0].classList.remove(mapcss.active);
-    }
+    if (activeItem[0]) activeItem[0].classList.remove(mapcss.active);
     const listing = document.getElementById(`listing-${id}`);
     if (listing) {
       listing.classList.add(mapcss.active);
-
       const listingsContainer = document.getElementById('listings');
       if (listingsContainer) {
         const rect = listingsContainer.getBoundingClientRect();
         const isInViewport = rect.top >= 0 && rect.bottom <= window.innerHeight;
-        if (isInViewport) {
-          listing.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
+        if (isInViewport) listing.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
     }
   };
@@ -150,90 +149,65 @@ export default function DMap({ mapData }) {
     animationTimeoutIds.current = [];
   };
 
-  const toggleAnimation = () => {
-    setIsAnimating(prev => !prev);
-  };
+  const toggleAnimation = () => setIsAnimating(prev => !prev);
 
   function addMarkers() {
     for (const marker of stores.features) {
       const el = document.createElement('div');
       el.id = `marker-${marker.properties.id}`;
-      el.style.cssText = `
-        border: none;
-        cursor: pointer;
-        height: 36px;
-        width: 36px;
-        background-image: url('tractor.gif');
-        background-repeat: no-repeat;
-        background-size: 28px 28px;
-        top: -16px;`;
       el.className = mapcss.marker;
-
-      new mapboxgl.Marker(el, { offset: [8, 18] })
-        .setLngLat(marker.geometry.coordinates)
-        .addTo(Map);
-
+      el.style.cssText = `border: none; cursor: pointer; height: 36px; width: 36px; background-image: url('tractor.gif'); background-repeat: no-repeat; background-size: 28px 28px; top: -16px;`;
+      new mapboxgl.Marker(el, { offset: [8, 18] }).setLngLat(marker.geometry.coordinates).addTo(Map);
       el.addEventListener('click', (e) => {
-        flyToStore(marker, true); // Always fly on click
+        flyToStore(marker, true);
         createPopUp(marker);
-        const activeItem = document.getElementsByClassName(mapcss.active);
         e.stopPropagation();
-        if (activeItem[0]) {
-          activeItem[0].classList.remove(mapcss.active);
-        }
-        const listing = document.getElementById(`listing-${marker.properties.id}`);
-        listing.classList.add(mapcss.active);
+        const activeItem = document.getElementsByClassName(mapcss.active);
+        if (activeItem[0]) activeItem[0].classList.remove(mapcss.active);
+        document.getElementById(`listing-${marker.properties.id}`).classList.add(mapcss.active);
       });
     }
   }
 
   function buildLocationList(stores) {
+    const listings = document.getElementById('listings');
+    if (!listings) return;
+    // Clear existing listings before building new ones
+    listings.innerHTML = '';
     for (const store of stores.features) {
-      const listings = document.getElementById('listings');
       const listing = listings.appendChild(document.createElement('div'));
       listing.id = `listing-${store.properties.id}`;
       listing.className = mapcss.item;
-
       const link = listing.appendChild(document.createElement('a'));
       link.href = '#map';
       link.className = mapcss.title;
       link.id = `link-${store.properties.id}`;
       link.innerHTML = `${store.properties.name} (view on map)`;
-
       const details = listing.appendChild(document.createElement('div'));
-      details.innerHTML = `Village : ${store.properties.address}`;
-      details.innerHTML += ` <br>AADHAAR : ${store.properties.aadhaar}`;
-      details.innerHTML += ` <br>${store.properties.UDPAcreage} acre(s) UDP done on ${store.properties.date}`;
-
+      details.innerHTML = `Village : ${store.properties.address}<br>AADHAAR : ${store.properties.aadhaar}<br>${store.properties.UDPAcreage} acre(s) UDP done on ${store.properties.date}`;
       link.addEventListener('click', function () {
         for (const feature of stores.features) {
           if (this.id === `link-${feature.properties.id}`) {
             document.getElementById('map').scrollIntoView(true);
-            flyToStore(feature, true); // Always fly on click
+            flyToStore(feature, true);
             createPopUp(feature);
           }
         }
         const activeItem = document.getElementsByClassName(mapcss.active);
-        if (activeItem[0]) {
-          activeItem[0].classList.remove(mapcss.active);
-        }
+        if (activeItem[0]) activeItem[0].classList.remove(mapcss.active);
         this.parentNode.classList.add(mapcss.active);
       });
     }
   }
 
   function flyToStore(currentFeature, animate) {
-    if (animate) {
-      Map.flyTo({
-        center: currentFeature.geometry.coordinates,
-        zoom: 16,
-      });
-    } else {
-      Map.setCenter(currentFeature.geometry.coordinates);
-    }
+    if (!Map) return;
+    if (animate) Map.flyTo({ center: currentFeature.geometry.coordinates, zoom: 16 });
+    else Map.setCenter(currentFeature.geometry.coordinates);
   }
 
   function createPopUp(currentFeature) {
+    if (!Map) return;
     const popUps = document.getElementsByClassName('mapboxgl-popup');
     if (popUps[0]) popUps[0].remove();
     new mapboxgl.Popup({ closeOnClick: false })
@@ -257,24 +231,25 @@ export default function DMap({ mapData }) {
       .addTo(Map);
   }
 
+  if (kmlError) {
+    return <Alert severity="warning" sx={{ m: 2 }}>Could not load map boundaries (KML). Please check file permissions.</Alert>;
+  }
+  if (!kmlData) {
+    return <CircularProgress sx={{m: 2}} />;
+  }
+
   return (
     <>
       <div id="wrapper" className="wrapper" style={{ position: 'relative' }}>
         <Button
           variant="contained"
           onClick={toggleAnimation}
-          style={{
-            position: 'absolute',
-            top: '5px',
-            left: '5%',
-            // transform: 'translateX(100%)',
-            zIndex: 1,
-          }}
+          style={{ position: 'absolute', top: '5px', left: '5%', zIndex: 1 }}
           startIcon={isAnimating ? <StopIcon /> : <PlayArrowIcon />}
         >
           {isAnimating ? 'Stop Tour' : 'Start Tour'}
         </Button>
-        <div id="map" className={mapcss.map}></div>
+        <div ref={mapContainer} id="map" className={mapcss.map}></div>
         <div id="listings" className={mapcss.listings}></div>
         {Map && <LiveLocation map={Map} />}
       </div>

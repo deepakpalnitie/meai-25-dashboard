@@ -13,6 +13,8 @@ The project is built with a **multi-tenant architecture**, allowing a single, un
 *   **Backend:** Google Apps Script, Google Sheets, Google Drive
 *   **Deployment:** Vercel
 
+For details on the recent client-side caching implementation, see the [Feature Roadmap](./feature-roadmap.md).
+
 ---
 
 ## 2. System Architecture
@@ -40,9 +42,12 @@ The `projectId` is a critical identifier that links the frontend, the backend, a
 
 ### 2.2. Frontend (Next.js)
 
-The frontend is a Next.js application deployed on Vercel.
-*   **`middleware.js`**: On every request, this middleware reads the hostname, finds the corresponding project in `projects.json`, and rewrites the URL to the generic `/project` page, passing the hostname as a query parameter.
-*   **`pages/project.js`**: This page uses the hostname to fetch and display the correct project's data.
+The frontend is a Next.js application deployed on Vercel. It uses a client-side data fetching strategy with caching to provide a fast, resilient user experience.
+
+*   **`middleware.js`**: On every request, this middleware reads the hostname and rewrites the URL to the generic `/project` page, passing the hostname as a query parameter.
+*   **`pages/api/project-data.js`**: This is a proxy API route. The frontend calls this route, which then securely calls the Google Apps Script backend to fetch the project data.
+*   **`pages/project.js`**: This page uses the `useSWR` hook to fetch data from the proxy API route. SWR provides automatic caching, revalidation, and offline support.
+*   **`pages/_app.js`**: This file configures SWR to use the browser's `localStorage` as a persistent cache, allowing the dashboard to be viewed offline.
 
 ### 2.3. Backend (Google Apps Script)
 

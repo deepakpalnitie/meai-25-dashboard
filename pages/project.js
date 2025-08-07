@@ -1,29 +1,21 @@
 import * as React from 'react';
 import Head from 'next/head';
-const { DOMParser } = require('@xmldom/xmldom');
-const toGeoJSON = require('@mapbox/togeojson');
+import { useRouter } from 'next/router';
+import useSWR from 'swr';
 import projectsConfig from '../projects.json';
-
 
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
+import CircularProgress from '@mui/material/CircularProgress';
+import Alert from '@mui/material/Alert';
 
-import Link from '../src/Link';
 import CountUp from 'react-countup';
-
 import Layout from "../components/Layout";
 import DMap from '../components/DMap';
-
-
 import Chart from '../components/Chart';
 import { styled } from '@mui/material/styles';
 
-const Div = styled('div')(({ theme }) => ({
-  ...theme.typography.button,
-  backgroundColor: theme.palette.background.paper,
-  padding: theme.spacing(1),
-}));
 const Paper2 = styled(Paper)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
@@ -32,92 +24,58 @@ const Paper2 = styled(Paper)(({ theme }) => ({
   textAlign: "center",
   verticalAlign: "middle",
   padding: "1.5em 0",
-
 }));
 
-
-// The single, unified Apps Script URL.
-const APPS_SCRIPT_BASE_URL = "https://script.google.com/macros/s/AKfycbz_RT3XRhkgntax0Mdkjf6EgPpLd0Cvej9xEjWfKk14C44xqL61llLgHI5P2r1UoZ58nQ/exec";
-
-export async function getServerSideProps(context) {
-  const { projectHostname } = context.query;
-  const projectDetails = projectsConfig[projectHostname];
-
-  if (!projectDetails) {
-    return { notFound: true };
-  }
-
-  try {
-    // Construct the full API URL with the specific projectId
-    const fullApiUrl = `${APPS_SCRIPT_BASE_URL}?projectId=${projectDetails.projectId}`;
-    
-    // Fetch data from the single Apps Script web app
-    const res = await fetch(fullApiUrl);
-    const data = await res.json();
-
-    // Check for an error from the Apps Script itself
-    if (data.error) {
-      throw new Error(`Backend Error: ${data.error}`);
-    }
-
-    // Fetch KML data separately
-    const resKml = await fetch(projectDetails.kmlUrl);
-    const kmlData = await resKml.text();
-
-    // Basic validation to ensure we received KML, not an HTML error page
-    if (kmlData.trim().startsWith('<!DOCTYPE html>')) {
-      throw new Error('Failed to fetch KML data. Check file permissions.');
-    }
-
-    const parser = new DOMParser();
-    const kmlDoc = parser.parseFromString(kmlData, 'text/xml');
-    let geojsonData;
-    try {
-      geojsonData = toGeoJSON.kml(kmlDoc);
-    } catch (error) {
-      console.error("Error converting KML to GeoJSON:", error);
-      geojsonData = { type: 'FeatureCollection', features: [] };
-    }
-  
-    data["kmlData"] = geojsonData;
-
-    // Pass the project details and fetched data as props to the component
-    return {
-      props: {
-        project: {
-          name: projectDetails.name,
-          location: projectDetails.location,
-          data: data,
-        },
-      },
-    };
-  } catch (error) {
-    console.error(`Error fetching data for ${projectHostname}:`, error);
-    return {
-      props: {
-        project: {
-          name: projectDetails.name,
-          location: projectDetails.location,
-          data: null,
-          error: `Failed to fetch project data. Reason: ${error.message}`,
-        },
-      },
-    };
-  }
-}
-
+// A simple fetcher function for useSWR
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
 // The main component that renders the UI
-export default function ProjectPage({ project }) {
-  if (!project) {
-    return <div>Project not found.</div>;
+export default function ProjectPage() {
+  const router = useRouter();
+  const { projectHostname } = router.query;
+
+  // Get static project details from the config file
+  const projectDetails = projectHostname ? projectsConfig[projectHostname] : null;
+
+  // Use SWR to fetch dynamic data from our API route
+  const { data, error } = useSWR(
+    projectHostname ? `/api/project-data?projectHostname=${projectHostname}` : null,
+    fetcher
+  );
+
+  // --- Render Loading State ---
+  if (!projectDetails) {
+    // This can happen on the first render when router.query is not yet populated
+    return <Layout title="Loading..."><Box sx={{ display: 'flex', justifyContent: 'center', my: 4 }}><CircularProgress /></Box></Layout>;
   }
 
-  if (project.error) {
-    return <div>Error: {project.error}</div>;
+  if (error) {
+    return (
+      <Layout title={`Error - ${projectDetails.name}`}>
+        <Alert severity="error" sx={{ m: 2 }}>
+          Failed to load project data. The backend may be temporarily unavailable. Please try again later.
+        </Alert>
+      </Layout>
+    );
   }
-  const data = project.data
-  const user = true
+
+  if (!data) {
+    return (
+      <Layout title={`Loading - ${projectDetails.name}`}>
+        <Typography variant="h4" component="h1" gutterBottom align='center' color={'#606060'} sx={{mt: 4}}>
+          {projectDetails.name}
+        </Typography>
+        <Typography variant="subtitle1" display="block" gutterBottom align='center' color={'grey'}>
+          {projectDetails.location}
+        </Typography>
+        <Box sx={{ display: 'flex', justifyContent: 'center', my: 4 }}>
+          <CircularProgress />
+        </Box>
+      </Layout>
+    );
+  }
+  
+  // --- Render Dashboard with Data ---
   const totalAcreage = data["impactData"]["acreage"]["total"];
   const waterSaved = totalAcreage * 3.004;
   const emissionReduced = totalAcreage * 0.9656;
@@ -127,30 +85,27 @@ export default function ProjectPage({ project }) {
   const farmerIncomeIncrease = totalAcreage * 0.38354;
 
   return (
-    <Layout title={project.name}>
-    {user ? (
-      <>
-        <Box sx={{ my: 4 }}>
+    <Layout title={projectDetails.name}>
+      <Box sx={{ my: 4 }}>
+        <Typography variant="h4" component="h1" gutterBottom align='center' color={'#606060'}>
+          {projectDetails.name}
+        </Typography>
+        <Typography variant="subtitle1" display="block" gutterBottom align='center' color={'grey'}>
+          {projectDetails.location}
+        </Typography>
 
-          <Typography variant="h4" component="h1" gutterBottom align='center' color={'#606060'}>
-            {project.name}
-          </Typography>
-          <Typography variant="subtitle1" display="block" gutterBottom align='center' color={'grey'}>
-            {project.location}
-          </Typography>
-
-          <Box
-            sx={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              '& > :not(style)': {
-                m: 1,
-                width: { xs: '45%', md: '30%' },
-                margin: "0.5em auto",
-              },
-            }}
-          >
-            <Paper2 elevation={3} sx={{ background: "rgb(23, 109, 10)" }}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            '& > :not(style)': {
+              m: 1,
+              width: { xs: '45%', md: '30%' },
+              margin: "0.5em auto",
+            },
+          }}
+        >
+           <Paper2 elevation={3} sx={{ background: "rgb(23, 109, 10)" }}>
               <Typography color="#ddd" variant="subtitle2"
               >Total UDP acreage</Typography>
               <Typography color="#fff" variant='h4' component="p">
@@ -215,16 +170,15 @@ export default function ProjectPage({ project }) {
               </Typography>
               <Typography color="#ddd" variant="subtitle2">lakh ₹</Typography>
             </Paper2>
-          </Box>
-          <Typography variant="caption" display="block" gutterBottom align='center' color={'grey'}>
-            *Projected numbers are based on past project data.
-          </Typography>
-
-          <DMap mapData={data} />
-          <Chart chartData={data} />
-
         </Box>
-      </>) : "Please, login to access dashboard"}
-  </Layout>
+        <Typography variant="caption" display="block" gutterBottom align='center' color={'grey'}>
+          *Projected numbers are based on past project data.
+        </Typography>
+
+        <DMap mapData={data} projectHostname={projectHostname} />
+        <Chart chartData={data} />
+      </Box>
+    </Layout>
   );
 }
+

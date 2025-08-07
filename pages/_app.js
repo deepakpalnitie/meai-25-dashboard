@@ -6,9 +6,29 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider } from '@emotion/react';
 import theme from '../src/theme';
 import createEmotionCache from '../src/createEmotionCache';
+import { SWRConfig } from 'swr';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
+
+// localStorage provider for SWR
+function localStorageProvider() {
+  if (typeof window === 'undefined') {
+    return new Map();
+  }
+  
+  // When initializing, restore the data from localStorage.
+  const map = new Map(JSON.parse(localStorage.getItem('app-cache') || '[]'));
+
+  // Before unloading the app, we write back all the data into localStorage.
+  window.addEventListener('beforeunload', () => {
+    const appCache = JSON.stringify(Array.from(map.entries()));
+    localStorage.setItem('app-cache', appCache);
+  });
+
+  // We still use the map for write & read for performance.
+  return map;
+}
 
 export default function MyApp(props) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
@@ -17,13 +37,12 @@ export default function MyApp(props) {
     <CacheProvider value={emotionCache}>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
-        {/* <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />   */}
-        
       </Head>
       <ThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <Component {...pageProps} />
+        <SWRConfig value={{ provider: localStorageProvider }}>
+          <Component {...pageProps} />
+        </SWRConfig>
       </ThemeProvider>
     </CacheProvider>
   );
