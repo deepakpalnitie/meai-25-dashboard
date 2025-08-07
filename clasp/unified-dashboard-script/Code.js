@@ -138,6 +138,8 @@ function combineProjectKml(projectId) {
   const kmlCombinedValues = sh.getRange(data_strt_rw, edtKmlCmbndCol, lRow - data_strt_rw + 1, 1).getValues();
   const kmlFileRichTextValues = sh.getRange(data_strt_rw, colKmlFile, lRow - data_strt_rw + 1, 1).getRichTextValues();
   const placemarkRegex = /<Placemark\b[^>]*>[\s\S]*?<\/Placemark>/g;
+  const coordinatesRegex = /<coordinates>([\s\S]*?)<\/coordinates>/;
+  const polygonRegex = /<Polygon>[\s\S]*?<\/Polygon>/;
 
   const combinedFile = DriveApp.getFileById(config.kmlFileId);
   let combinedData = combinedFile.getBlob().getDataAsString();
@@ -154,9 +156,28 @@ function combineProjectKml(projectId) {
             console.log(`Processing KML for row ${currentRow}`);
             const kmlContent = DriveApp.getFileById(fileId[0]).getBlob().getDataAsString();
             const placemarks = kmlContent.match(placemarkRegex);
+
             if (placemarks) {
-              placemarksToAdd.push(...placemarks);
-              sh.getRange(currentRow, edtKmlCmbndCol).setValue(true); // Mark as combined
+              const validPlacemarks = placemarks.filter(pm => polygonRegex.test(pm));
+
+              const fixedPlacemarks = validPlacemarks.map(placemark => {
+                const coordMatch = placemark.match(coordinatesRegex);
+                if (coordMatch && coordMatch[1]) {
+                  let coords = coordMatch[1].trim().split(/\s+/).filter(c => c);
+                  
+                  if (coords.length > 0 && coords[0] !== coords[coords.length - 1]) {
+                    console.log(`Closing polygon for row ${currentRow}`);
+                    coords.push(coords[0]);
+                  }
+                  
+                  const formattedCoords = coords.join('\n');
+                  return placemark.replace(coordinatesRegex, `<coordinates>\n${formattedCoords}\n<\/coordinates>`);
+                }
+                return placemark;
+              });
+
+              placemarksToAdd.push(...fixedPlacemarks);
+              sh.getRange(currentRow, edtKmlCmbndCol).setValue(true);
             }
           }
         } catch (e) {
@@ -169,7 +190,7 @@ function combineProjectKml(projectId) {
   if (placemarksToAdd.length > 0) {
     const insertionPoint = combinedData.lastIndexOf("</Document>");
     if (insertionPoint !== -1) {
-      const newContent = combinedData.substring(0, insertionPoint) + placemarksToAdd.join('\n') + '\n</Document>\n</kml>';
+      const newContent = combinedData.substring(0, insertionPoint) + placemarksToAdd.join('\n') + '\n<\/Document>\n<\/kml>';
       combinedFile.setContent(newContent);
       console.log(`Appended ${placemarksToAdd.length} new placemarks to combined KML for ${projectId}.`);
     }

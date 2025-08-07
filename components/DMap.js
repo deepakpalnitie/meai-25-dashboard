@@ -24,11 +24,20 @@ export default function DMap({ mapData }) {
 
   useEffect(() => {
     setPageIsMounted(true);
+
+    // Set a default center, e.g., a central point in India.
+    // Use the first feature's coordinates if available, otherwise use the default.
+    const initialCenter = stores.features.length > 0
+      ? stores.features[0].geometry.coordinates
+      : [78.9629, 20.5937]; // Default center (India)
+
+    const initialZoom = stores.features.length > 0 ? 16 : 5; // Zoom out if no features
+
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/satellite-streets-v11',
-      center: stores.features[0].geometry.coordinates,
-      zoom: 16,
+      center: initialCenter,
+      zoom: initialZoom,
       scrollZoom: true,
     });
 
@@ -44,8 +53,11 @@ export default function DMap({ mapData }) {
           data: stores,
         });
 
-        buildLocationList(stores);
-        addMarkers();
+        // Only build markers and listings if there are features
+        if (stores.features.length > 0) {
+          buildLocationList(stores);
+          addMarkers();
+        }
 
         Map.addSource('kml-data', {
           type: 'geojson',
@@ -73,8 +85,12 @@ export default function DMap({ mapData }) {
         });
 
         setListingsReady(true);
-        createPopUp(stores.features[0]);
-        highlightListing(stores.features[0].properties.id);
+        
+        // Only create popup and highlight if there are features
+        if (stores.features.length > 0) {
+          createPopUp(stores.features[0]);
+          highlightListing(stores.features[0].properties.id);
+        }
       });
     }
   }, [pageIsMounted, stores, Map]);

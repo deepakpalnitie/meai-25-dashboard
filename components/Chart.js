@@ -82,42 +82,49 @@ export const dataVillage = {
   ],
 };
 const Chart = ({ chartData }) => {
-  console.log("chartData", chartData)
-  const labelsVillage = chartData["chartData"]["labelsVillage"]
-  console.log("labelsVillage", labelsVillage)
+  // Check if chartData and its nested properties are available and not empty.
+  const hasData = chartData && 
+                  chartData.chartData && 
+                  chartData.chartData.labelsVillage && 
+                  chartData.chartData.labelsVillage.length > 0;
+
+  if (!hasData) {
+    return (
+      <div style={{ height: "350px", margin: "1em 0", textAlign: "center", paddingTop: "50px" }}>
+        <p>No chart data available for this project.</p>
+      </div>
+    );
+  }
+
+  const labelsVillage = chartData.chartData.labelsVillage;
   const dataVillage = {
     labels: labelsVillage,
     datasets: [
       {
         label: 'Acreage',
-        data: chartData["chartData"]["acreage"],
+        data: chartData.chartData.acreage,
         backgroundColor: 'rgba(55, 99, 132, 0.5)',
       },
       {
         label: 'Total Farmers',
-        data: chartData["chartData"]["farmerCount"],
+        data: chartData.chartData.farmerCount,
         backgroundColor: 'rgba(55, 199, 132, 0.5)',
       },
       {
         label: 'Total Plots',
-        data: chartData["chartData"]["plotCount"],
+        data: chartData.chartData.plotCount,
         backgroundColor: 'rgba(55, 99, 232, 0.5)',
       }
     ],
   };
+
   return (
     <>
-      {/* <div style={{ height: "350px", margin:"1em 0" }} >
-        <Bar options={optionsDate} data={dataDate} />
-      </div>
-
-      <hr /> */}
       <div style={{ height: "350px", margin: "1em 0" }} >
         <Bar options={optionsVillage} data={dataVillage} />
       </div>
-
     </>
-  )
+  );
 }
 
 export default Chart
