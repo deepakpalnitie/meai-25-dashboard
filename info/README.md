@@ -110,3 +110,24 @@ The environmental and economic impact numbers displayed on the dashboard are cal
 *   **`lib/`**: Contains helper functions, primarily for user authentication.
 *   **`info/`**: A dedicated folder for project documentation and artifacts. It contains this `README.md`, historical plans (`unified-script-plan.md`), issue logs (`issue.md`), sample data (`.kml` files), and calculation logic (`imactNumbers.md`) that chart the project's evolution.
 *   **`sample-KML/`**: Contains sample KML files used for testing and development.
+
+---
+
+## 8. KML Validation Utility
+
+To debug issues related to KML parsing, a validation script is available at `kml_validator/validate.js`. This utility helps diagnose problems with the combined KML files for each project.
+
+### How it Works
+The script reads the `projects.json` file, fetches the combined KML file for each project from its specified `kmlUrl`, and performs the following actions:
+1.  **Downloads** the KML file from Google Drive.
+2.  **Saves** a local copy to the `kml_validator/downloads/` directory.
+3.  **Validates** the file by attempting to parse it as XML.
+4.  **Reports** a `SUCCESS` or `FAILED` status for each project in the console.
+
+This process allows developers to quickly identify which project's KML is malformed and inspect the downloaded file to find the source of the error.
+
+### How to Run
+To execute the validator, run the following command from the project root:
+```bash
+node kml_validator/validate.js
+```
