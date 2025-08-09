@@ -1,32 +1,85 @@
 {
-  "waterSaved": {
-    "label": "Water Saved",
-    "unit": "TCM (Thousand m³)",
-    "formula": "acreage * 3.004"
+  "defaults": {
+    "waterSaved": {
+      "label": "Water Saved",
+      "unit": "TCM (Thousand m³)",
+      "multiplier": 3.004,
+      "enabled": true,
+      "type": "calculated"
+    },
+    "emissionReduced": {
+      "label": "Emission Reduced",
+      "unit": "metric ton (tCO₂e)",
+      "multiplier": 0.9656,
+      "enabled": true,
+      "type": "calculated"
+    },
+    "fertilizerSaved": {
+      "label": "Fertilizer Saved",
+      "unit": "metric ton",
+      "multiplier": 0.09,
+      "enabled": true,
+      "type": "calculated"
+    },
+    "ureaSubsidySaved": {
+      "label": "Urea Subsidy Saved",
+      "unit": "lakh ₹",
+      "multiplier": 0.046,
+      "enabled": true,
+      "type": "calculated"
+    },
+    "paddyYieldIncrease": {
+      "label": "Paddy Yield Increase",
+      "unit": "metric ton",
+      "multiplier": 0.76,
+      "enabled": true,
+      "type": "calculated"
+    },
+    "farmerIncomeIncrease": {
+      "label": "Farmer Income Increase",
+      "unit": "lakh ₹",
+      "multiplier": 0.38354,
+      "enabled": true,
+      "type": "calculated"
+    },
+    "farmersServed": {
+      "label": "Farmers Served",
+      "enabled": false,
+      "type": "direct",
+      "dataPath": "impactData.frmr_count.total"
+    },
+    "plotsCovered": {
+      "label": "Plots Covered",
+      "enabled": false,
+      "type": "direct",
+      "dataPath": "impactData.plot_count.total"
+    }
   },
-  "emissionReduced": {
-    "label": "Emission Reduced",
-    "unit": "metric ton (tCO₂e)",
-    "formula": "acreage * 0.9656"
-  },
-  "fertilizerSaved": {
-    "label": "Fertilizer Saved",
-    "unit": "metric ton",
-    "formula": "acreage * 0.09"
-  },
-  "ureaSubsidySaved": {
-    "label": "Urea Subsidy Saved",
-    "unit": "lakh ₹",
-    "formula": "acreage * 0.046"
-  },
-  "paddyYieldIncrease": {
-    "label": "Paddy Yield Increase",
-    "unit": "metric ton",
-    "formula": "acreage * 0.76"
-  },
-  "farmerIncomeIncrease": {
-    "label": "Farmer Income Increase",
-    "unit": "lakh ₹",
-    "formula": "acreage * 0.38354"
+  "projects": {
+    "meai": {},
+    "aai": { 
+      "farmersServed": {
+        "enabled": true
+      },
+      "plotsCovered": {
+        "enabled": true
+      }
+    },
+    "irctc": {
+      "farmersServed": {
+        "enabled": true
+      },
+      "plotsCovered": {
+        "enabled": true
+      }
+    },
+    "evalueserve": {
+      "farmersServed": {
+        "enabled": true
+      },
+      "plotsCovered": {
+        "enabled": true
+      }
+    }
   }
 }

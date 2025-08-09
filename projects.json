@@ -7,18 +7,7 @@
     "jsonFileId": "1Ebykn1coBUHWdSalJzloyrFDiqnzqQaL",
     "mediaFolderId": "1NrCmuxUKyPZIWg0lHoBjkGKc4ox6LUaD",
     "kmlFileId": "1glLFP_YF4c30odgdMjYBc___D_9KA_Zv",
-    "kmlUrl": "https://drive.google.com/uc?export=download&id=1glLFP_YF4c30odgdMjYBc___D_9KA_Zv",
-    "impactNumbers": [
-      "waterSaved",
-      "emissionReduced",
-      "fertilizerSaved",
-      "ureaSubsidySaved",
-      "paddyYieldIncrease",
-      "farmerIncomeIncrease"
-    ],
-    "metrics": [
-      
-    ]
+    "kmlUrl": "https://drive.google.com/uc?export=download&id=1glLFP_YF4c30odgdMjYBc___D_9KA_Zv"
   },
   "csr-aai.distincthorizon.net": {
     "name": "AAI CSR Project, 2025",
@@ -28,16 +17,7 @@
     "jsonFileId": "195R6E23ob_y5_B16NdVabfaXz_01_TJB",
     "mediaFolderId": "1cDsaZ5RhJJGw7L7Jc2FNZfJpHhez8Jr0",
     "kmlFileId": "1K1vM4yc6TcTSJQ1NGU5jwTpFiIfzO88-",
-    "kmlUrl": "https://drive.google.com/uc?export=download&id=1K1vM4yc6TcTSJQ1NGU5jwTpFiIfzO88-",
-    "impactNumbers": [
-      "waterSaved",
-      "emissionReduced",
-      "farmerIncomeIncrease"
-    ],
-    "metrics": [
-      "farmersServed",
-      "plotsCovered"
-    ]
+    "kmlUrl": "https://drive.google.com/uc?export=download&id=1K1vM4yc6TcTSJQ1NGU5jwTpFiIfzO88-"
   },
   "csr-irctc.distincthorizon.net": {
     "name": "IRCTC CSR Project, 2025",
@@ -47,11 +27,7 @@
     "jsonFileId": "1z9rpOjjzAhNcDl4TcIoxCndUdJRR4dTx",
     "mediaFolderId": "1U7E43mskNXqiIYvmtCKQP7fqifH8MWJr",
     "kmlFileId": "1RIqqm_QCkrX10DE9UpQdS3tcHfUuOXrI",
-    "kmlUrl": "https://drive.google.com/uc?export=download&id=1RIqqm_QCkrX10DE9UpQdS3tcHfUuOXrI",
-    "impactNumbers": [
-      "paddyYieldIncrease",
-      "farmerIncomeIncrease"
-    ]
+    "kmlUrl": "https://drive.google.com/uc?export=download&id=1RIqqm_QCkrX10DE9UpQdS3tcHfUuOXrI"
   },
   "csr-evalueserve.distincthorizon.net": {
     "name": "Evalueserve CSR Project, 2025",

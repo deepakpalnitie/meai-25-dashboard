@@ -112,24 +112,11 @@ export default function ProjectPage() {
                 <Typography color="#ddd" variant="subtitle2">&nbsp;</Typography>
               </Paper2>
 
-              {projectDetails.metrics && projectDetails.metrics.map((metricKey) => {
-                const metricMap = {
-                  farmersServed: {
-                    label: "Farmers Served",
-                    value: data.impactData.frmr_count.total,
-                    color: "#005792"
-                  },
-                  plotsCovered: {
-                    label: "Plots Covered",
-                    value: data.impactData.plot_count.total,
-                    color: "#dc2f2f"
-                  }
-                };
-                const metric = metricMap[metricKey];
-                if (!metric) return null;
-
+              {data.directMetrics && Object.entries(data.directMetrics).map(([key, metric], index) => {
+                const colors = ["#005792", "#dc2f2f"];
+                const color = colors[index % colors.length];
                 return (
-                  <Paper2 key={metricKey} elevation={3} sx={{ background: metric.color }}>
+                  <Paper2 key={key} elevation={3} sx={{ background: color }}>
                     <Typography color="#ddd" variant="subtitle2">{metric.label}</Typography>
                     <Typography color="#fff" variant='h4' component="p">
                       <CountUp end={metric.value} duration={5} />
@@ -139,20 +126,14 @@ export default function ProjectPage() {
                 );
               })}
               
-              {projectDetails.impactNumbers && projectDetails.impactNumbers.map((impactKey, index) => {
-                const impactDef = impactDefinitions[impactKey];
-                if (!impactDef) return null;
-
-                const acreage = data.impactData.acreage.total;
-                const value = eval(impactDef.formula.replace(/acreage/g, acreage));
+              {data.calculatedMetrics && Object.entries(data.calculatedMetrics).map(([key, metric], index) => {
                 const colors = ["#005792", "#4e9bbf", "#dc2f2f", "#8e44ad", "#27ae60", "#2980b9"];
                 const color = colors[index % colors.length];
-
                 return (
-                  <Paper2 key={impactKey} elevation={3} sx={{ background: color }}>
-                    <Typography color="#ddd" variant="subtitle2">{impactDef.label} (projected)</Typography>
-                    <Typography color="#fff" variant='h4' component="p"><CountUp end={value} duration={5} /></Typography>
-                    <Typography color="#ddd" variant="subtitle2">{impactDef.unit}</Typography>
+                  <Paper2 key={key} elevation={3} sx={{ background: color }}>
+                    <Typography color="#ddd" variant="subtitle2">{metric.label} (projected)</Typography>
+                    <Typography color="#fff" variant='h4' component="p"><CountUp end={metric.value} duration={5} /></Typography>
+                    <Typography color="#ddd" variant="subtitle2">{metric.unit}</Typography>
                   </Paper2>
                 );
               })}

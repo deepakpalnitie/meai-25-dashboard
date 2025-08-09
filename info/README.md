@@ -125,7 +125,71 @@ The downloaded files are saved in the `kml_validator/downloads/` and `json_valid
 
 ---
 
-## 5. Key Project Links
+## 6. Dashboard Metrics Management
+
+All metrics displayed on the dashboard, including both calculated impact numbers and direct data points, are managed centrally in the `impact.json` file. This file acts as the single source of truth for what is displayed, how it's calculated, and what it's called on a per-project basis.
+
+The calculation logic has been moved from the Google Apps Script backend to the Next.js API route (`pages/api/project-data.js`) to centralize project configuration.
+
+### 6.1. `impact.json` Structure
+
+The file has two main parts: `defaults` and `projects`.
+
+*   **`defaults`**: This object contains the master configuration for every possible metric. Each metric has a `label`, `unit`, `enabled` status, a `type` (`calculated` or `direct`), and a `multiplier` (for calculated metrics).
+*   **`projects`**: This object allows you to override the default settings for specific projects, identified by their `projectId` (e.g., "meai", "aai").
+
+### 6.2. How to Configure Metrics
+
+You can control the dashboard display with the following overrides in the `projects` section of `impact.json`:
+
+*   **To enable or disable a metric**: Override its `enabled` property. For example, to show "Farmers Served" for the "aai" project, you would set `"enabled": true`.
+*   **To change a calculation multiplier**: Override the `multiplier` property. For example, to use a different income calculation for the "meai" project, you can set a new `multiplier`.
+
+If a project has no entry in the `projects` section, it will use the `defaults` for all metrics.
+
+### 6.3. Example Configuration
+
+Here is a snippet illustrating the structure:
+
+```json
+{
+  "defaults": {
+    "farmerIncomeIncrease": {
+      "label": "Farmer Income Increase",
+      "unit": "lakh ₹",
+      "multiplier": 0.38354,
+      "enabled": true,
+      "type": "calculated"
+    },
+    "farmersServed": {
+      "label": "Farmers Served",
+      "enabled": false,
+      "type": "direct"
+    }
+  },
+  "projects": {
+    "meai": {
+      "farmerIncomeIncrease": {
+        "multiplier": 0.40
+      }
+    },
+    "aai": {
+      "farmersServed": {
+        "enabled": true
+      }
+    }
+  }
+}
+```
+
+In this example:
+*   The `meai` project uses a custom multiplier for `farmerIncomeIncrease`.
+*   The `aai` project enables the `farmersServed` metric, which is disabled by default.
+*   All other metrics for these projects will fall back to the settings in `defaults`.
+
+---
+
+## 7. Key Project Links
 
 
 *   **Primary Account:** All assets are managed under **distincthorizon1@gmail.com**.
@@ -156,7 +220,7 @@ The downloaded files are saved in the `kml_validator/downloads/` and `json_valid
 
 ---
 
-## 5. Local Testing
+## 8. Local Testing
 
 Because the application is multi-tenant, you cannot test different projects by simply visiting `http://localhost:3000`. You must simulate the behavior of the production middleware by manually adding the `projectHostname` query parameter to the URL.
 
@@ -167,19 +231,7 @@ Because the application is multi-tenant, you cannot test different projects by s
 
 ---
 
-## 6. Impact Number Calculation
-
-The environmental and economic impact numbers displayed on the dashboard are calculated based on the **Total UDP Acreage**. 
-
-### 6.1. Calculation Formulas
-For a detailed breakdown of the formulas and data sources used in these calculations, please refer to the [Projected Impact Number Calculations](./imactNumbers.md) document.
-
-### 6.2. Dashboard Display Management
-The dashboard provides granular control over which impact numbers are displayed for each project. For a guide on how to configure this, see the [Impact Number Management](./impact-number-management.md) documentation.
-
----
-
-## 7. Project Structure & Key Files
+## 9. Project Structure & Key Files
 
 *   **`pages/project.js`**: The dynamic page that renders individual project dashboards. It uses `getServerSideProps` to fetch data based on the `projectHostname` query parameter provided by the middleware.
 *   **`components/DMap.js`**: The core Mapbox GL JS component for rendering interactive maps, KML boundaries, and location markers.
@@ -189,7 +241,7 @@ The dashboard provides granular control over which impact numbers are displayed 
 
 ---
 
-## 8. KML Validation Utility
+## 10. KML Validation Utility
 
 To debug issues related to KML parsing, a validation script is available at `kml_validator/validate.js`. This utility helps diagnose problems with the combined KML files for each project.
 
