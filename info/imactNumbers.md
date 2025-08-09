@@ -63,3 +63,9 @@ The primary input for these calculations is the **Total UDP Acreage**.
   - **Total Increase per Acre:**
     - Total: `₹37,810 + ₹544 = ₹38,354`
   - **Conversion to Lakh Rupees:** `₹38,354 / 100,000 = 0.38354`
+
+---
+
+## Configuring Dashboard Display
+
+The formulas above provide the basis for the calculations shown on the dashboard. For details on how to configure which impact numbers are displayed for each project, please see the [Impact Number Management](./impact-number-management.md) guide.

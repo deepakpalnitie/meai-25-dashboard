@@ -13,7 +13,7 @@ The project is built with a **multi-tenant architecture**, allowing a single, un
 *   **Backend:** Google Apps Script, Google Sheets, Google Drive
 *   **Deployment:** Vercel
 
-For details on the recent client-side caching implementation, see the [Feature Roadmap](./feature-roadmap.md).
+For details on the recent client-side caching implementation, see the [Feature Roadmap](./feature-roadmap.md). To see the history of feature implementation, see the [Feature Development Plan](./feature-development-plan.md).
 
 ---
 
@@ -169,7 +169,13 @@ Because the application is multi-tenant, you cannot test different projects by s
 
 ## 6. Impact Number Calculation
 
-The environmental and economic impact numbers displayed on the dashboard are calculated based on the **Total UDP Acreage**. For a detailed breakdown of the formulas and data sources used, please refer to the [`info/imactNumbers.md`](./imactNumbers.md) file.
+The environmental and economic impact numbers displayed on the dashboard are calculated based on the **Total UDP Acreage**. 
+
+### 6.1. Calculation Formulas
+For a detailed breakdown of the formulas and data sources used in these calculations, please refer to the [Projected Impact Number Calculations](./imactNumbers.md) document.
+
+### 6.2. Dashboard Display Management
+The dashboard provides granular control over which impact numbers are displayed for each project. For a guide on how to configure this, see the [Impact Number Management](./impact-number-management.md) documentation.
 
 ---
 
@@ -179,7 +185,7 @@ The environmental and economic impact numbers displayed on the dashboard are cal
 *   **`components/DMap.js`**: The core Mapbox GL JS component for rendering interactive maps, KML boundaries, and location markers.
 *   **`lib/`**: Contains helper functions, primarily for user authentication.
 *   **`info/`**: A dedicated folder for project documentation and artifacts. It contains this `README.md`, historical plans (`unified-script-plan.md`), issue logs (`issue.md`), sample data (`.kml` files), and calculation logic (`imactNumbers.md`) that chart the project's evolution.
-*   **`sample-KML/`**: Contains sample KML files used for testing and development.
+*   **`sample-KML/`**: Contains sample KML files for testing and development.
 
 ---
 
@@ -201,3 +207,4 @@ To execute the validator, run the following command from the project root:
 ```bash
 node kml_validator/validate.js
 ```
+

@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
 import projectsConfig from '../projects.json';
+import impactDefinitions from '../impact.json';
 
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
@@ -110,36 +111,51 @@ export default function ProjectPage() {
                 <Typography color="#fff" variant='h4' component="p"><CountUp end={data.impactData.vill_count.total} duration={5} /></Typography>
                 <Typography color="#ddd" variant="subtitle2">&nbsp;</Typography>
               </Paper2>
-              <Paper2 elevation={3} sx={{ background: "#005792" }}>
-                <Typography color="#ddd" variant="subtitle2">Fertilizer Saved (projected)</Typography>
-                <Typography color="#fff" variant='h4' component="p"><CountUp end={data.impactData.acreage.total * 0.09} duration={5} /></Typography>
-                <Typography color="#ddd" variant="subtitle2">metric ton</Typography>
-              </Paper2>
-              <Paper2 elevation={3} sx={{ background: "#4e9bbf" }}>
-                <Typography color="#ddd" variant="subtitle2">Water Saved (projected)</Typography>
-                <Typography color="#fff" variant='h4' component="p"><CountUp end={data.impactData.acreage.total * 3.004} duration={5} /></Typography>
-                <Typography color="#ddd" variant="subtitle2">TCM (Thousand m³)</Typography>
-              </Paper2>
-              <Paper2 elevation={3} sx={{ background: "#dc2f2f" }}>
-                <Typography color="#ddd" variant="subtitle2">Emission Reduced (projected)</Typography>
-                <Typography color="#fff" variant='h4' component="p"><CountUp end={data.impactData.acreage.total * 0.9656} duration={5} /></Typography>
-                <Typography color="#ddd" variant="subtitle2">metric ton</Typography>
-              </Paper2>
-              <Paper2 elevation={3} sx={{ background: "#8e44ad" }}>
-                <Typography color="#ddd" variant="subtitle2">Urea Subsidy Saved (projected)</Typography>
-                <Typography color="#fff" variant='h4' component="p"><CountUp end={data.impactData.acreage.total * 0.046} duration={5} /></Typography>
-                <Typography color="#ddd" variant="subtitle2">lakh ₹</Typography>
-              </Paper2>
-              <Paper2 elevation={3} sx={{ background: "#27ae60" }}>
-                <Typography color="#ddd" variant="subtitle2">Paddy Yield Increase (projected)</Typography>
-                <Typography color="#fff" variant='h4' component="p"><CountUp end={data.impactData.acreage.total * 0.76} duration={5} /></Typography>
-                <Typography color="#ddd" variant="subtitle2">metric ton</Typography>
-              </Paper2>
-              <Paper2 elevation={3} sx={{ background: "#2980b9" }}>
-                <Typography color="#ddd" variant="subtitle2">Farmer Income Increase (projected)</Typography>
-                <Typography color="#fff" variant='h4' component="p"><CountUp end={data.impactData.acreage.total * 0.38354} duration={5} /></Typography>
-                <Typography color="#ddd" variant="subtitle2">lakh ₹</Typography>
-              </Paper2>
+
+              {projectDetails.metrics && projectDetails.metrics.map((metricKey) => {
+                const metricMap = {
+                  farmersServed: {
+                    label: "Farmers Served",
+                    value: data.impactData.frmr_count.total,
+                    color: "#005792"
+                  },
+                  plotsCovered: {
+                    label: "Plots Covered",
+                    value: data.impactData.plot_count.total,
+                    color: "#dc2f2f"
+                  }
+                };
+                const metric = metricMap[metricKey];
+                if (!metric) return null;
+
+                return (
+                  <Paper2 key={metricKey} elevation={3} sx={{ background: metric.color }}>
+                    <Typography color="#ddd" variant="subtitle2">{metric.label}</Typography>
+                    <Typography color="#fff" variant='h4' component="p">
+                      <CountUp end={metric.value} duration={5} />
+                    </Typography>
+                    <Typography color="#ddd" variant="subtitle2">&nbsp;</Typography>
+                  </Paper2>
+                );
+              })}
+              
+              {projectDetails.impactNumbers && projectDetails.impactNumbers.map((impactKey, index) => {
+                const impactDef = impactDefinitions[impactKey];
+                if (!impactDef) return null;
+
+                const acreage = data.impactData.acreage.total;
+                const value = eval(impactDef.formula.replace(/acreage/g, acreage));
+                const colors = ["#005792", "#4e9bbf", "#dc2f2f", "#8e44ad", "#27ae60", "#2980b9"];
+                const color = colors[index % colors.length];
+
+                return (
+                  <Paper2 key={impactKey} elevation={3} sx={{ background: color }}>
+                    <Typography color="#ddd" variant="subtitle2">{impactDef.label} (projected)</Typography>
+                    <Typography color="#fff" variant='h4' component="p"><CountUp end={value} duration={5} /></Typography>
+                    <Typography color="#ddd" variant="subtitle2">{impactDef.unit}</Typography>
+                  </Paper2>
+                );
+              })}
             </Box>
             <Typography variant="caption" display="block" gutterBottom align='center' color={'grey'}>
               *Projected numbers are based on past project data.

@@ -1,0 +1,32 @@
+{
+  "waterSaved": {
+    "label": "Water Saved",
+    "unit": "TCM (Thousand m³)",
+    "formula": "acreage * 3.004"
+  },
+  "emissionReduced": {
+    "label": "Emission Reduced",
+    "unit": "metric ton (tCO₂e)",
+    "formula": "acreage * 0.9656"
+  },
+  "fertilizerSaved": {
+    "label": "Fertilizer Saved",
+    "unit": "metric ton",
+    "formula": "acreage * 0.09"
+  },
+  "ureaSubsidySaved": {
+    "label": "Urea Subsidy Saved",
+    "unit": "lakh ₹",
+    "formula": "acreage * 0.046"
+  },
+  "paddyYieldIncrease": {
+    "label": "Paddy Yield Increase",
+    "unit": "metric ton",
+    "formula": "acreage * 0.76"
+  },
+  "farmerIncomeIncrease": {
+    "label": "Farmer Income Increase",
+    "unit": "lakh ₹",
+    "formula": "acreage * 0.38354"
+  }
+}
