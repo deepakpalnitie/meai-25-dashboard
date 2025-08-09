@@ -182,6 +182,10 @@ Here is a snippet illustrating the structure:
 }
 ```
 
+### 6.4. Calculation Logic Documentation
+
+The detailed data and formulas used to derive the multipliers for each project are stored in the `info/impact-calculations/` directory. Each project has its own Markdown file (e.g., `aai-calculations.md`) that serves as the source of truth for its specific metrics.
+
 In this example:
 *   The `meai` project uses a custom multiplier for `farmerIncomeIncrease`.
 *   The `aai` project enables the `farmersServed` metric, which is disabled by default.

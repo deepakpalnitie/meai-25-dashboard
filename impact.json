@@ -1,5 +1,12 @@
 {
   "defaults": {
+    "fertilizerSaved": {
+      "label": "Fertilizer Saved",
+      "unit": "metric ton",
+      "multiplier": 0.09,
+      "enabled": true,
+      "type": "calculated"
+    },
     "waterSaved": {
       "label": "Water Saved",
       "unit": "TCM (Thousand m³)",
@@ -11,13 +18,6 @@
       "label": "Emission Reduced",
       "unit": "metric ton (tCO₂e)",
       "multiplier": 0.9656,
-      "enabled": true,
-      "type": "calculated"
-    },
-    "fertilizerSaved": {
-      "label": "Fertilizer Saved",
-      "unit": "metric ton",
-      "multiplier": 0.09,
       "enabled": true,
       "type": "calculated"
     },
@@ -57,7 +57,25 @@
   },
   "projects": {
     "meai": {},
-    "aai": { 
+    "aai": {
+      "waterSaved": {
+        "multiplier": 3.254
+      },
+      "emissionReduced": {
+        "multiplier": 0.055
+      },
+      "paddyYieldIncrease": {
+        "multiplier": 0.72
+      },
+      "farmerIncomeIncrease": {
+        "multiplier": 0.11524
+      },
+      "fertilizerSaved": {
+        "enabled": true
+      },
+      "ureaSubsidySaved": {
+        "enabled": true
+      },
       "farmersServed": {
         "enabled": true
       },
