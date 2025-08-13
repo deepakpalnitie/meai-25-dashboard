@@ -77,26 +77,32 @@
         "enabled": true
       },
       "farmersServed": {
-        "enabled": true
+        "enabled": false
       },
       "plotsCovered": {
-        "enabled": true
+        "enabled": false
       }
     },
     "irctc": {
+      "paddyYieldIncrease": {
+        "multiplier": 0.72
+      },
+      "farmerIncomeIncrease": {
+        "multiplier": 0.11524
+      },
       "farmersServed": {
-        "enabled": true
+        "enabled": false
       },
       "plotsCovered": {
-        "enabled": true
+        "enabled": false
       }
     },
     "evalueserve": {
       "farmersServed": {
-        "enabled": true
+        "enabled": false
       },
       "plotsCovered": {
-        "enabled": true
+        "enabled": false
       }
     }
   }
