@@ -64,6 +64,28 @@ To show `fertilizerSaved` as 66% and `waterSaved` as 38.3% for the `aai` project
 
 When the `"percentage"` key is present, the dashboard will display the percentage value with a '%' sign and hide the unit. If the key is not present, it will fall back to showing the calculated value and its unit.
 
+### 2.4. Overriding Calculated Values
+
+For metrics where you want to display a fixed, pre-determined value instead of a dynamically calculated one, you can use the `value` key. This is useful for constants or pre-calculated metrics.
+
+When the `value` key is present in a metric's configuration for a project, the system will display that value directly and will ignore the `multiplier`. You should also provide a `unit` to ensure the label is accurate.
+
+**Example:**
+
+To set "Farmer Income Increase" to a fixed value of "10000 Rs per acre", you would modify the configuration in `impact.json` as follows:
+
+```json
+"aai": {
+  "farmerIncomeIncrease": {
+    "label": "Farmer Income Increase (projected)",
+    "value": 10000,
+    "unit": "Rs per acre"
+  }
+}
+```
+
+This gives you the flexibility to mix dynamically calculated metrics and fixed-value metrics within the same project.
+
 ---
 
 ## 3. Example Configuration

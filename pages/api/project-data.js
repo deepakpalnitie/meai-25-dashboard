@@ -91,10 +91,19 @@ export default async function handler(req, res) {
         };
 
         if (metric.type === 'calculated') {
-          metricData.value = totalAcreage * metric.multiplier;
+          // Check for a direct value override
+          if (metric.hasOwnProperty('value')) {
+            metricData.value = metric.value;
+          } else {
+            // Otherwise, calculate it
+            metricData.value = totalAcreage * metric.multiplier;
+          }
+
+          // Handle percentage display
           if (metric.percentage) {
             metricData.percentage = metric.percentage;
           }
+          
           calculatedMetrics[metricKey] = metricData;
         } else if (metric.type === 'direct') {
           // Helper to get a value from a nested path

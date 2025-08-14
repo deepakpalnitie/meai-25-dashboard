@@ -70,7 +70,8 @@
         "percentage": 26.2
       },
       "farmerIncomeIncrease": {
-        "multiplier": 0.11524
+        "value": 10908,
+        "unit": "per acre (in ₹)"
       },
       "fertilizerSaved": {
         "enabled": true,

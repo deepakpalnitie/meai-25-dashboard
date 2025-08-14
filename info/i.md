@@ -1,13 +1,1 @@
-Unhandled Runtime Error
-TypeError: Cannot read properties of undefined (reading 'acreage')
-
-Source
-pages\project.js (106:98) @ acreage
-
-  104 | <Paper2 elevation={3} sx={{ background: "rgb(23, 109, 10)" }}>
-  105 |   <Typography color="#ddd" variant="subtitle2">Total UDP acreage</Typography>
-> 106 |   <Typography color="#fff" variant='h4' component="p"><CountUp end={data.impactData.acreage.total} duration={5} /></Typography>
-      |                                                                                    ^
-  107 |   <Typography color="#ddd" variant="subtitle2">Acres</Typography>
-  108 | </Paper2>
-  109 | <Paper2 elevation={3} sx={{ background: "#f8b400" }}>
+What I am asking in the metric, would be a constant number that I know in advance. Wouldn't it be nice if I give that number and units, it gets shown directly instad of getting multiplied? It seems straight forward and easier to manage from my end as well. For example I can say Farmer Income Increase (projected) if 10000, units: Rs per acre, similarly Urea Subsidy Saved (projected) is 600kg CO2eq per farmer per acre etc.  
