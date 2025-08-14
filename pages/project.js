@@ -88,7 +88,7 @@ export default function ProjectPage() {
         </Typography>
 
         {/* Only render the dashboard content if data is available */}
-        {data ? (
+        {data && data.impactData ? (
           <>
             <Box
               sx={{
@@ -132,8 +132,14 @@ export default function ProjectPage() {
                 return (
                   <Paper2 key={key} elevation={3} sx={{ background: color }}>
                     <Typography color="#ddd" variant="subtitle2">{metric.label} (projected)</Typography>
-                    <Typography color="#fff" variant='h4' component="p"><CountUp end={metric.value} duration={5} /></Typography>
-                    <Typography color="#ddd" variant="subtitle2">{metric.unit}</Typography>
+                    <Typography color="#fff" variant='h4' component="p">
+                      {metric.percentage ? (
+                        <><CountUp end={metric.percentage} duration={5} decimals={1} />%</>
+                      ) : (
+                        <CountUp end={metric.value} duration={5} />
+                      )}
+                    </Typography>
+                    <Typography color="#ddd" variant="subtitle2">{metric.percentage ? '' : metric.unit}</Typography>
                   </Paper2>
                 );
               })}

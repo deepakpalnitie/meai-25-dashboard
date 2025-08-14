@@ -41,6 +41,29 @@ To display projected impact numbers, add an `impactNumbers` array to the project
 *   `paddyYieldIncrease`
 *   `farmerIncomeIncrease`
 
+### 2.3. Displaying Percentages
+
+For any calculated impact number, you can choose to display a percentage value instead of the calculated value. To do this, add a `"percentage"` key to the metric's configuration within a specific project in your `impact.json` file.
+
+**Example:**
+
+To show `fertilizerSaved` as 66% and `waterSaved` as 38.3% for the `aai` project, you would modify the `aai` project configuration in `impact.json` like this:
+
+```json
+"aai": {
+  "fertilizerSaved": {
+    "enabled": true,
+    "percentage": 66
+  },
+  "waterSaved": {
+    "multiplier": 3.254,
+    "percentage": 38.3
+  }
+}
+```
+
+When the `"percentage"` key is present, the dashboard will display the percentage value with a '%' sign and hide the unit. If the key is not present, it will fall back to showing the calculated value and its unit.
+
 ---
 
 ## 3. Example Configuration

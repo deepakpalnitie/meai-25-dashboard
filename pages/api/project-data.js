@@ -92,6 +92,9 @@ export default async function handler(req, res) {
 
         if (metric.type === 'calculated') {
           metricData.value = totalAcreage * metric.multiplier;
+          if (metric.percentage) {
+            metricData.percentage = metric.percentage;
+          }
           calculatedMetrics[metricKey] = metricData;
         } else if (metric.type === 'direct') {
           // Helper to get a value from a nested path

@@ -59,19 +59,22 @@
     "meai": {},
     "aai": {
       "waterSaved": {
-        "multiplier": 3.254
+        "multiplier": 3.254,
+        "percentage": 38.3
       },
       "emissionReduced": {
         "multiplier": 0.055
       },
       "paddyYieldIncrease": {
-        "multiplier": 0.72
+        "multiplier": 0.72,
+        "percentage": 26.2
       },
       "farmerIncomeIncrease": {
         "multiplier": 0.11524
       },
       "fertilizerSaved": {
-        "enabled": true
+        "enabled": true,
+        "percentage": 66
       },
       "ureaSubsidySaved": {
         "enabled": true
